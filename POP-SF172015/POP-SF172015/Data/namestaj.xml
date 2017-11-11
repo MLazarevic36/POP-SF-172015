@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfNamestaj xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Namestaj>
     <ID>1</ID>
@@ -11,8 +11,8 @@
   <Namestaj>
     <ID>2</ID>
     <Naziv>Krevet na sprat</Naziv>
-    <Cena>7000</Cena>
-    <KolicinaMagacin>5</KolicinaMagacin>
+    <Cena>8000</Cena>
+    <KolicinaMagacin>8</KolicinaMagacin>
     <TipNamestajaId>1</TipNamestajaId>
     <Obrisan>false</Obrisan>
   </Namestaj>

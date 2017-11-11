@@ -43,6 +43,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Menadzeri\AkcijeMenadzer.cs" />
+    <Compile Include="Menadzeri\KorisnikMenadzer.cs" />
+    <Compile Include="Menadzeri\NamestajMenadzer.cs" />
+    <Compile Include="Menadzeri\ProdajaMenadzer.cs" />
+    <Compile Include="Menadzeri\TipNamestajaMenadzer.cs" />
     <Compile Include="Model\Akcija.cs" />
     <Compile Include="Model\Korisnik.cs" />
     <Compile Include="Model\Namestaj.cs" />
@@ -52,6 +56,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Projekat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\AdditionalUtils.cs" />
     <Compile Include="Utils\GenericSerializer.cs" />
   </ItemGroup>
   <ItemGroup>
