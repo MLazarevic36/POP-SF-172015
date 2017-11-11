@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Menadzeri\AkcijeMenadzer.cs" />
     <Compile Include="Model\Akcija.cs" />
     <Compile Include="Model\Korisnik.cs" />
     <Compile Include="Model\Namestaj.cs" />
@@ -56,12 +57,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Menadzeri\" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="Data\akcije.xml" />
     <Content Include="Data\korisnici.xml" />
     <Content Include="Data\namestaj.xml" />
+    <Content Include="Data\prodaje.xml" />
+    <Content Include="Data\tipovi_namestaja.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
