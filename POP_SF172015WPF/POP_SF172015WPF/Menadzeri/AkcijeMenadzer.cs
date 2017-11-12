@@ -43,6 +43,18 @@ namespace POP_SF172015WPF.Menadzeri
             } while (izbor != 0);
         }
 
+        public static Akcija GetById(int id)
+        {
+            foreach (var akcija in Projekat.ListaAkcija)
+            {
+                if (akcija.ID == id)
+                {
+                    return akcija;
+                }
+            }
+            return null;
+        }
+
         private static void IzbrisiAkcije()
         {
             IzlistajAkcije();
@@ -51,6 +63,19 @@ namespace POP_SF172015WPF.Menadzeri
             for (int i = 0; i < Projekat.ListaAkcija.Count; i++)
             {
                 if (izbor == Projekat.ListaAkcija[i].ID)
+                {
+                    Projekat.ListaAkcija[i].Obrisan = true;
+                }
+            }
+        }
+
+        public static void IzbrisiStareAkcije()
+        {
+            DateTime trenutniDatum = DateTime.Now;
+
+            for (int i = 0; i < Projekat.ListaAkcija.Count; i++)
+            {
+                if (Projekat.ListaAkcija[i].DatumZavrsetka < trenutniDatum)
                 {
                     Projekat.ListaAkcija[i].Obrisan = true;
                 }
