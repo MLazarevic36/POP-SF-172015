@@ -13,11 +13,11 @@ namespace POP_SF172015WPF.Menadzeri
         {
             Console.WriteLine("ID Namestaja >> ");
             int izbor = Convert.ToInt32(Console.ReadLine());
-            for (int i = 0; i < Program.ListaNamestaja.Count; i++)
+            for (int i = 0; i < Projekat.ListaNamestaja.Count; i++)
             {
-                if (izbor == Program.ListaNamestaja[i].ID)
+                if (izbor == Projekat.ListaNamestaja[i].ID)
                 {
-                    Program.ListaNamestaja[i].Obrisan = true;
+                    Projekat.ListaNamestaja[i].Obrisan = true;
                 }
             }
         }
@@ -30,14 +30,14 @@ namespace POP_SF172015WPF.Menadzeri
             try
             {
                 int izbor = Convert.ToInt32(Console.ReadLine());
-                for (int i = 0; i < Program.ListaNamestaja.Count; i++)
+                for (int i = 0; i < Projekat.ListaNamestaja.Count; i++)
                 {
-                    if (izbor == Program.ListaNamestaja[i].ID)
+                    if (izbor == Projekat.ListaNamestaja[i].ID)
                     {
                         Console.WriteLine("Nova cena >> ");
-                        Program.ListaNamestaja[i].Cena = Convert.ToInt32(Console.ReadLine());
+                        Projekat.ListaNamestaja[i].Cena = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine("Nova kolicina >> ");
-                        Program.ListaNamestaja[i].KolicinaMagacin = Convert.ToInt32(Console.ReadLine());
+                        Projekat.ListaNamestaja[i].KolicinaMagacin = Convert.ToInt32(Console.ReadLine());
                     }
                 }
             }
@@ -72,17 +72,17 @@ namespace POP_SF172015WPF.Menadzeri
                 TipNamestajaId = TipNamestajaId
             };
 
-            Program.ListaNamestaja.Add(NoviN);
+            Projekat.ListaNamestaja.Add(NoviN);
         }
 
         public static void IzlistajNamestaj()
         {
             Console.WriteLine();
-            for (int i = 0; i < Program.ListaNamestaja.Count; i++)
+            for (int i = 0; i < Projekat.ListaNamestaja.Count; i++)
             {
-                if (Program.ListaNamestaja[i].Obrisan == false)
+                if (Projekat.ListaNamestaja[i].Obrisan == false)
                 {
-                    Console.WriteLine(Program.ListaNamestaja[i].ToString());
+                    Console.WriteLine(Projekat.ListaNamestaja[i].ToString());
                 }
             }
         }
@@ -95,7 +95,7 @@ namespace POP_SF172015WPF.Menadzeri
                 do
                 {
                     Console.WriteLine("\n### Rad sa namestajem ###");
-                    Program.IspisiCRUDMeni();
+                    Projekat.IspisiCRUDMeni();
                     izbor = int.Parse(Console.ReadLine());
 
                 } while (izbor < 0 || izbor > 4);
@@ -119,6 +119,18 @@ namespace POP_SF172015WPF.Menadzeri
                 }
 
             } while (izbor != 0);
+        }
+
+        public static Namestaj GetById(int id)
+        {
+            foreach (var namestaj in Projekat.ListaNamestaja)
+            {
+                if (namestaj.ID == id)
+                {
+                    return namestaj;
+                }
+            }
+            return null;
         }
     }
 }
