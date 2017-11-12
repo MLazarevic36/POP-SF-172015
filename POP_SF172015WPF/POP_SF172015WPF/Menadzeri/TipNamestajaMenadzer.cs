@@ -10,11 +10,11 @@ namespace POP_SF172015WPF.Menadzeri
     {
         public static void IzlistajTipoveNamestaja()
         {
-            for (int i = 0; i < Program.ListaTipovaNamestaja.Count; i++)
+            for (int i = 0; i < Projekat.ListaTipovaNamestaja.Count; i++)
             {
-                if (Program.ListaTipovaNamestaja[i].Obrisan == false)
+                if (Projekat.ListaTipovaNamestaja[i].Obrisan == false)
                 {
-                    Console.WriteLine(Program.ListaTipovaNamestaja[i].ToString());
+                    Console.WriteLine(Projekat.ListaTipovaNamestaja[i].ToString());
                 }
             }
         }
@@ -23,11 +23,11 @@ namespace POP_SF172015WPF.Menadzeri
         {
             Console.WriteLine("\nID Tipa namestaja >> ");
             int izbor = Convert.ToInt32(Console.ReadLine());
-            for (int i = 0; i < Program.ListaTipovaNamestaja.Count; i++)
+            for (int i = 0; i < Projekat.ListaTipovaNamestaja.Count; i++)
             {
-                if (izbor == Program.ListaTipovaNamestaja[i].ID)
+                if (izbor == Projekat.ListaTipovaNamestaja[i].ID)
                 {
-                    Program.ListaTipovaNamestaja[i].Obrisan = true;
+                    Projekat.ListaTipovaNamestaja[i].Obrisan = true;
                 }
             }
         }
