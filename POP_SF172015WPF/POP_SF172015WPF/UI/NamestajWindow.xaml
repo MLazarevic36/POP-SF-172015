@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF172015WPF.UI"
         mc:Ignorable="d"
-        Title="NamestajWindow" Height="300" Width="300">
+        Title="NamestajWindow" Height="201" Width="483">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="151*"/>
+            <ColumnDefinition Width="168*"/>
+            <ColumnDefinition Width="156*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="42*"/>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Content="Naziv:" FontSize="15" HorizontalAlignment="Left" Margin="0,0,0,10" Grid.RowSpan="2" Width="50"/>
+        <TextBox Grid.Row="0" Grid.Column="1" FontSize="15" HorizontalAlignment="Left" Name="tbNaziv" Width="342" Grid.ColumnSpan="2" Margin="0,0,-18,0"/>
+        <Button Content="Sacuvaj" HorizontalAlignment="Right" Click="SacuvajIzmene" Width="44"/>
+        <Button Content="Izlaz" HorizontalAlignment="Right" Width="27"/>
     </Grid>
 </Window>
