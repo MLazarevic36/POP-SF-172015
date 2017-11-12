@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using POP_SF172015WPF.Model;
 
 namespace POP_SF172015WPF.Menadzeri
 {
     class ProdajaMenadzer
     {
+        public static int PDV = 10;
+
         public static void ProdajaMeni()
         {
             int izbor = 1;
@@ -17,7 +20,7 @@ namespace POP_SF172015WPF.Menadzeri
                 do
                 {
                     Console.WriteLine("\n### Rad sa prodajama ###");
-                    Program.IspisiCRUDMeni();
+                    Projekat.IspisiCRUDMeni();
                     Console.WriteLine("5) Podesi PDV");
                     izbor = int.Parse(Console.ReadLine());
 
@@ -38,13 +41,36 @@ namespace POP_SF172015WPF.Menadzeri
                         IzbrisiProdaju();
                         break;
                     case 5:
-                        AdditionalUtils.PodesiPDV();
+                        PodesiPDV();
                         break;
                     default:
                         break;
                 }
 
             } while (izbor != 0);
+        }
+
+        public static Prodaja GetById(int id)
+        {
+            foreach (var prodaja in Projekat.ListaProdaja)
+            {
+                if (prodaja.ID == id)
+                {
+                    return prodaja;
+                }
+            }
+            return null;
+        }
+
+        private static void IzlistajProdaje()
+        {
+            for (int i = 0; i < Projekat.ListaProdaja.Count; i++)
+            {
+                if (Projekat.ListaProdaja[i].Obrisan == false)
+                {
+                    Console.WriteLine(Projekat.ListaProdaja[i].ToString());
+                }
+            }
         }
 
         private static void DodajProdaju()
@@ -61,24 +87,25 @@ namespace POP_SF172015WPF.Menadzeri
         {
             Console.WriteLine("\nID Prodaje >> ");
             int izbor = Convert.ToInt32(Console.ReadLine());
-            for (int i = 0; i < Program.ListaProdaja.Count; i++)
+            for (int i = 0; i < Projekat.ListaProdaja.Count; i++)
             {
-                if (izbor == Program.ListaProdaja[i].ID)
+                if (izbor == Projekat.ListaProdaja[i].ID)
                 {
-                    Program.ListaProdaja[i].Obrisan = true;
+                    Projekat.ListaProdaja[i].Obrisan = true;
                 }
             }
         }
 
-        private static void IzlistajProdaje()
+        public static void PodesiPDV()
         {
-            for (int i = 0; i < Program.ListaProdaja.Count; i++)
+            Console.WriteLine("Trenutni PDV iznosi: " + Convert.ToString(PDV) + "%");
+            Console.WriteLine("<Enter> za izlaz");
+            Console.WriteLine("Novi PDV >> ");
+            try
             {
-                if (Program.ListaProdaja[i].Obrisan == false)
-                {
-                    Console.WriteLine(Program.ListaProdaja[i].ToString());
-                }
+                PDV = Convert.ToInt32(Console.ReadLine());
             }
+            catch (Exception) { }
         }
     }
 }
