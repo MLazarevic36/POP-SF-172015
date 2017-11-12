@@ -54,6 +54,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Akcija.cs" />
+    <Compile Include="Model\Korisnik.cs" />
+    <Compile Include="Model\Namestaj.cs" />
+    <Compile Include="Model\Prodaja.cs" />
+    <Compile Include="Model\Salon.cs" />
+    <Compile Include="Model\TipNamestaja.cs" />
+    <Compile Include="Utils\GenericSerializer.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -68,6 +75,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Menadzeri\AkcijeMenadzer.cs" />
+    <Compile Include="Menadzeri\KorisnikMenadzer.cs" />
+    <Compile Include="Menadzeri\NamestajMenadzer.cs" />
+    <Compile Include="Menadzeri\ProdajaMenadzer.cs" />
+    <Compile Include="Menadzeri\TipNamestajaMenadzer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -92,6 +104,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UI\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\akcije.xml" />
+    <Resource Include="Data\korisnici.xml" />
+    <Resource Include="Data\namestaj.xml" />
+    <Resource Include="Data\prodaje.xml" />
+    <Resource Include="Data\tipovi_namestaja.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
