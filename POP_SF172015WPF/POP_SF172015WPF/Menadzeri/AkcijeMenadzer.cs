@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using POP_SF172015.Model;
+using POP_SF172015WPF.Model;
 
-namespace POP_SF172015.Menadzeri
+namespace POP_SF172015WPF.Menadzeri
 {
     class AkcijeMenadzer
     {
@@ -17,7 +17,7 @@ namespace POP_SF172015.Menadzeri
                 do
                 {
                     Console.WriteLine("\n### Rad sa akcijama ###");
-                    Program.IspisiCRUDMeni();
+                    Projekat.IspisiCRUDMeni();
                     izbor = int.Parse(Console.ReadLine());
 
                 } while (izbor < 0 || izbor > 4);
@@ -48,11 +48,11 @@ namespace POP_SF172015.Menadzeri
             IzlistajAkcije();
             Console.WriteLine("\nID akcije >> ");
             int izbor = Convert.ToInt32(Console.ReadLine());
-            for (int i = 0; i < Program.ListaAkcija.Count; i++)
+            for (int i = 0; i < Projekat.ListaAkcija.Count; i++)
             {
-                if (izbor == Program.ListaAkcija[i].ID)
+                if (izbor == Projekat.ListaAkcija[i].ID)
                 {
-                    Program.ListaAkcija[i].Obrisan = true;
+                    Projekat.ListaAkcija[i].Obrisan = true;
                 }
             }
         }
@@ -65,9 +65,9 @@ namespace POP_SF172015.Menadzeri
                 Console.WriteLine("\nProduzi trajanje akcije.");
                 Console.WriteLine("ID akcije");
                 int izbor = Convert.ToInt32(Console.ReadLine());
-                for (int i = 0; i < Program.ListaAkcija.Count; i++)
+                for (int i = 0; i < Projekat.ListaAkcija.Count; i++)
                 {
-                    if (izbor == Program.ListaAkcija[i].ID && Program.ListaAkcija[i].Obrisan == false)
+                    if (izbor == Projekat.ListaAkcija[i].ID && Projekat.ListaAkcija[i].Obrisan == false)
                     {
                         Console.WriteLine("Godina Zavrsetka >> ");
                         int GodinaZavrsetka = Convert.ToInt32(Console.ReadLine());
@@ -76,7 +76,7 @@ namespace POP_SF172015.Menadzeri
                         Console.WriteLine("Dan Zavrsetka >> ");
                         int DanZavrsetka = Convert.ToInt32(Console.ReadLine());
 
-                        Program.ListaAkcija[i].DatumZavrsetka = new DateTime(GodinaZavrsetka, MesecZavrsetka, DanZavrsetka);
+                        Projekat.ListaAkcija[i].DatumZavrsetka = new DateTime(GodinaZavrsetka, MesecZavrsetka, DanZavrsetka);
                     }
                 }
             }
@@ -120,7 +120,7 @@ namespace POP_SF172015.Menadzeri
                     DatumZavrsetka = new DateTime(GodinaZavrsetka, MesecZavrsetka, DanZavrsetka)
                 };
 
-                Program.ListaAkcija.Add(novaA);
+                Projekat.ListaAkcija.Add(novaA);
             }
             catch (Exception)
             {
@@ -131,11 +131,11 @@ namespace POP_SF172015.Menadzeri
         private static void IzlistajAkcije()
         {
             Console.WriteLine();
-            for (int i = 0; i < Program.ListaAkcija.Count; i++)
+            for (int i = 0; i < Projekat.ListaAkcija.Count; i++)
             {
-                if (Program.ListaAkcija[i].Obrisan == false)
+                if (Projekat.ListaAkcija[i].Obrisan == false)
                 {
-                    Console.WriteLine(Program.ListaAkcija[i].ToString());
+                    Console.WriteLine(Projekat.ListaAkcija[i].ToString());
                 }
             }
         }

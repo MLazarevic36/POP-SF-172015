@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace POP_SF172015.Utils
+namespace POP_SF172015WPF.Utils
 {
     public class GenericSerializer
     {

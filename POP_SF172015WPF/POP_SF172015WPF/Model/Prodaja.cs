@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using POP_SF172015.Model;
+using POP_SF172015WPF;
 
-namespace POP_SF172015.Model
+namespace POP_SF172015WPF.Model
 {
     public class Prodaja
     {
@@ -17,17 +17,7 @@ namespace POP_SF172015.Model
         public int UkupnaCena { get; set; }
         public Boolean Obrisan { get; set; }
 
-        public static Prodaja GetById(int id)
-        {
-            foreach (var prodaja in Program.ListaProdaja)
-            {
-                if (prodaja.ID == id)
-                {
-                    return prodaja;
-                }
-            }
-            return null;
-        }
+       
 
         public override string ToString()
         {

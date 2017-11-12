@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace POP_SF172015.Model
+namespace POP_SF172015WPF.Model
 {
     public class Korisnik
     {
@@ -17,29 +17,9 @@ namespace POP_SF172015.Model
         public String Password { get; set; }
         public Boolean Obrisan { get; set; }
 
-        public static Korisnik GetById(int id)
-        {
-            foreach (var korisnik in Program.ListaKorisnika)
-            {
-                if (korisnik.ID == id)
-                {
-                    return korisnik;
-                }
-            }
-            return null;
-        }
+       
 
-        public static Boolean KorisnikExist(String username)
-        {
-            foreach (var korisnik in Program.ListaKorisnika)
-            {
-                if (korisnik.Username == username)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
+        
 
         public override string ToString()
         {

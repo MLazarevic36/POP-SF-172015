@@ -7,6 +7,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="7*"/>
+
+        </Grid.RowDefinitions>
+        <ListBox Name="listBoxNamestaj" Grid.Row="0" FontSize="15"></ListBox>
+        <Button Grid.Row="1" Content="Dodaj" Height="40" FontSize="20" Margin="43,34,564,35" Click="DodajNamestaj"/>
+        <Button Grid.Row="1" Content="Izmeni" Height="40" FontSize="20" Margin="161,34,445,35" Click="IzmeniNamestaj"/>
+        <Button Grid.Row="1" Content="Obrisi" Height="40" FontSize="20" Margin="282,34,324,35"/>
+        <Button Grid.Row="1" Content="Izlaz" Height="40" FontSize="20" Margin="0,34,70,35" HorizontalAlignment="Right" Width="69" Click="Izlaz"/>
     </Grid>
 </Window>

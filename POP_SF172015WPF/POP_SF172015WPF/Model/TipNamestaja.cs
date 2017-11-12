@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace POP_SF172015.Model
+namespace POP_SF172015WPF.Model
 {
     public class TipNamestaja
     {
@@ -12,19 +12,6 @@ namespace POP_SF172015.Model
         public String Naziv { get; set; }
         public Boolean Obrisan { get; set; }
 
-        public static TipNamestaja GetById(int id)
-        {
-            foreach (var tipNamestaja in Program.ListaTipovaNamestaja)
-            {
-                if (tipNamestaja.ID == id)
-                {
-                    return tipNamestaja;
-                }
-            }
-            return null;
-        }
-        //krace
-        //return Program.ListaTipovaNamestaja.SingleorDefault(x => x.ID == id);
 
         public override string ToString()
         {

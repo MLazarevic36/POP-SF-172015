@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace POP_SF172015.Model
+namespace POP_SF172015WPF.Model
 {
     class Salon
     {

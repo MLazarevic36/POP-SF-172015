@@ -60,6 +60,25 @@
     <Compile Include="Model\Prodaja.cs" />
     <Compile Include="Model\Salon.cs" />
     <Compile Include="Model\TipNamestaja.cs" />
+    <Compile Include="Projekat.cs" />
+    <Compile Include="UI\AkcijeWindow.xaml.cs">
+      <DependentUpon>AkcijeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\KorisnikWindow.xaml.cs">
+      <DependentUpon>KorisnikWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NamestajWindow.xaml.cs">
+      <DependentUpon>NamestajWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProdajaWindow.xaml.cs">
+      <DependentUpon>ProdajaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SalonEditWindow.xaml.cs">
+      <DependentUpon>SalonEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TipNamestajaWindow.xaml.cs">
+      <DependentUpon>TipNamestajaWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils\GenericSerializer.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -73,6 +92,30 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UI\AkcijeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\KorisnikWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\NamestajWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ProdajaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\SalonEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\TipNamestajaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Menadzeri\AkcijeMenadzer.cs" />
@@ -105,9 +148,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UI\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Data\akcije.xml" />
     <Resource Include="Data\korisnici.xml" />

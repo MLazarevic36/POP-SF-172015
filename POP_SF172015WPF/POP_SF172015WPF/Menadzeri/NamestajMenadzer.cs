@@ -1,11 +1,11 @@
-﻿using POP_SF172015.Model;
+﻿using POP_SF172015WPF.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace POP_SF172015.Menadzeri
+namespace POP_SF172015WPF.Menadzeri
 {
     class NamestajMenadzer
     {

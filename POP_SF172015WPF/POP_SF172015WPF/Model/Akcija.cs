@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace POP_SF172015.Model
+namespace POP_SF172015WPF.Model
 {
     public class Akcija
     {
@@ -15,17 +15,7 @@ namespace POP_SF172015.Model
         public int NamestajID { get; set; }
         public int Popust { get; set; }
 
-        public static Akcija GetById(int id)
-        {
-            foreach (var akcija in Program.ListaAkcija)
-            {
-                if (akcija.ID == id)
-                {
-                    return akcija;
-                }
-            }
-            return null;
-        }
+      
 
         public override string ToString()
         {
