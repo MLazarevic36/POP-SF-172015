@@ -38,9 +38,11 @@ namespace POP_SF172015WPF
             {
                 if(namestaj.Obrisan == false)
                 {
-                    lbNamestaj.Items.
+                    lbNamestaj.Items.Add(namestaj);
                 }
             }
+
+            lbNamestaj.SelectedIndex = 0;
         }
 
         private void DodajNamestaj(object sender, RoutedEventArgs e)
