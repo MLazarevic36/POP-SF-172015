@@ -54,6 +54,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\Akcija.cs" />
     <Compile Include="Model\Korisnik.cs" />
     <Compile Include="Model\Namestaj.cs" />
@@ -80,6 +83,10 @@
       <DependentUpon>TipNamestajaWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\GenericSerializer.cs" />
+    <Page Include="LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

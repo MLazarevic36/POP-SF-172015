@@ -36,8 +36,10 @@ namespace POP_SF172015WPF.UI
 
             InicijalizujVrednosti(namestaj, operacija);
 
-
+            
         }
+
+
 
         private void InicijalizujVrednosti(Namestaj namestaj, Operacija operacija)
         {
@@ -45,7 +47,23 @@ namespace POP_SF172015WPF.UI
             this.operacija = operacija;
 
             tbNaziv.Text = namestaj.Naziv;
+
+            foreach (var tipNamestaja in Projekat.Instance.TipoviNamestaja
+            {
+                cbTipNamestaja.Items.Add(tipNamestaja);
+            }
+
+            foreach (TipNamestaja tipNamestaja in cbTipNamestaja.Items)
+            {
+                if(TipNamestaja.Id == namestaj.TipNamestajaId)
+                {
+                    cbTipNamestaja.SelectedItem = tipNamestaja;
+                }
+            }
         }
+
+
+
         private void SacuvajIzmene(object)
         {
             List<Namestaj> postojeciNamestaj = Projekat.Instance.Namestaj;
@@ -63,9 +81,10 @@ namespace POP_SF172015WPF.UI
                 case Operacija.IZMENA:
                     foreach (var n in postojeciNamestaj)
                     {
-                        if (n.Id == namestaj.Id)
+                        if (n.ID == namestaj.ID)
                         {
                             n.Naziv = tbNaziv.Text;
+                            
                             break;
                         }
                     }

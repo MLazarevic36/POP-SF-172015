@@ -15,7 +15,7 @@ namespace POP_SF172015WPF.Model
 
         public override string ToString()
         {
-            return "ID " + ID + " Naziv: " + Naziv;
+            return Naziv;
         }
     }
 }

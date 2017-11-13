@@ -30,6 +30,19 @@ namespace POP_SF172015WPF
 
         }
 
+        private void OsveziPrikaz()
+        {
+            lbNamestaj.Items.Clear();
+
+            foreach (var namestaj in Projekat.Instance.Namestaj)
+            {
+                if(namestaj.Obrisan == false)
+                {
+                    lbNamestaj.Items.
+                }
+            }
+        }
+
         private void DodajNamestaj(object sender, RoutedEventArgs e)
         {
             var noviNamestaj = new Namestaj();
@@ -42,11 +55,34 @@ namespace POP_SF172015WPF
 
         private void IzmeniNamestaj(object sender, RoutedEventArgs e)
         {
-            var selektovaniNamestaj = (Namestaj)listBoxNamestaj.SelectedItem;
+            var selektovaniNamestaj = (Namestaj)lbNamestaj.SelectedItem;
             var namestajProzor = new NamestajWindow(selektovaniNamestaj, NamestajWindow.Operacija.IZMENA);
             namestajProzor.Show();
         }
 
+        private void btnObrisiNamestaj_Click(object sender, RoutedEventArgs e) 
+        {
+            var izabraniNamestaj = lbNamestaj.SelectedItem;
+            var listaNamestaja = Projekat.Instance.Namestaj;
+            if (MessageBox.Show($"Da li ste sigurni da zelite da izbrisete: { izabraniNamestaj.Naziv }? ", "Brisanje", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                Namestaj namestaj = null;
+
+                foreach (var n in listaNamestaja)
+                {
+                    if(n.ID == izabraniNamestaj.Id)
+                    {
+                        namestaj = n;
+                    }
+                }
+
+                namestaj.Obrisan = true;
+
+                Projekat.Instance.Namestaj = listaNamestaja;
+
+                OsveziPrikaz();
+            }
+        }
 
         private void Izlaz(object sender, RoutedEventArgs e)
         {
