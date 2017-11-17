@@ -28,5 +28,10 @@ namespace POP_SF172015WPF
         {
 
         }
+
+        private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
