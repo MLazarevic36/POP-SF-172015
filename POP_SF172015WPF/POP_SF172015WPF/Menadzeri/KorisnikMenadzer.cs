@@ -114,9 +114,9 @@ namespace POP_SF172015WPF.Menadzeri
                     Ime = Ime,
                     Prezime = Prezime,
                     Password = Password,
-                    Username = Username,
+                    UserName = Username,
                     Obrisan = false,
-                    tipKorisnika = tipoviKorisnika
+                    TipKorisnika = tipoviKorisnika
                 };
                 Projekat.ListaKorisnika.Add(noviK);
             }
@@ -151,7 +151,7 @@ namespace POP_SF172015WPF.Menadzeri
                             msg = "\nUsername vec postoji!";
                             throw new Exception();
                         }
-                        Projekat.ListaKorisnika[i].Username = Username;
+                        Projekat.ListaKorisnika[i].UserName = Username;
                         Console.WriteLine("Nov password >> ");
                         Projekat.ListaKorisnika[i].Password = Console.ReadLine();
 
@@ -182,7 +182,7 @@ namespace POP_SF172015WPF.Menadzeri
         {
             foreach (var korisnik in Projekat.ListaKorisnika)
             {
-                if (korisnik.Username == username)
+                if (korisnik.UserName == username)
                 {
                     return true;
                 }
@@ -194,7 +194,7 @@ namespace POP_SF172015WPF.Menadzeri
         {
             foreach (var korisnik in Projekat.ListaKorisnika)
             {
-                if (korisnik.Username.ToLower() == username && korisnik.Password.ToLower() == password)
+                if (korisnik.UserName.ToLower() == username && korisnik.Password.ToLower() == password)
                 {
                     return korisnik;
                 }

@@ -121,16 +121,6 @@ namespace POP_SF172015WPF.Menadzeri
             } while (izbor != 0);
         }
 
-        public static Namestaj GetById(int id)
-        {
-            foreach (var namestaj in Projekat.ListaNamestaja)
-            {
-                if (namestaj.ID == id)
-                {
-                    return namestaj;
-                }
-            }
-            return null;
-        }
+        
     }
 }

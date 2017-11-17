@@ -9,11 +9,11 @@ namespace POP_SF172015WPF.Model
     public class Korisnik
     {
         public enum TipoviKorisnika { ADMINISTRATOR, PRODAVAC };
-        public TipoviKorisnika tipKorisnika { get; set; }
+        public TipoviKorisnika TipKorisnika { get; set; }
         public int ID { get; set; }
         public String Ime { get; set; }
         public String Prezime { get; set; }
-        public String Username { get; set; }
+        public String UserName { get; set; }
         public String Password { get; set; }
         public Boolean Obrisan { get; set; }
 
@@ -23,7 +23,7 @@ namespace POP_SF172015WPF.Model
 
         public override string ToString()
         {
-            return "Ime: " + Ime + " Prezime: " + Prezime + " Username: " + Username + " Tip: " + TipoviKorisnika.ADMINISTRATOR;
+            return "Ime: " + Ime + " Prezime: " + Prezime + " Username: " + UserName + " Tip: " + TipoviKorisnika.ADMINISTRATOR;
         }
     }
 }

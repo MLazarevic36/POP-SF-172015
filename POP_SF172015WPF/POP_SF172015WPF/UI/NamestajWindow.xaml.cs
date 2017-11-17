@@ -29,14 +29,14 @@ namespace POP_SF172015WPF.UI
             DODAVANJE,
             IZMENA
         };
-    
+
         public NamestajWindow(Namestaj namestaj, Operacija operacija)
         {
             InitializeComponent();
 
             InicijalizujVrednosti(namestaj, operacija);
 
-            
+
         }
 
 
@@ -48,14 +48,14 @@ namespace POP_SF172015WPF.UI
 
             tbNaziv.Text = namestaj.Naziv;
 
-            foreach (var tipNamestaja in Projekat.Instance.TipoviNamestaja
+            foreach (var tipNamestaja in Projekat.Instance.TipoviNamestaja)
             {
                 cbTipNamestaja.Items.Add(tipNamestaja);
             }
 
             foreach (TipNamestaja tipNamestaja in cbTipNamestaja.Items)
             {
-                if(TipNamestaja.Id == namestaj.TipNamestajaId)
+                //if(TipNamestaja.ID == namestaj.TipNamestajaId)
                 {
                     cbTipNamestaja.SelectedItem = tipNamestaja;
                 }
@@ -64,35 +64,35 @@ namespace POP_SF172015WPF.UI
 
 
 
-        private void SacuvajIzmene(object)
-        {
-            List<Namestaj> postojeciNamestaj = Projekat.Instance.Namestaj;
+        //private void SacuvajIzmene(object) 
+        //{
+        //    List<Namestaj> postojeciNamestaj = Projekat.Instance.Namestaj;
 
-            switch (operacija)
-            {
+        //    switch (operacija)
+        //    {
 
-                case Operacija.DODAVANJE:
-                    var noviNamestaj = new Namestaj()
-                    {
-                        Naziv = tbNaziv.Text
-                    };
-                    postojeciNamestaj.Add(noviNamestaj);
-                    break;
-                case Operacija.IZMENA:
-                    foreach (var n in postojeciNamestaj)
-                    {
-                        if (n.ID == namestaj.ID)
-                        {
-                            n.Naziv = tbNaziv.Text;
+        //        case Operacija.DODAVANJE:
+        //            var noviNamestaj = new Namestaj()
+        //            {
+        //                Naziv = tbNaziv.Text
+        //            };
+        //            postojeciNamestaj.Add(noviNamestaj);
+        //            break;
+        //        case Operacija.IZMENA:
+        //            foreach (var n in postojeciNamestaj)
+        //            {
+        //                if (n.ID == namestaj.ID)
+        //                {
+        //                    n.Naziv = tbNaziv.Text;
                             
-                            break;
-                        }
-                    }
-                    break;
-            }
-            Projekat.Instance.Namestaj = postojeciNamestaj;
-            this.Close();
-        }
+        //                    break;
+        //                }
+        //            }
+        //            break;
+        //    }
+        //    Projekat.Instance.Namestaj = postojeciNamestaj;
+        //    this.Close();
+        //}
     }
 }
 

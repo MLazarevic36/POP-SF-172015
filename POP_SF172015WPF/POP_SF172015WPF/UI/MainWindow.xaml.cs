@@ -49,7 +49,7 @@ namespace POP_SF172015WPF
         {
             var noviNamestaj = new Namestaj();
             {
-                Naziv = ""
+                //Naziv = "";
             };
             var namestajProzor = new NamestajWindow(noviNamestaj, NamestajWindow.Operacija.DODAVANJE);
             namestajProzor.Show();
@@ -66,13 +66,13 @@ namespace POP_SF172015WPF
         {
             var izabraniNamestaj = lbNamestaj.SelectedItem;
             var listaNamestaja = Projekat.Instance.Namestaj;
-            if (MessageBox.Show($"Da li ste sigurni da zelite da izbrisete: { izabraniNamestaj.Naziv }? ", "Brisanje", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            //if (MessageBox.Show($"Da li ste sigurni da zelite da izbrisete: { izabraniNamestaj.Naziv }? ", "Brisanje", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 Namestaj namestaj = null;
 
                 foreach (var n in listaNamestaja)
                 {
-                    if(n.ID == izabraniNamestaj.Id)
+                    //if(n.ID == izabraniNamestaj.ID)
                     {
                         namestaj = n;
                     }

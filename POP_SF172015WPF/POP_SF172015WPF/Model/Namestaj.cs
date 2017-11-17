@@ -20,5 +20,17 @@ namespace POP_SF172015WPF.Model
             return "Id: " + ID + " Naziv: " + Naziv + " Sifra: " + ID
                 + " Cena: " + Cena + " Kolicina: " + KolicinaMagacin;
         }
+
+        public static Namestaj GetById(int id)
+        {
+            foreach (var namestaj in Projekat.ListaNamestaja)
+            {
+                if (namestaj.ID == id)
+                {
+                    return namestaj;
+                }
+            }
+            return null;
+        }
     }
 }
