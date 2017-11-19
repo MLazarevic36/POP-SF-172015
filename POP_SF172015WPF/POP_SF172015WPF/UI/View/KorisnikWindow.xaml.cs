@@ -32,8 +32,12 @@ namespace POP_SF172015WPF.UI
             lbKorisnik.Items.Clear();
             foreach (Korisnik korisnik in Projekat.ListaKorisnika)
             {
-                lbKorisnik.Items.Add(korisnik);
+                if(korisnik.Obrisan == false)
+                {
+                    lbKorisnik.Items.Add(korisnik);
+                }
             }
+            lbKorisnik.SelectedIndex = 0;
         }
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
@@ -46,12 +50,30 @@ namespace POP_SF172015WPF.UI
 
         private void btnIzmeni_Click(object sender, RoutedEventArgs e)
         {
-
+            Korisnik selektovaniKorisnik = (Korisnik)lbKorisnik.SelectedItem;
+            KorisnikEditWindow few = new KorisnikEditWindow(selektovaniKorisnik, KorisnikEditWindow.Operacija.IZMENA);
+            if (few.ShowDialog() == true)
+            {
+                OsveziPrikaz();
+            }
         }
 
         private void btnObrisi_Click(object sender, RoutedEventArgs e)
         {
+            int selectedUserID = ((Korisnik)lbKorisnik.SelectedItem).ID;
+            foreach (var korisnik in Projekat.ListaKorisnika)
+            {
+                if (korisnik.ID == selectedUserID)
+                {
+                    korisnik.Obrisan = true;
+                }
+            }
+            OsveziPrikaz();
+        }
 
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Projekat.ProjekatExit();
         }
     }
 }

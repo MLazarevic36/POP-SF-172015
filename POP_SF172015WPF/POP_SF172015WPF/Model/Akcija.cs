@@ -22,5 +22,17 @@ namespace POP_SF172015WPF.Model
             return "ID: " + ID + " Pocetak akcije: " + DatumPocetka + " Datum zavrsetka: " + DatumZavrsetka
                 + " Namestaj: " + NamestajID + " Popust: " + Popust + "%";
         }
+
+        public static Akcija GetById(int id)
+        {
+            foreach (var akcija in Projekat.ListaAkcija)
+            {
+                if (akcija.ID == id)
+                {
+                    return akcija;
+                }
+            }
+            return null;
+        }
     }
 }

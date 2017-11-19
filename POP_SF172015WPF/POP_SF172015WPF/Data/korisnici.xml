@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfKorisnik xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Korisnik>
-    <tipKorisnika>ADMINISTRATOR</tipKorisnika>
+    <TipKorisnika>ADMIN</TipKorisnika>
     <ID>1</ID>
     <Ime>Gordon</Ime>
     <Prezime>Ramsay</Prezime>
+    <KorIme>itsraw</KorIme>
     <Password>goatchef</Password>
     <Obrisan>false</Obrisan>
+  </Korisnik>
+  <Korisnik>
+    <TipKorisnika>ADMIN</TipKorisnika>
+    <ID>2</ID>
+    <Ime>Ime</Ime>
+    <Prezime>Prezime</Prezime>
+    <KorIme>abc</KorIme>
+    <Password>123</Password>
+    <Obrisan>false</Obrisan>
+  </Korisnik>
+  <Korisnik>
+    <TipKorisnika>PRODAVAC</TipKorisnika>
+    <ID>3</ID>
+    <Ime>sadS</Ime>
+    <Prezime>dsq</Prezime>
+    <KorIme>sd</KorIme>
+    <Password>dqsd</Password>
+    <Obrisan>true</Obrisan>
   </Korisnik>
 </ArrayOfKorisnik>

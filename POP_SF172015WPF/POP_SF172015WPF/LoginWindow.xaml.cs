@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using POP_SF172015WPF.Model;
+using POP_SF172015WPF.UI;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace POP_SF172015WPF
 {
@@ -24,14 +15,32 @@ namespace POP_SF172015WPF
             InitializeComponent();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
         {
+            string username = tbKorIme.Text;
+            string password = pbLozinka.Password;
 
+            Korisnik LoggedUser = Korisnik.KorisnikExist(username, password);
+
+            if (LoggedUser == null)
+            {
+                MessageBox.Show("Korisnicki podaci nisu dobro uneti", "");
+            }
+            else
+            {
+                Projekat.LoggedUser = LoggedUser;
+                if (LoggedUser.TipKorisnika == Korisnik.TipoviKorisnika.ADMIN)
+                {
+                    KorisnikWindow kw = new KorisnikWindow();
+                    kw.Show();
+                    this.Close();
+                }
+                if (LoggedUser.TipKorisnika == Korisnik.TipoviKorisnika.PRODAVAC)
+                {
+                    
+                }
+            }
+            
         }
     }
 }

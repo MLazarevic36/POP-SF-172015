@@ -18,10 +18,9 @@ namespace POP_SF172015WPF
         public static List<Akcija> ListaAkcija = Instance.Akcije;
         public static List<Prodaja> ListaProdaja = Instance.Prodaje;
 
-        public static Korisnik UlogovaniKorisnik = null;
+        public static Korisnik LoggedUser = null;
 
-        public static bool AdminOn = false;
-        public static bool ProdavacOn = false;
+        
 
         public static void ProjekatExit()
         {

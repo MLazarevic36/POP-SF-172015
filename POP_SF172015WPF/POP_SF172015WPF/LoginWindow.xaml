@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="LoginWindow" Height="300" Width="518.605">
     <Grid Margin="0,0,-8,0">
-        <PasswordBox x:Name="pbLozinka" HorizontalAlignment="Left" Margin="270,159,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.761,-0.65" Height="24"/>
-        <TextBox x:Name="tbKorIme" HorizontalAlignment="Left" Height="23" Margin="270,102,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
         <Label Content="Korisnicko ime:" HorizontalAlignment="Left" Height="39" Margin="81,98,0,0" VerticalAlignment="Top" Width="112"/>
+        <TextBox x:Name="tbKorIme" HorizontalAlignment="Left" Height="23" Margin="270,102,0,0" VerticalAlignment="Top" Width="120" />
         <Label x:Name="lbLozinka" Content="Lozinka:" HorizontalAlignment="Left" Height="24" Margin="81,159,0,0" VerticalAlignment="Top" Width="102"/>
+        <PasswordBox x:Name="pbLozinka" HorizontalAlignment="Left" Margin="270,159,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.761,-0.65" Height="24"/>
         <Button x:Name="btnPotvrdi" Content="Potvrdi" HorizontalAlignment="Left" Margin="289,222,0,0" VerticalAlignment="Top" Width="75" IsDefault="True" Click="btnPotvrdi_Click"/>
 
 

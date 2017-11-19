@@ -1,18 +1,6 @@
 ﻿using POP_SF172015WPF.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using POP_SF172015WPF.Menadzeri;
+
 
 namespace POP_SF172015WPF.UI.Edit
 {
@@ -34,16 +22,41 @@ namespace POP_SF172015WPF.UI.Edit
             InitializeComponent();
             this.korisnik = korisnik;
             this.operacija = operacija;
+
+            cbTipKorisnika.Items.Add(Korisnik.TipoviKorisnika.ADMIN);
+            cbTipKorisnika.Items.Add(Korisnik.TipoviKorisnika.PRODAVAC);
+
+            if (operacija == Operacija.DODAVANJE)
+            {
+                tbId.Text = (Projekat.ListaKorisnika.Count + 1).ToString();
+            }
+            if (operacija == Operacija.IZMENA)
+            {
+                tbId.Text = korisnik.ID.ToString();
+            }
+            tbIme.Text = korisnik.Ime;
+            tbPrezime.Text = korisnik.Prezime;
+            tbUsername.Text = korisnik.KorIme;
+            tbPassword.Text = korisnik.Password;
+            cbTipKorisnika.SelectedItem = korisnik.TipKorisnika;
         }
 
-           if (Operacija == Operacija.DODAVANJE)
-           {
-                tb 
-           } 
 
         private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
         {
+            korisnik.ID = int.Parse(tbId.Text);
+            korisnik.Ime = tbIme.Text;
+            korisnik.Prezime = tbPrezime.Text;
+            korisnik.KorIme = tbUsername.Text;
+            korisnik.Password = tbPassword.Text;
+            korisnik.TipKorisnika = (Korisnik.TipoviKorisnika)cbTipKorisnika.SelectedItem;
 
+            DialogResult = true;
+            if (operacija == Operacija.DODAVANJE)
+            {
+                Projekat.ListaKorisnika.Add(korisnik);
+            }
+            Close();
         }
     }
 }

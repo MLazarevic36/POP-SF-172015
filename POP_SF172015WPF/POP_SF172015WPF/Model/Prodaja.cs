@@ -24,5 +24,17 @@ namespace POP_SF172015WPF.Model
             return "Br racuna: " + BrojRacuna + " Ukupna cena: " + UkupnaCena + " Datum prodaje: " + DatumProdaje
                 + " Kupac: " + Kupac + " Namestaj: " + ListaNamestaja;
         }
+
+        public static Prodaja GetById(int id)
+        {
+            foreach (var prodaja in Projekat.ListaProdaja)
+            {
+                if (prodaja.ID == id)
+                {
+                    return prodaja;
+                }
+            }
+            return null;
+        }
     }
 }
