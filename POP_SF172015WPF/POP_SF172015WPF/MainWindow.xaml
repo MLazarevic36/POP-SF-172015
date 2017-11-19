@@ -12,7 +12,15 @@
             <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
         <ListBox Name="lbNamestaj" Grid.Row="0" FontSize="15">
-            
+            <TabControl Height="328" Width="682">
+                <TabItem Header="Namestaj">
+                    <Grid Background="#FFE5E5E5"/>
+                </TabItem>
+                <TabItem Header="Korisnici">
+                    <Grid Background="#FFE5E5E5"/>
+                </TabItem>
+            </TabControl>
+
         </ListBox>
         <Button Grid.Row="1" Content="Dodaj" Height="40" FontSize="20" Margin="43,34,564,35" Click="DodajNamestaj"/>
         <Button Grid.Row="1" Content="Izmeni" Height="40" FontSize="20" Margin="161,34,445,35" Click="IzmeniNamestaj"/>
