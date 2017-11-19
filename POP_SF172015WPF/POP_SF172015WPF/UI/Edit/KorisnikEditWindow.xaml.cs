@@ -29,18 +29,17 @@ namespace POP_SF172015WPF.UI.Edit
         };
         Operacija operacija;
 
-        public KorisnikEditWindow()
+        public KorisnikEditWindow(Korisnik korisnik, Operacija operacija)
         {
             InitializeComponent();
             this.korisnik = korisnik;
             this.operacija = operacija;
         }
 
-        if (operacija == Operacija.DODAVANJE)
-        {
-            tbId.Text = (Projekat.ListaKorisnika.Count + 1).ToString();
-            tbTipKorisnika
-        }
+           if (Operacija == Operacija.DODAVANJE)
+           {
+                tb 
+           } 
 
         private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
         {

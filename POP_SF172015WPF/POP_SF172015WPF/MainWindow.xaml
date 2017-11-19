@@ -19,6 +19,10 @@
                 <TabItem Header="Korisnici">
                     <Grid Background="#FFE5E5E5"/>
                 </TabItem>
+                <TabItem Header="Prodaja">
+                </TabItem>
+                <TabItem Header="Akcije"></TabItem>
+                <TabItem Header="Tip namestaja"></TabItem>
             </TabControl>
 
         </ListBox>

@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="KorisnikWindow" Height="300" Width="300">
     <Grid>
-        
+        <ListBox x:Name="lbKorisnik" HorizontalAlignment="Left" Height="171" Margin="32,19,0,0" VerticalAlignment="Top" Width="223"/>
+        <Button x:Name="btnDodaj" Content="Dodaj" HorizontalAlignment="Left" Margin="23,216,0,0" VerticalAlignment="Top" Width="75" Click="btnDodaj_Click"/>
+        <Button x:Name="btnIzmeni" Content="Izmeni" HorizontalAlignment="Left" Margin="103,216,0,0" VerticalAlignment="Top" Width="75" Click="btnIzmeni_Click"/>
+        <Button x:Name="btnObrisi" Content="Obrisi" HorizontalAlignment="Left" Margin="192,216,0,0" VerticalAlignment="Top" Width="75" Click="btnObrisi_Click"/>
+
     </Grid>
 </Window>
