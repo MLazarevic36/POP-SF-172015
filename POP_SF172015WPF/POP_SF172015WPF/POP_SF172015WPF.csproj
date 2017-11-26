@@ -57,6 +57,9 @@
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdminWindow.xaml.cs">
+      <DependentUpon>AdminWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\Akcija.cs" />
     <Compile Include="Model\Korisnik.cs" />
     <Compile Include="Model\Namestaj.cs" />
@@ -64,8 +67,17 @@
     <Compile Include="Model\Salon.cs" />
     <Compile Include="Model\TipNamestaja.cs" />
     <Compile Include="Projekat.cs" />
+    <Compile Include="UI\Edit\AkcijeEditWindow.xaml.cs">
+      <DependentUpon>AkcijeEditWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Edit\KorisnikEditWindow.xaml.cs">
       <DependentUpon>KorisnikEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Edit\NamestajEditWindow.xaml.cs">
+      <DependentUpon>NamestajEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Edit\ProdajaEditWindow.xaml.cs">
+      <DependentUpon>ProdajaEditWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\View\AkcijeWindow.xaml.cs">
       <DependentUpon>AkcijeWindow.xaml</DependentUpon>
@@ -90,6 +102,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AdminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Edit\AkcijeEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\Edit\KorisnikEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -98,6 +118,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UI\Edit\NamestajEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Edit\ProdajaEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\View\AkcijeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

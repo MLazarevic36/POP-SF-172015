@@ -1,28 +1,122 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace POP_SF172015WPF.Model
 {
-    public class Korisnik
+    public class Korisnik : INotifyPropertyChanged
     {
-        public enum TipoviKorisnika { ADMIN, PRODAVAC };
-        public TipoviKorisnika TipKorisnika { get; set; }
-        public int ID { get; set; }
-        public String Ime { get; set; }
-        public String Prezime { get; set; }
-        public String KorIme { get; set; }
-        public String Password { get; set; }
-        public Boolean Obrisan { get; set; }
+        //public enum TipoviKorisnika { ADMIN, PRODAVAC };
+        //public TipoviKorisnika TipKorisnika { get; set; }
+        //public int ID { get; set; }
+        //public String Ime { get; set; }
+        //public String Prezime { get; set; }
+        //public String KorIme { get; set; }
+        //public String Password { get; set; }
+        //public Boolean Obrisan { get; set; }
 
+        private int id;
+        private string ime;
+        private string prezime;
+        private string korIme;
+        private string password;
+        private enum TipKorisnika { ADMIN, PRODAVAC};
+        private TipKorisnika tipKorisnika;
+        private bool obrisan;
+
+        public TipKorisnika TipKorisnika
+        {
+            get
+            {
+                if(tipKorisnika == null )
+                {
+                    tipKorisnika = TipKorisnika.GetById(TipKorisnikaId); 
+                }
+                return tipKorisnika;
+            }
+            set
+            {
+                TipKorisnika = value;
+                TipKorisnikaId = tipKorisnikaId
+            }
+        }
+
+        
+
+        public string Password
+        {
+            get { return password; }
+            set
+            {
+                password = value;
+                OnPropertyChanged("Password");
+            }
+        }
+
+        
+
+        public string KorIme
+        {
+            get { return korIme; }
+            set
+            {
+                korIme = value;
+                OnPropertyChanged("KorIme");
+            }
+        }
+
+        
+
+        public bool Obrisan 
+        {
+            get { return obrisan; }
+            set
+            {
+                obrisan = value;
+                OnPropertyChanged("Obrisan");
+            }
+        }
+
+
+        public  string Prezime
+        {
+            get { return prezime; }
+            set
+            {
+                prezime = value;
+                OnPropertyChanged("Prezime");
+            }
+        }
+
+
+
+        public string Ime
+        {
+            get { return ime; }
+            set
+            {
+                ime = value;
+                OnPropertyChanged("Ime");
+            }
+        }
+
+        public int Id
+        {
+            get { return id; }
+            set
+            {
+                id = value;
+                OnPropertyChanged("Id");
+            }
+        }
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public static Korisnik GetById(int id)
         {
             foreach (var korisnik in Projekat.ListaKorisnika)
             {
-                if (korisnik.ID == id)
+                if (korisnik.Id == id)
                 {
                     return korisnik;
                 }
@@ -58,6 +152,14 @@ namespace POP_SF172015WPF.Model
                 }
             }
             return null;
+        }
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if(PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 }

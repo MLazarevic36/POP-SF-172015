@@ -10,13 +10,13 @@
     <Obrisan>false</Obrisan>
   </Korisnik>
   <Korisnik>
-    <TipKorisnika>ADMIN</TipKorisnika>
+    <TipKorisnika>PRODAVAC</TipKorisnika>
     <ID>2</ID>
     <Ime>Ime</Ime>
     <Prezime>Prezime</Prezime>
     <KorIme>abc</KorIme>
     <Password>123</Password>
-    <Obrisan>false</Obrisan>
+    <Obrisan>true</Obrisan>
   </Korisnik>
   <Korisnik>
     <TipKorisnika>PRODAVAC</TipKorisnika>
@@ -25,6 +25,15 @@
     <Prezime>dsq</Prezime>
     <KorIme>sd</KorIme>
     <Password>dqsd</Password>
+    <Obrisan>true</Obrisan>
+  </Korisnik>
+  <Korisnik>
+    <TipKorisnika>PRODAVAC</TipKorisnika>
+    <ID>4</ID>
+    <Ime>sdadsadsdsdassasda</Ime>
+    <Prezime>ycxycx</Prezime>
+    <KorIme>ycxyc</KorIme>
+    <Password>dsadasdadsadsddsad</Password>
     <Obrisan>true</Obrisan>
   </Korisnik>
 </ArrayOfKorisnik>

@@ -23,8 +23,8 @@ namespace POP_SF172015WPF.UI.Edit
             this.korisnik = korisnik;
             this.operacija = operacija;
 
-            cbTipKorisnika.Items.Add(Korisnik.TipoviKorisnika.ADMIN);
-            cbTipKorisnika.Items.Add(Korisnik.TipoviKorisnika.PRODAVAC);
+            cbTipKorisnika.Items.Add(Korisnik.TipKorisnika.ADMIN);
+            cbTipKorisnika.Items.Add(Korisnik.TipKorisnika.PRODAVAC);
 
             if (operacija == Operacija.DODAVANJE)
             {
@@ -44,12 +44,12 @@ namespace POP_SF172015WPF.UI.Edit
 
         private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
         {
-            korisnik.ID = int.Parse(tbId.Text);
+            korisnik.Id = int.Parse(tbId.Text);
             korisnik.Ime = tbIme.Text;
             korisnik.Prezime = tbPrezime.Text;
             korisnik.KorIme = tbUsername.Text;
             korisnik.Password = tbPassword.Text;
-            korisnik.TipKorisnika = (Korisnik.TipoviKorisnika)cbTipKorisnika.SelectedItem;
+            korisnik.TipKorisnika = (Korisnik.TipKorisnika)cbTipKorisnika.SelectedItem;
 
             DialogResult = true;
             if (operacija == Operacija.DODAVANJE)

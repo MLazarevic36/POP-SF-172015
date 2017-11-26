@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF172015WPF.UI"
         mc:Ignorable="d"
-        Title="KorisnikWindow" Height="300" Width="300" Closing="Window_Closing">
+        Title="KorisnikWindow" Height="300" Width="364" Closing="Window_Closing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="215*"/>
             <RowDefinition Height="54*"/>
         </Grid.RowDefinitions>
-        <ListBox x:Name="lbKorisnik"/>
+        <DataGrid x:Name="dgKorisnik"/>
         <Button x:Name="btnDodaj" Content="Dodaj" HorizontalAlignment="Left" Margin="23,1,0,0" VerticalAlignment="Top" Width="75" Click="btnDodaj_Click" Grid.Row="1"/>
         <Button x:Name="btnIzmeni" Content="Izmeni" HorizontalAlignment="Left" Margin="103,1,0,0" VerticalAlignment="Top" Width="75" Click="btnIzmeni_Click" Grid.Row="1"/>
         <Button x:Name="btnObrisi" Content="Obrisi" HorizontalAlignment="Left" Margin="192,1,0,0" VerticalAlignment="Top" Width="75" Click="btnObrisi_Click" Grid.Row="1"/>
