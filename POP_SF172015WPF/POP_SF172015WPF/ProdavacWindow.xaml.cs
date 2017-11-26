@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace POP_SF172015WPF.UI.View
+namespace POP_SF172015WPF
 {
     /// <summary>
-    /// Interaction logic for NamestajWindow.xaml
+    /// Interaction logic for ProdavacWindow.xaml
     /// </summary>
-    public partial class NamestajWindow : Window
+    public partial class ProdavacWindow : Window
     {
-        public NamestajWindow()
+        public ProdavacWindow()
         {
             InitializeComponent();
         }

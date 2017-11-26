@@ -66,6 +66,9 @@
     <Compile Include="Model\Prodaja.cs" />
     <Compile Include="Model\Salon.cs" />
     <Compile Include="Model\TipNamestaja.cs" />
+    <Compile Include="ProdavacWindow.xaml.cs">
+      <DependentUpon>ProdavacWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Projekat.cs" />
     <Compile Include="UI\Edit\AkcijeEditWindow.xaml.cs">
       <DependentUpon>AkcijeEditWindow.xaml</DependentUpon>
@@ -91,8 +94,8 @@
     <Compile Include="UI\View\ProdajaWindow.xaml.cs">
       <DependentUpon>ProdajaWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\View\SalonEditWindow.xaml.cs">
-      <DependentUpon>SalonEditWindow.xaml</DependentUpon>
+    <Compile Include="UI\View\SalonWindow.xaml.cs">
+      <DependentUpon>SalonWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\View\TipNamestajaWindow.xaml.cs">
       <DependentUpon>TipNamestajaWindow.xaml</DependentUpon>
@@ -103,6 +106,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProdavacWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -142,7 +149,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\View\SalonEditWindow.xaml">
+    <Page Include="UI\View\SalonWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

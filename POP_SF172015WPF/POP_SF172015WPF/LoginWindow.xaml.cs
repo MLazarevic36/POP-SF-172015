@@ -37,7 +37,9 @@ namespace POP_SF172015WPF
                 }
                 if (LoggedUser.TipKorisnika == Korisnik.TipKorisnika.PRODAVAC)
                 {
-                    
+                    ProdavacWindow pw = new ProdavacWindow();
+                    pw.Show();
+                    this.Close();
                 }
             }
             

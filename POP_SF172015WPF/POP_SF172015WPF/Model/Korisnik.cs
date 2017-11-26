@@ -5,14 +5,7 @@ namespace POP_SF172015WPF.Model
 {
     public class Korisnik : INotifyPropertyChanged
     {
-        //public enum TipoviKorisnika { ADMIN, PRODAVAC };
-        //public TipoviKorisnika TipKorisnika { get; set; }
-        //public int ID { get; set; }
-        //public String Ime { get; set; }
-        //public String Prezime { get; set; }
-        //public String KorIme { get; set; }
-        //public String Password { get; set; }
-        //public Boolean Obrisan { get; set; }
+        
 
         private int id;
         private string ime;
@@ -23,7 +16,7 @@ namespace POP_SF172015WPF.Model
         private TipKorisnika tipKorisnika;
         private bool obrisan;
 
-        public TipKorisnika TipKorisnika
+        public TipKorisnika tipKorisnika
         {
             get
             {
@@ -35,8 +28,8 @@ namespace POP_SF172015WPF.Model
             }
             set
             {
-                TipKorisnika = value;
-                TipKorisnikaId = tipKorisnikaId
+                tipKorisnika = value;
+                TipKorisnikaId = tipKorisnikaId;
             }
         }
 

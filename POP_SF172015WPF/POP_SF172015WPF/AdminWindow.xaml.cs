@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using POP_SF172015WPF.UI;
+using POP_SF172015WPF.UI.View;
+using System.Windows;
 
 namespace POP_SF172015WPF
 {
@@ -14,32 +16,44 @@ namespace POP_SF172015WPF
 
         private void btnKorisnici_Click(object sender, RoutedEventArgs e)
         {
-
+            KorisnikWindow kw = new KorisnikWindow();
+            kw.Show();
+            this.Close();
         }
 
         private void btnNamestaj_Click(object sender, RoutedEventArgs e)
         {
-
+            NamestajWindow nw = new NamestajWindow();
+            nw.Show();
+            this.Close();
         }
 
         private void btnProdaja_Click(object sender, RoutedEventArgs e)
         {
-
+            ProdajaWindow pw = new ProdajaWindow();
+            pw.Show();
+            this.Close();
         }
 
         private void btnSalon_Click(object sender, RoutedEventArgs e)
         {
-
+            SalonWindow sw = new SalonWindow();
+            sw.Show();
+            this.Close();
         }
 
         private void btnAkcije_Click(object sender, RoutedEventArgs e)
         {
-
+            AkcijeWindow aw = new AkcijeWindow();
+            aw.Show();
+            this.Close();
         }
 
         private void btnOdjava_Click(object sender, RoutedEventArgs e)
         {
-
+            LoginWindow lw = new LoginWindow();
+            lw.Show();
+            this.Close();
         }
     }
 }
