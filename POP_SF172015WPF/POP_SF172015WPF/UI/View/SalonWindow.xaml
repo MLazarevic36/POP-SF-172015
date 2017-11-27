@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF172015WPF.UI"
         mc:Ignorable="d"
-        Title="SalonEditWindow" Height="300" Width="300">
+        Title="SalonWindow" Height="300" Width="300">
     <Grid>
         
     </Grid>

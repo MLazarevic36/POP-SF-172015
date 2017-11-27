@@ -5,8 +5,8 @@
     <ID>1</ID>
     <Ime>Gordon</Ime>
     <Prezime>Ramsay</Prezime>
-    <KorIme>itsraw</KorIme>
-    <Password>goatchef</Password>
+    <KorIme>abcd</KorIme>
+    <Password>1234</Password>
     <Obrisan>false</Obrisan>
   </Korisnik>
   <Korisnik>

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace POP_SF172015WPF.Model
 {
@@ -11,14 +6,13 @@ namespace POP_SF172015WPF.Model
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        //public int ID { get; set; }
-        //public String Naziv { get; set; }
-        //public int Cena { get; set; }
-        //public int KolicinaMagacin { get; set; }
-        //public int TipNamestajaId { get; set; }
-        //public Boolean Obrisan { get; set; }
 
         private int id;
+        private string naziv;
+        private int cena;
+        private int kolicinaMagacin;
+        private int tipNamestajaId;
+        private bool obrisan;
 
         public int Id
         {
@@ -30,21 +24,59 @@ namespace POP_SF172015WPF.Model
             }
         }
 
-
-
-
-
-        public override string ToString()
+        public string Naziv
         {
-            return "Id: " + ID + " Naziv: " + Naziv + " Sifra: " + ID
-                + " Cena: " + Cena + " Kolicina: " + KolicinaMagacin;
+            get { return naziv; }
+            set
+            {
+                naziv = value;
+                OnPropertyChanged("Naziv");
+            }
         }
+
+        public int Cena
+        {
+            get { return cena; }
+            set
+            {
+                cena = value;
+                OnPropertyChanged("Cena");
+            }
+        }
+
+        public int KolicinaMagacin
+        {
+            get { return kolicinaMagacin; }
+            set
+            {
+                kolicinaMagacin = value;
+                OnPropertyChanged("KolicinaMagacin");
+            }
+        }
+        public bool Obrisan
+        {
+            get { return obrisan; }
+            set
+            {
+                obrisan = value;
+                OnPropertyChanged("Obrisan");
+            }
+        }
+
+
+
+
+        //public override string ToString()
+        //{
+        //    return "Id: " + ID + " Naziv: " + Naziv + " Sifra: " + ID
+        //        + " Cena: " + Cena + " Kolicina: " + KolicinaMagacin;
+        //}
 
         public static Namestaj GetById(int id)
         {
-            foreach (var namestaj in Projekat.ListaNamestaja)
+            foreach (var namestaj in Projekat.Instance.Namestaj)
             {
-                if (namestaj.ID == id)
+                if (namestaj.id == id)
                 {
                     return namestaj;
                 }

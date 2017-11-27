@@ -1,7 +1,7 @@
 ﻿using POP_SF172015WPF.Model;
 using POP_SF172015WPF.UI.Edit;
 using System.Windows;
-
+using System.Windows.Data;
 
 namespace POP_SF172015WPF.UI
 {
@@ -15,30 +15,24 @@ namespace POP_SF172015WPF.UI
         public KorisnikWindow()
         {
             InitializeComponent();
+
+            //view = CollectionViewSource.GetDefaultView(Projekat.Instance.Korisnici);
+            //view.Filter = KorisnikFilter;
             dgKorisnik.ItemsSource = Projekat.Instance.Korisnici;
             dgKorisnik.IsSynchronizedWithCurrentItem = true;
-            //OsveziPrikaz();
+
+            //dgKorisnik.ColumnWidth = new DataGridLength(1, DataGridLengthUnityType.Star);
+            
         }
 
-        //private void OsveziPrikaz()
-        //{
-        //    lbKorisnik.Items.Clear();
-        //    foreach (Korisnik korisnik in Projekat.ListaKorisnika)
-        //    {
-        //        if(korisnik.Obrisan == false)
-        //        {
-        //            lbKorisnik.Items.Add(korisnik);
-        //        }
-        //    }
-        //    lbKorisnik.SelectedIndex = 0;
-        //}
+        
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
             Korisnik noviKorisnik = new Korisnik();
             KorisnikEditWindow kew = new KorisnikEditWindow(noviKorisnik, KorisnikEditWindow.Operacija.DODAVANJE);
             kew.ShowDialog();
-            //OsveziPrikaz();
+            
         }
 
         private void btnIzmeni_Click(object sender, RoutedEventArgs e)
@@ -47,38 +41,39 @@ namespace POP_SF172015WPF.UI
             KorisnikEditWindow few = new KorisnikEditWindow(selektovaniKorisnik, KorisnikEditWindow.Operacija.IZMENA);
             if (few.ShowDialog() == true)
             {
-                //OsveziPrikaz();
+                
             }
         }
 
         private void btnObrisi_Click(object sender, RoutedEventArgs e)
         {
             int selectedUserID = ((Korisnik)dgKorisnik.SelectedItem).Id;
-            foreach (var korisnik in Projekat.ListaKorisnika)
+            foreach (var korisnik in Projekat.Instance.Korisnici)
             {
                 if (korisnik.Id == selectedUserID)
                 {
                     korisnik.Obrisan = true;
+                    //view.Refresh();
+                    break;
                 }
             }
-            //OsveziPrikaz();
+            
         }
 
         private void btnNazad_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
+        }
+
+        private void dgKorisnik_AutoGeneratingColumn(object sender, System.Windows.Controls.DataGridAutoGeneratingColumnEventArgs e)
+        {
 
         }
 
-        //private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        //{
-        //    Projekat.ProjekatExit();
-        //}
-
-        //      var izabraniKorisnik = ((Korisnik).dgKorisnik.SelectedItem;
-        //      if(MessageBox.Show($"Da li ste sigurni da zelite da izbrisete:
-        //      foreach (var k in Projekat.Instance.Korisnik)
-        //      {
-        //          
-        //      }
+        private bool KorisnikFilter(object obj)
+        {
+            return ((Korisnik)obj).Obrisan;
+        }
+        
     }
 }

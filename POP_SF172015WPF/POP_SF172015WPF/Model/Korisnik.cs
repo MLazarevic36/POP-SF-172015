@@ -5,20 +5,14 @@ namespace POP_SF172015WPF.Model
 {
     public class Korisnik : INotifyPropertyChanged
     {
-        
-
         private int id;
         private string ime;
         private string prezime;
         private string korIme;
         private string password;
-        public enum TipoviKorisnika { ADMIN, PRODAVAC};
+        public enum TipoviKorisnika { ADMIN, PRODAVAC };
         public TipoviKorisnika TipKorisnika { get; set; }
         private bool obrisan;
-
-        
-
-        
 
         public string Password
         {
@@ -92,7 +86,7 @@ namespace POP_SF172015WPF.Model
 
         public static Korisnik GetById(int id)
         {
-            foreach (var korisnik in Projekat.Korisnici)
+            foreach (var korisnik in Projekat.Instance.Korisnici)
             {
                 if (korisnik.Id == id)
                 {
@@ -110,7 +104,7 @@ namespace POP_SF172015WPF.Model
 
         public static Boolean KorisnikExist(String username)
         {
-            foreach (var korisnik in Projekat.Korisnici)
+            foreach (var korisnik in Projekat.Instance.Korisnici)
             {
                 if (korisnik.KorIme == username)
                 {
@@ -122,7 +116,7 @@ namespace POP_SF172015WPF.Model
 
         public static Korisnik KorisnikExist(String korisnickoIme, String password)
         {
-            foreach (var korisnik in Projekat.Korisnici)
+            foreach (var korisnik in Projekat.Instance.Korisnici)
             {
                 if (korisnik.KorIme == korisnickoIme && korisnik.Password == password)
                 {

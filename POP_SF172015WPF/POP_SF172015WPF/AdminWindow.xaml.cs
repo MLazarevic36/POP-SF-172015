@@ -17,43 +17,39 @@ namespace POP_SF172015WPF
         private void btnKorisnici_Click(object sender, RoutedEventArgs e)
         {
             KorisnikWindow kw = new KorisnikWindow();
-            kw.Show();
-            this.Close();
+            kw.ShowDialog();
         }
 
         private void btnNamestaj_Click(object sender, RoutedEventArgs e)
         {
             NamestajWindow nw = new NamestajWindow();
-            nw.Show();
-            this.Close();
+            nw.ShowDialog();
+           
         }
 
         private void btnProdaja_Click(object sender, RoutedEventArgs e)
         {
             ProdajaWindow pw = new ProdajaWindow();
-            pw.Show();
-            this.Close();
+            pw.ShowDialog();
         }
 
         private void btnSalon_Click(object sender, RoutedEventArgs e)
         {
             SalonWindow sw = new SalonWindow();
-            sw.Show();
-            this.Close();
+            sw.ShowDialog();
         }
 
         private void btnAkcije_Click(object sender, RoutedEventArgs e)
         {
             AkcijeWindow aw = new AkcijeWindow();
-            aw.Show();
-            this.Close();
+            aw.ShowDialog();
+           
         }
 
         private void btnOdjava_Click(object sender, RoutedEventArgs e)
         {
             LoginWindow lw = new LoginWindow();
-            lw.Show();
-            this.Close();
+            lw.ShowDialog();
         }
     }
 }

@@ -63,7 +63,7 @@
     <Compile Include="Model\Akcija.cs" />
     <Compile Include="Model\Korisnik.cs" />
     <Compile Include="Model\Namestaj.cs" />
-    <Compile Include="Model\Prodaja.cs" />
+    <Compile Include="Model\Racun.cs" />
     <Compile Include="Model\Salon.cs" />
     <Compile Include="Model\TipNamestaja.cs" />
     <Compile Include="ProdavacWindow.xaml.cs">
@@ -79,8 +79,8 @@
     <Compile Include="UI\Edit\NamestajEditWindow.xaml.cs">
       <DependentUpon>NamestajEditWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Edit\ProdajaEditWindow.xaml.cs">
-      <DependentUpon>ProdajaEditWindow.xaml</DependentUpon>
+    <Compile Include="UI\Edit\RacunEditWindow.xaml.cs">
+      <DependentUpon>RacunEditWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\View\AkcijeWindow.xaml.cs">
       <DependentUpon>AkcijeWindow.xaml</DependentUpon>
@@ -91,8 +91,8 @@
     <Compile Include="UI\View\NamestajWindow.xaml.cs">
       <DependentUpon>NamestajWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\View\ProdajaWindow.xaml.cs">
-      <DependentUpon>ProdajaWindow.xaml</DependentUpon>
+    <Compile Include="UI\View\RacunWindow.xaml.cs">
+      <DependentUpon>RacunWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\View\SalonWindow.xaml.cs">
       <DependentUpon>SalonWindow.xaml</DependentUpon>
@@ -129,7 +129,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\Edit\ProdajaEditWindow.xaml">
+    <Page Include="UI\Edit\RacunEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -145,7 +145,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\View\ProdajaWindow.xaml">
+    <Page Include="UI\View\RacunWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

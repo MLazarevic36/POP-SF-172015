@@ -23,17 +23,17 @@ namespace POP_SF172015WPF.UI.Edit
             this.korisnik = korisnik;
             this.operacija = operacija;
 
-            cbTipKorisnika.Items.Add(Korisnik.TipKorisnika.ADMIN);
-            cbTipKorisnika.Items.Add(Korisnik.TipKorisnika.PRODAVAC);
+            cbTipKorisnika.Items.Add(Korisnik.TipoviKorisnika.ADMIN);
+            cbTipKorisnika.Items.Add(Korisnik.TipoviKorisnika.PRODAVAC);
 
-            if (operacija == Operacija.DODAVANJE)
-            {
-                tbId.Text = (Projekat.ListaKorisnika.Count + 1).ToString();
-            }
-            if (operacija == Operacija.IZMENA)
-            {
-                tbId.Text = korisnik.ID.ToString();
-            }
+            //if (operacija == Operacija.DODAVANJE)
+            //{
+            //    tbId.Text = (Projekat.Instance.Korisnici.Count + 1).ToString();
+            //}
+            //if (operacija == Operacija.IZMENA)
+            //{
+            //    tbId.Text = korisnik.Id.ToString();
+            //}
             tbIme.Text = korisnik.Ime;
             tbPrezime.Text = korisnik.Prezime;
             tbUsername.Text = korisnik.KorIme;
@@ -44,17 +44,17 @@ namespace POP_SF172015WPF.UI.Edit
 
         private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
         {
-            korisnik.Id = int.Parse(tbId.Text);
+            //korisnik.Id = int.Parse(tbId.Text);
             korisnik.Ime = tbIme.Text;
             korisnik.Prezime = tbPrezime.Text;
             korisnik.KorIme = tbUsername.Text;
             korisnik.Password = tbPassword.Text;
-            korisnik.TipKorisnika = (Korisnik.TipKorisnika)cbTipKorisnika.SelectedItem;
+            korisnik.TipKorisnika = (Korisnik.TipoviKorisnika)cbTipKorisnika.SelectedItem;
 
             DialogResult = true;
             if (operacija == Operacija.DODAVANJE)
             {
-                Projekat.ListaKorisnika.Add(korisnik);
+                Projekat.Instance.Korisnici.Add(korisnik);
             }
             Close();
         }

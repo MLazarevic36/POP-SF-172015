@@ -29,13 +29,13 @@ namespace POP_SF172015WPF
             else
             {
                 Projekat.LoggedUser = LoggedUser;
-                if (LoggedUser.TipKorisnika == Korisnik.TipKorisnika.ADMIN)
+                if (LoggedUser.TipKorisnika == Korisnik.TipoviKorisnika.ADMIN)
                 {
                     AdminWindow aw = new AdminWindow();
                     aw.Show();
                     this.Close();
                 }
-                if (LoggedUser.TipKorisnika == Korisnik.TipKorisnika.PRODAVAC)
+                if (LoggedUser.TipKorisnika == Korisnik.TipoviKorisnika.PRODAVAC)
                 {
                     ProdavacWindow pw = new ProdavacWindow();
                     pw.Show();
