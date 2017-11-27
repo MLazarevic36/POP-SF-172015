@@ -12,26 +12,11 @@ namespace POP_SF172015WPF.Model
         private string prezime;
         private string korIme;
         private string password;
-        private enum TipKorisnika { ADMIN, PRODAVAC};
-        private TipKorisnika tipKorisnika;
+        public enum TipoviKorisnika { ADMIN, PRODAVAC};
+        public TipoviKorisnika TipKorisnika { get; set; }
         private bool obrisan;
 
-        public TipKorisnika tipKorisnika
-        {
-            get
-            {
-                if(tipKorisnika == null )
-                {
-                    tipKorisnika = TipKorisnika.GetById(TipKorisnikaId); 
-                }
-                return tipKorisnika;
-            }
-            set
-            {
-                tipKorisnika = value;
-                TipKorisnikaId = tipKorisnikaId;
-            }
-        }
+        
 
         
 
@@ -102,12 +87,12 @@ namespace POP_SF172015WPF.Model
             }
         }
 
-
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         public static Korisnik GetById(int id)
         {
-            foreach (var korisnik in Projekat.ListaKorisnika)
+            foreach (var korisnik in Projekat.Korisnici)
             {
                 if (korisnik.Id == id)
                 {
@@ -125,7 +110,7 @@ namespace POP_SF172015WPF.Model
 
         public static Boolean KorisnikExist(String username)
         {
-            foreach (var korisnik in Projekat.ListaKorisnika)
+            foreach (var korisnik in Projekat.Korisnici)
             {
                 if (korisnik.KorIme == username)
                 {
@@ -137,9 +122,9 @@ namespace POP_SF172015WPF.Model
 
         public static Korisnik KorisnikExist(String korisnickoIme, String password)
         {
-            foreach (var korisnik in Projekat.ListaKorisnika)
+            foreach (var korisnik in Projekat.Korisnici)
             {
-                if (korisnik.KorIme.ToLower() == korisnickoIme && korisnik.Password.ToLower() == password)
+                if (korisnik.KorIme == korisnickoIme && korisnik.Password == password)
                 {
                     return korisnik;
                 }
