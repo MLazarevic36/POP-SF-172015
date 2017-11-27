@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using POP_SF172015WPF.Model;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace POP_SF172015WPF.UI.View
 {
@@ -22,6 +11,31 @@ namespace POP_SF172015WPF.UI.View
         public NamestajWindow()
         {
             InitializeComponent();
+
+            dgNamestaj.ItemsSource = Projekat.Instance.Namestaj;
+            dgNamestaj.IsSynchronizedWithCurrentItem = true;
+        }
+        
+
+        private void btnDodaj_Click(object sender, RoutedEventArgs e)
+        {
+            Namestaj noviNamestaj = new Namestaj();
+            NamestajEditWindow naew = new NamestajEditWindow(selektovaniNamestaj)
+        }
+
+        private void btnIzmeni_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnObrisi_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnIzlaz_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
