@@ -5,4 +5,15 @@
     <Naziv>Krevet</Naziv>
     <Obrisan>false</Obrisan>
   </TipNamestaja>
+  <TipNamestaja>
+    <ID>2</ID>
+    <Naziv>Stolica</Naziv>
+    <Obrisan>false</Obrisan>
+  </TipNamestaja>
+  <TipNamestaja>
+    <ID>3</ID>
+    <Naziv>Polica</Naziv>
+    <Obrisan>false</Obrisan>
+  </TipNamestaja>
+  
 </ArrayOfTipNamestaja>

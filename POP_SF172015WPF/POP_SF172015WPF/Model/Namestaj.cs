@@ -14,6 +14,7 @@ namespace POP_SF172015WPF.Model
         private int tipNamestajaId;
         private bool obrisan;
 
+
         public int Id
         {
             get { return id; }
@@ -63,14 +64,17 @@ namespace POP_SF172015WPF.Model
             }
         }
 
+        public object Clone()
+        {
+            Namestaj kopija = new Namestaj();
+            kopija.Cena = cena;
+            kopija.Id = id;
+            kopija.KolicinaMagacin = kolicinaMagacin;
+            kopija.Naziv = naziv;
+            kopija.Obrisan = obrisan;
+            return kopija;
+        }
 
-
-
-        //public override string ToString()
-        //{
-        //    return "Id: " + ID + " Naziv: " + Naziv + " Sifra: " + ID
-        //        + " Cena: " + Cena + " Kolicina: " + KolicinaMagacin;
-        //}
 
         public static Namestaj GetById(int id)
         {
