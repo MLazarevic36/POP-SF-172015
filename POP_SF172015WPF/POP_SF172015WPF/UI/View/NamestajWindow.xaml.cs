@@ -3,6 +3,7 @@ using POP_SF172015WPF.UI.Edit;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace POP_SF172015WPF.UI.View
 {
@@ -17,17 +18,18 @@ namespace POP_SF172015WPF.UI.View
         {
             InitializeComponent();
 
-            dgNamestaj.ItemsSource = Projekat.Instance.Namestaj;
+            view = CollectionViewSource.GetDefaultView(Projekat.Instance.Namestaj);
+            dgNamestaj.ItemsSource = view;
             dgNamestaj.IsSynchronizedWithCurrentItem = true;
 
-            //dgNamestaj.ColumnWidth = new DataGridLength(1, DataGridLengthUnityType.Star);
+            dgNamestaj.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
         }
         
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
             Namestaj noviNamestaj = new Namestaj();
-            NamestajEditWindow naew = new NamestajEditWindow(noviNamestaj, NamestajEditWindow.Operacija.DODAVANJE);
+            NamestajEditWindow naew = new NamestajEditWindow(noviNamestaj);
             naew.ShowDialog();
         }
 
@@ -70,6 +72,10 @@ namespace POP_SF172015WPF.UI.View
         private void dgNamestaj_AutoGeneratingColumn(object sender, System.Windows.Controls.DataGridAutoGeneratingColumnEventArgs e)
         {
             if ((string)e.Column.Header == "Id")
+            {
+                e.Cancel = true;
+            }
+            if ((string)e.Column.Header == "Obrisan")
             {
                 e.Cancel = true;
             }

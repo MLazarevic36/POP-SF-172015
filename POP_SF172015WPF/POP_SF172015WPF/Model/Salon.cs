@@ -1,26 +1,123 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
 namespace POP_SF172015WPF.Model
 {
-    class Salon
+    public class Salon : INotifyPropertyChanged
     {
-        public int ID { get; set; }
-        public String Naziv { get; set; }
-        public String Adresa { get; set; }
-        public int Telefon { get; set; }
-        public String Email { get; set; }
-        public String AdresaSajta { get; set; }
-        public int PIB { get; set; }
-        public int MaticniBroj { get; set; }
-        public int BrZiroRacuna { get; set; }
 
-        public override string ToString()
+        private string naziv;
+        private string adresa;
+        private int telefon;
+        private string email;
+        private string adresaSajta;
+        private int pib;
+        private int maticniBroj;
+        private int brZiroRacun;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        
+
+        public string Naziv
         {
-            return base.ToString();
+            get { return naziv; }
+            set
+            {
+                naziv = value;
+                OnPropertyChanged("Naziv");
+            }
+        }
+
+        public string Adresa
+        {
+            get { return adresa; }
+            set
+            {
+                adresa = value;
+                OnPropertyChanged("Adresa");
+            }
+        }
+
+        public int Telefon
+        {
+            get { return telefon; }
+            set
+            {
+                telefon = value;
+                OnPropertyChanged("Telefon");
+            }
+        }
+
+        public string Email
+        {
+            get { return email; }
+            set
+            {
+                email = value;
+                OnPropertyChanged("Email");
+            }
+        }
+
+        public string AdresaSajta
+        {
+            get { return adresaSajta; }
+            set
+            {
+                adresaSajta = value;
+                OnPropertyChanged("AdresaSajta");
+            }
+        }
+
+        public int Pib
+        {
+            get { return pib; }
+            set
+            {
+                pib = value;
+                OnPropertyChanged("Pib");
+            }
+        }
+
+        public int MaticniBroj
+        {
+            get { return maticniBroj; }
+            set
+            {
+                maticniBroj = value;
+                OnPropertyChanged("MaticniBroj");
+            }
+        }
+
+        public int BrZiroRacun
+        {
+            get { return brZiroRacun; }
+            set
+            {
+                brZiroRacun = value;
+                OnPropertyChanged("BrZiroRacun");
+            }
+        }
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        public object Clone()
+        {
+            Salon kopija = new Salon();
+            kopija.Naziv = Naziv;
+            kopija.Adresa = Adresa;
+            kopija.Telefon = Telefon;
+            kopija.Email = Email;
+            kopija.AdresaSajta = AdresaSajta;
+            kopija.Pib = Pib;
+            kopija.MaticniBroj = MaticniBroj;
+            kopija.BrZiroRacun = BrZiroRacun;
+            return kopija;
         }
     }
 }

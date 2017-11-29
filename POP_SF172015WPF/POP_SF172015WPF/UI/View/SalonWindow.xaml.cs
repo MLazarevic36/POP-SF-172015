@@ -1,4 +1,5 @@
-﻿using System;
+﻿using POP_SF172015WPF.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,22 @@ namespace POP_SF172015WPF.UI
     /// </summary>
     public partial class SalonWindow : Window
     {
+        Salon salon;
+
+
         public SalonWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnOdustani_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
