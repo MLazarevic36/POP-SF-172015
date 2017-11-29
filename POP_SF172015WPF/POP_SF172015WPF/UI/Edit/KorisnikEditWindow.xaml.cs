@@ -1,6 +1,7 @@
 ﻿using POP_SF172015WPF.Model;
+using System;
 using System.Windows;
-
+using static POP_SF172015WPF.Model.Korisnik;
 
 namespace POP_SF172015WPF.UI.Edit
 {
@@ -10,21 +11,19 @@ namespace POP_SF172015WPF.UI.Edit
     public partial class KorisnikEditWindow : Window
     {
         Korisnik korisnik;
-        public enum Operacija
-        {
-            DODAVANJE,
-            IZMENA
-        };
+        public enum Operacija { DODAVANJE, IZMENA };
         Operacija operacija;
 
-        public KorisnikEditWindow(Korisnik korisnik, Operacija operacija)
+        public KorisnikEditWindow(Korisnik korisnik, Operacija operacija = Operacija.DODAVANJE)
         {
             InitializeComponent();
+
             this.korisnik = korisnik;
             this.operacija = operacija;
 
-            cbTipKorisnika.Items.Add(Korisnik.TipoviKorisnika.ADMIN);
-            cbTipKorisnika.Items.Add(Korisnik.TipoviKorisnika.PRODAVAC);
+            
+
+            cbTipKorisnika.ItemsSource = Enum.GetValues(typeof(TipoviKorisnika)) ;
 
             //if (operacija == Operacija.DODAVANJE)
             //{
@@ -34,29 +33,23 @@ namespace POP_SF172015WPF.UI.Edit
             //{
             //    tbId.Text = korisnik.Id.ToString();
             //}
-            tbIme.Text = korisnik.Ime;
-            tbPrezime.Text = korisnik.Prezime;
-            tbUsername.Text = korisnik.KorIme;
-            tbPassword.Text = korisnik.Password;
-            cbTipKorisnika.SelectedItem = korisnik.TipKorisnika;
+            tbIme.DataContext = korisnik;
+            tbPrezime.DataContext = korisnik;
+            tbUsername.DataContext = korisnik;
+            tbPassword.DataContext = korisnik;
+            cbTipKorisnika.DataContext = korisnik;
+
         }
 
 
         private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
         {
-            //korisnik.Id = int.Parse(tbId.Text);
-            korisnik.Ime = tbIme.Text;
-            korisnik.Prezime = tbPrezime.Text;
-            korisnik.KorIme = tbUsername.Text;
-            korisnik.Password = tbPassword.Text;
-            korisnik.TipKorisnika = (Korisnik.TipoviKorisnika)cbTipKorisnika.SelectedItem;
-
-            DialogResult = true;
+            this.DialogResult = true;
             if (operacija == Operacija.DODAVANJE)
             {
                 Projekat.Instance.Korisnici.Add(korisnik);
             }
-            Close();
+            this.Close();
         }
     }
 }

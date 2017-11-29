@@ -17,6 +17,7 @@ namespace POP_SF172015WPF
         public ObservableCollection<Akcija> Akcije { get; set; }
         public ObservableCollection<Racun> Prodaje { get; set; }
         public ObservableCollection<Salon> SalonNamestaja { get; set; }
+        
 
         private static Projekat instance = new Projekat();
 

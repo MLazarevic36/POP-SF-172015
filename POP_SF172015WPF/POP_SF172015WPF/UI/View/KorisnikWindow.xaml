@@ -11,7 +11,7 @@
             <RowDefinition Height="215*"/>
             <RowDefinition Height="54*"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="dgKorisnik" AutoGenerateColumns="True" CanUserResizeRows="True" AutoGeneratingColumn="dgKorisnik_AutoGeneratingColumn" SelectedItem="{Binding Path=selektovaniKorisnik}"/>
+        <DataGrid x:Name="dgKorisnik" AutoGenerateColumns="True" IsReadOnly="True" AutoGeneratingColumn="dgKorisnik_AutoGeneratingColumn" SelectedItem="{Binding Path=selektovaniKorisnik}"/>
         <Button x:Name="btnDodaj" Content="Dodaj" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="btnDodaj_Click" Grid.Row="1"/>
         <Button x:Name="btnIzmeni" Content="Izmeni" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="75" Click="btnIzmeni_Click" Grid.Row="1"/>
         <Button x:Name="btnObrisi" Content="Obrisi" HorizontalAlignment="Left" Margin="180,10,0,0" VerticalAlignment="Top" Width="75" Click="btnObrisi_Click" Grid.Row="1"/>

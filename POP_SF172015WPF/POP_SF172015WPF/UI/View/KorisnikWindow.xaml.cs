@@ -2,6 +2,8 @@
 using POP_SF172015WPF.UI.Edit;
 using System.Windows;
 using System.Windows.Data;
+using System.ComponentModel;
+using System.Windows.Controls;
 
 namespace POP_SF172015WPF.UI
 {
@@ -10,18 +12,19 @@ namespace POP_SF172015WPF.UI
     /// </summary>
     public partial class KorisnikWindow : Window
     {
+        ICollectionView view;
         
 
         public KorisnikWindow()
         {
             InitializeComponent();
 
-            //view = CollectionViewSource.GetDefaultView(Projekat.Instance.Korisnici);
-            //view.Filter = KorisnikFilter;
+            view = CollectionViewSource.GetDefaultView(Projekat.Instance.Korisnici);
+            view.Filter = KorisnikFilter;
             dgKorisnik.ItemsSource = Projekat.Instance.Korisnici;
             dgKorisnik.IsSynchronizedWithCurrentItem = true;
 
-            //dgKorisnik.ColumnWidth = new DataGridLength(1, DataGridLengthUnityType.Star);
+            dgKorisnik.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
             
         }
 
@@ -30,18 +33,25 @@ namespace POP_SF172015WPF.UI
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
             Korisnik noviKorisnik = new Korisnik();
-            KorisnikEditWindow kew = new KorisnikEditWindow(noviKorisnik, KorisnikEditWindow.Operacija.DODAVANJE);
+            KorisnikEditWindow kew = new KorisnikEditWindow(noviKorisnik);
             kew.ShowDialog();
             
         }
 
         private void btnIzmeni_Click(object sender, RoutedEventArgs e)
         {
-            Korisnik selektovaniKorisnik = (Korisnik)dgKorisnik.SelectedItem;
-            KorisnikEditWindow few = new KorisnikEditWindow(selektovaniKorisnik, KorisnikEditWindow.Operacija.IZMENA);
-            if (few.ShowDialog() == true)
+            Korisnik selektovaniKorisnik = view.CurrentItem as Korisnik;
+
+            if (selektovaniKorisnik != null)
             {
-                
+                Korisnik old = (Korisnik)selektovaniKorisnik.Clone();
+                KorisnikEditWindow kew = new KorisnikEditWindow(selektovaniKorisnik, KorisnikEditWindow.Operacija.IZMENA);
+                if (kew.ShowDialog() != true)
+                {
+                    int index = Projekat.Instance.Korisnici.IndexOf(selektovaniKorisnik);
+                    Projekat.Instance.Korisnici[index] = old;
+
+                }
             }
         }
 
@@ -53,7 +63,7 @@ namespace POP_SF172015WPF.UI
                 if (korisnik.Id == selectedUserID)
                 {
                     korisnik.Obrisan = true;
-                    //view.Refresh();
+                    view.Refresh();
                     break;
                 }
             }
@@ -65,9 +75,16 @@ namespace POP_SF172015WPF.UI
             this.Close();
         }
 
-        private void dgKorisnik_AutoGeneratingColumn(object sender, System.Windows.Controls.DataGridAutoGeneratingColumnEventArgs e)
+        private void dgKorisnik_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-
+            if ((string)e.Column.Header == "Id")
+            {
+                e.Cancel = true;
+            }
+            if ((string)e.Column.Header == "Obrisan")
+            {
+                e.Cancel = true;
+            }
         }
 
         private bool KorisnikFilter(object obj)

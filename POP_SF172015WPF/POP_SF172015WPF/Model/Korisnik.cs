@@ -133,5 +133,18 @@ namespace POP_SF172015WPF.Model
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+        public object Clone()
+        {
+            Korisnik kopija = new Korisnik();
+            kopija.Id = Id;
+            kopija.Ime = Ime;
+            kopija.Prezime = Prezime;
+            kopija.KorIme = KorIme;
+            kopija.Password = Password;
+            kopija.TipKorisnika = TipKorisnika;
+            kopija.Obrisan = Obrisan;
+            return kopija;
+        }
     }
 }

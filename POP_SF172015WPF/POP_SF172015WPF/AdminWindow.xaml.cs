@@ -50,6 +50,7 @@ namespace POP_SF172015WPF
         {
             LoginWindow lw = new LoginWindow();
             lw.ShowDialog();
+            
         }
     }
 }
