@@ -1,24 +1,25 @@
-﻿using System.ComponentModel;
+﻿
+using System;
+using System.ComponentModel;
+
 
 namespace POP_SF172015WPF.Model
 {
     public class Salon : INotifyPropertyChanged
     {
 
-        private string naziv;
-        private string adresa;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private String naziv;
+        private String adresa;
         private int telefon;
-        private string email;
-        private string adresaSajta;
+        private String email;
+        private String adresaSajta;
         private int pib;
         private int maticniBroj;
         private int brZiroRacun;
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        
-
-        public string Naziv
+        public String Naziv
         {
             get { return naziv; }
             set
@@ -28,7 +29,7 @@ namespace POP_SF172015WPF.Model
             }
         }
 
-        public string Adresa
+        public String Adresa
         {
             get { return adresa; }
             set
@@ -48,7 +49,7 @@ namespace POP_SF172015WPF.Model
             }
         }
 
-        public string Email
+        public String Email
         {
             get { return email; }
             set
@@ -58,7 +59,7 @@ namespace POP_SF172015WPF.Model
             }
         }
 
-        public string AdresaSajta
+        public String AdresaSajta
         {
             get { return adresaSajta; }
             set

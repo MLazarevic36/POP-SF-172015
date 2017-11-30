@@ -20,8 +20,8 @@ namespace POP_SF172015WPF.UI
             InitializeComponent();
 
             view = CollectionViewSource.GetDefaultView(Projekat.Instance.Korisnici);
-            view.Filter = KorisnikFilter;
-            dgKorisnik.ItemsSource = Projekat.Instance.Korisnici;
+            
+            dgKorisnik.ItemsSource = view;
             dgKorisnik.IsSynchronizedWithCurrentItem = true;
 
             dgKorisnik.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
@@ -81,16 +81,10 @@ namespace POP_SF172015WPF.UI
             {
                 e.Cancel = true;
             }
-            if ((string)e.Column.Header == "Obrisan")
-            {
-                e.Cancel = true;
-            }
+            
         }
 
-        private bool KorisnikFilter(object obj)
-        {
-            return ((Korisnik)obj).Obrisan;
-        }
+        
         
     }
 }

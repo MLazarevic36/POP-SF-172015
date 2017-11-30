@@ -184,7 +184,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Data\salon.xml" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Data\akcije.xml" />
     <Resource Include="Data\korisnici.xml" />

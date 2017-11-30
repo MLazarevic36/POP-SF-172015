@@ -5,14 +5,18 @@ namespace POP_SF172015WPF.Model
 {
     public class Korisnik : INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private string korIme;
+        private string password;
         private int id;
         private string ime;
         private string prezime;
-        private string korIme;
-        private string password;
         public enum TipoviKorisnika { ADMIN, PRODAVAC };
         public TipoviKorisnika TipKorisnika { get; set; }
         private bool obrisan;
+
 
         public string Password
         {
@@ -23,9 +27,7 @@ namespace POP_SF172015WPF.Model
                 OnPropertyChanged("Password");
             }
         }
-
-        
-
+         
         public string KorIme
         {
             get { return korIme; }
@@ -81,9 +83,6 @@ namespace POP_SF172015WPF.Model
             }
         }
 
-        
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public static Korisnik GetById(int id)
         {
             foreach (var korisnik in Projekat.Instance.Korisnici)
@@ -97,11 +96,6 @@ namespace POP_SF172015WPF.Model
         }
 
 
-        public override string ToString()
-        {
-            return "Ime: " + Ime + " Prezime: " + Prezime + " Username: " + KorIme + " Tip: " + TipKorisnika;
-        }
-
         public static Boolean KorisnikExist(String username)
         {
             foreach (var korisnik in Projekat.Instance.Korisnici)
@@ -114,11 +108,12 @@ namespace POP_SF172015WPF.Model
             return false;
         }
 
-        public static Korisnik KorisnikExist(String korisnickoIme, String password)
+
+        public static Korisnik KorisnikExist(String korIme, String password)
         {
             foreach (var korisnik in Projekat.Instance.Korisnici)
             {
-                if (korisnik.KorIme == korisnickoIme && korisnik.Password == password)
+                if (korisnik.KorIme == korIme && korisnik.Password == password)
                 {
                     return korisnik;
                 }
@@ -126,12 +121,10 @@ namespace POP_SF172015WPF.Model
             return null;
         }
 
+
         protected void OnPropertyChanged(string propertyName)
         {
-            if(PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         public object Clone()

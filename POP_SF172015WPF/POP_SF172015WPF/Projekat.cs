@@ -11,19 +11,20 @@ namespace POP_SF172015WPF
 
         public static Korisnik LoggedUser = null;
 
+        public ObservableCollection<Korisnik> Korisnici { get; set; }
         public ObservableCollection<Namestaj> Namestaj { get; set; }
         public ObservableCollection<TipNamestaja> TipoviNamestaja { get; set; }
-        public ObservableCollection<Korisnik> Korisnici { get; set; }
+        public ObservableCollection<Salon> Salon { get; set; }
         public ObservableCollection<Akcija> Akcije { get; set; }
         public ObservableCollection<Racun> Prodaje { get; set; }
-        public ObservableCollection<Salon> SalonNamestaja { get; set; }
+        
         
 
         private static Projekat instance = new Projekat();
 
         public static Projekat Instance
         {
-            get
+            get 
             {
                 return instance;
             }
@@ -32,12 +33,12 @@ namespace POP_SF172015WPF
         private Projekat()
         {
 
+            Salon = GenericSerializer.Deserialize<Salon>("salon.xml");
             Namestaj = GenericSerializer.Deserialize<Namestaj>("namestaj.xml");
             TipoviNamestaja = GenericSerializer.Deserialize<TipNamestaja>("tipovi_namestaja.xml");
             Korisnici = GenericSerializer.Deserialize<Korisnik>("korisnici.xml");
             Akcije = GenericSerializer.Deserialize<Akcija>("akcije.xml");
-            //Prodaje = GenericSerializer.Deserialize<Racun>("prodaje.xml");
-            //SalonNamestaja = GenericSerializer.Deserialize<Salon>("salon.xml");
+            
 
         }
     }
