@@ -1,19 +1,17 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace POP_SF172015WPF.Model
 {
     public class Akcija : INotifyPropertyChanged
     {
-        
-        //public DateTime DatumPocetka { get; set; }
-        //public DateTime DatumZavrsetka { get; set; }
-        //public Boolean Obrisan { get; set; }
-        
-        
 
         private int id;
         private int namestajId;
         private int popust;
+        private DateTime datumPocetka;
+        private DateTime datumZavrsetka;
+        private Boolean obrisan;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -26,6 +24,40 @@ namespace POP_SF172015WPF.Model
                 OnPropertyChanged("Id");
 
             }
+        }
+
+        public DateTime DatumPocetka
+        {
+            get { return datumPocetka; }
+            set
+            {
+                datumPocetka = value;
+                OnPropertyChanged("DatumPocetka");
+            }
+               
+        }
+
+
+        public DateTime DatumZavrsetka
+        {
+            get { return datumZavrsetka; }
+            set
+            {
+                datumZavrsetka = value;
+                OnPropertyChanged("DatumZavrsetka");
+            }
+
+        }
+
+        public Boolean Obrisan
+        {
+            get { return Obrisan; }
+            set
+            {
+                obrisan = value;
+                OnPropertyChanged("Obrisan");
+            }
+
         }
 
         public int Popust

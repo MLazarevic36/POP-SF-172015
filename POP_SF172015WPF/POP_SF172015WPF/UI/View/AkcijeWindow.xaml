@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF172015WPF.UI"
         mc:Ignorable="d"
-        Title="AkcijeWindow" Height="300" Width="300">
+        Title="AkcijeWindow" Height="300" Width="510.902">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="206*"/>
+            <RowDefinition Height="63*"/>
+        </Grid.RowDefinitions>
+        <Button Name="btnDodaj" Content="Dodaj" HorizontalAlignment="Left" Margin="38,21,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="btnDodaj_Click"/>
+        <Button Name="btnIzmeni" Content="Izmeni" HorizontalAlignment="Left" Margin="140,21,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="btnIzmeni_Click"/>
+        <Button Name="btnObrisi" Content="Obrisi" HorizontalAlignment="Left" Margin="249,21,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="btnObrisi_Click"/>
+        <DataGrid AutoGenerateColumns="True" Name="dgAkcije" IsReadOnly="True" AutoGeneratingColumn="dgAkcije_AutoGeneratingColumn" HorizontalAlignment="Left" Height="206" VerticalAlignment="Top" Width="503"/>
+
     </Grid>
 </Window>

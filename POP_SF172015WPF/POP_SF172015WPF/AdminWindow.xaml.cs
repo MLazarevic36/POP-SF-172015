@@ -29,8 +29,8 @@ namespace POP_SF172015WPF
 
         private void btnProdaja_Click(object sender, RoutedEventArgs e)
         {
-            ProdajaWindow pw = new ProdajaWindow();
-            pw.ShowDialog();
+            RacunWindow rw = new RacunWindow();
+            rw.ShowDialog();
         }
 
         private void btnSalon_Click(object sender, RoutedEventArgs e)

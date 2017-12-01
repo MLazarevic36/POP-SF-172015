@@ -19,8 +19,7 @@ namespace POP_SF172015WPF.UI
     /// Interaction logic for SalonEditWindow.xaml
     /// </summary>
     public partial class SalonWindow : Window
-    {
-        Salon salon;
+    { 
 
 
         public SalonWindow()

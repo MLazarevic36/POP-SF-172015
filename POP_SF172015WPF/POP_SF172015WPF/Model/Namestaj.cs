@@ -25,6 +25,17 @@ namespace POP_SF172015WPF.Model
             }
         }
 
+        public int TipNamestajaId
+        {
+            get { return tipNamestajaId; }
+            set
+            {
+                tipNamestajaId = value;
+                OnPropertyChanged("TipNamestajaId");
+            }
+        }
+
+
         public string Naziv
         {
             get { return naziv; }
@@ -71,6 +82,7 @@ namespace POP_SF172015WPF.Model
             kopija.Id = id;
             kopija.KolicinaMagacin = kolicinaMagacin;
             kopija.Naziv = naziv;
+            kopija.TipNamestajaId = tipNamestajaId;
             kopija.Obrisan = obrisan;
             return kopija;
         }

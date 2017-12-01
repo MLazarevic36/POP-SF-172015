@@ -17,9 +17,9 @@ namespace POP_SF172015WPF.UI
     /// <summary>
     /// Interaction logic for ProdajaWindow.xaml
     /// </summary>
-    public partial class ProdajaWindow : Window
+    public partial class RacunWindow : Window
     {
-        public ProdajaWindow()
+        public RacunWindow()
         {
             InitializeComponent();
         }

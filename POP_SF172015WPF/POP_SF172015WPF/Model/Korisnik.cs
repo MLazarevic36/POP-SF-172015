@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace POP_SF172015WPF.Model
 {
-    public class Korisnik : INotifyPropertyChanged
+    public class Korisnik : ICloneable, INotifyPropertyChanged
     {
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -14,9 +14,25 @@ namespace POP_SF172015WPF.Model
         private string ime;
         private string prezime;
         public enum TipoviKorisnika { ADMIN, PRODAVAC };
-        public TipoviKorisnika TipKorisnika { get; set; }
         private bool obrisan;
 
+        public Korisnik(string korIme, string password, int id, string ime, 
+            string prezime, TipoviKorisnika tipoviKorisnika, Boolean obrisan)
+        {
+            this.korIme = korIme;
+            this.password = password;
+            this.id = id;
+            this.ime = ime;
+            this.prezime = prezime;
+            TipKorisnika = tipoviKorisnika;
+            this.obrisan = obrisan;
+        }
+
+        public Korisnik()
+        {
+        }
+
+        public TipoviKorisnika TipKorisnika { get; set; }
 
         public string Password
         {
@@ -130,11 +146,11 @@ namespace POP_SF172015WPF.Model
         public object Clone()
         {
             Korisnik kopija = new Korisnik();
+            kopija.KorIme = KorIme;
+            kopija.Password = Password;
             kopija.Id = Id;
             kopija.Ime = Ime;
             kopija.Prezime = Prezime;
-            kopija.KorIme = KorIme;
-            kopija.Password = Password;
             kopija.TipKorisnika = TipKorisnika;
             kopija.Obrisan = Obrisan;
             return kopija;

@@ -1,6 +1,7 @@
 ﻿using POP_SF172015WPF;
 using POP_SF172015WPF.Model;
 using POP_SF172015WPF.Utils;
+
 using System.Collections.ObjectModel;
 
 namespace POP_SF172015WPF
@@ -32,14 +33,21 @@ namespace POP_SF172015WPF
 
         private Projekat()
         {
+            Salon = new ObservableCollection<Salon>();
+            Korisnici = new ObservableCollection<Korisnik>();
+            Namestaj = new ObservableCollection<Namestaj>();
+            TipoviNamestaja = new ObservableCollection<TipNamestaja>();
+            Akcije = new ObservableCollection<Akcija>();
+            Prodaje = new ObservableCollection<Racun>();
 
-            Salon = GenericSerializer.Deserialize<Salon>("salon.xml");
+
+            //Salon = GenericSerializer.Deserialize<Salon>("salon.xml");
             Namestaj = GenericSerializer.Deserialize<Namestaj>("namestaj.xml");
             TipoviNamestaja = GenericSerializer.Deserialize<TipNamestaja>("tipovi_namestaja.xml");
             Korisnici = GenericSerializer.Deserialize<Korisnik>("korisnici.xml");
             Akcije = GenericSerializer.Deserialize<Akcija>("akcije.xml");
             
-
+            
         }
     }
 }
