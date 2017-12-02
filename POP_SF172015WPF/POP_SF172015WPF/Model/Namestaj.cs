@@ -1,8 +1,9 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace POP_SF172015WPF.Model
 {
-    public class Namestaj : INotifyPropertyChanged
+    public class Namestaj : ICloneable, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
