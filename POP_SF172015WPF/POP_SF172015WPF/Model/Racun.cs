@@ -1,19 +1,19 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 namespace POP_SF172015WPF.Model
 {
     public class Racun : INotifyPropertyChanged
     {
-        
-        //public List<Namestaj> ListaNamestaja { get; set; }
-        //public DateTime DatumProdaje { get; set; }
-        
-        
-        //public Boolean Obrisan { get; set; }
+
+        public ObservableCollection<Namestaj> Namestaj { get; set; }
 
         private int id;
         private string kupac;
         private int brojRacuna;
         private int ukupnaCena;
+        private DateTime datumProdaje;
+        private Boolean obrisan;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -57,7 +57,29 @@ namespace POP_SF172015WPF.Model
             }
         }
 
-       
+        public DateTime DatumProdaje
+        {
+            get { return datumProdaje; }
+            set
+            {
+                datumProdaje = value;
+                OnPropertyChanged("DatumProdaje");
+            }
+
+        }
+
+        public Boolean Obrisan
+        {
+            get { return obrisan; }
+            set
+            {
+                obrisan = value;
+                OnPropertyChanged("Obrisan");
+            }
+
+        }
+
+
 
         //public override string ToString()
         //{
@@ -67,7 +89,7 @@ namespace POP_SF172015WPF.Model
 
         public static Racun GetById(int id)
         {
-            foreach (var prodaja in Projekat.Instance.Prodaje)
+            foreach (var prodaja in Projekat.Instance.Racuni)
             {
                 if (prodaja.id == id)
                 {

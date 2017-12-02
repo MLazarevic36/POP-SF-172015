@@ -67,7 +67,7 @@ namespace POP_SF172015WPF.Model
 
         public Boolean Obrisan
         {
-            get { return Obrisan; }
+            get { return obrisan; }
             set
             {
                 obrisan = value;

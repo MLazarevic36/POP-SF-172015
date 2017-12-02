@@ -191,7 +191,7 @@
     <Resource Include="Data\akcije.xml" />
     <Resource Include="Data\korisnici.xml" />
     <Resource Include="Data\namestaj.xml" />
-    <Resource Include="Data\prodaje.xml" />
+    <Resource Include="Data\racuni.xml" />
     <Resource Include="Data\tipovi_namestaja.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

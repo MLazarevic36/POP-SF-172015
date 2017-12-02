@@ -37,7 +37,10 @@ namespace POP_SF172015WPF.UI
 
         private void dgAkcije_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-
+            if ((string)e.Column.Header == "Id")
+            {
+                e.Cancel = true;
+            }
         }
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)

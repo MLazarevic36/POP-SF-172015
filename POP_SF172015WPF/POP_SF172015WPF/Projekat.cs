@@ -17,7 +17,7 @@ namespace POP_SF172015WPF
         public ObservableCollection<TipNamestaja> TipoviNamestaja { get; set; }
         public ObservableCollection<Salon> Salon { get; set; }
         public ObservableCollection<Akcija> Akcije { get; set; }
-        public ObservableCollection<Racun> Prodaje { get; set; }
+        public ObservableCollection<Racun> Racuni { get; set; }
         
         
 
@@ -38,7 +38,7 @@ namespace POP_SF172015WPF
             Namestaj = new ObservableCollection<Namestaj>();
             TipoviNamestaja = new ObservableCollection<TipNamestaja>();
             Akcije = new ObservableCollection<Akcija>();
-            Prodaje = new ObservableCollection<Racun>();
+            Racuni = new ObservableCollection<Racun>();
 
 
             //Salon = GenericSerializer.Deserialize<Salon>("salon.xml");
@@ -46,8 +46,10 @@ namespace POP_SF172015WPF
             TipoviNamestaja = GenericSerializer.Deserialize<TipNamestaja>("tipovi_namestaja.xml");
             Korisnici = GenericSerializer.Deserialize<Korisnik>("korisnici.xml");
             Akcije = GenericSerializer.Deserialize<Akcija>("akcije.xml");
-            
-            
+            Racuni = GenericSerializer.Deserialize<Racun>("racuni.xml");
+
+
+
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF172015WPF.UI"
         mc:Ignorable="d"
-        Title="KorisnikWindow" Height="300" Width="364">
+        Title="KorisnikWindow" Height="360" Width="634">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="215*"/>
@@ -15,7 +15,7 @@
         <Button x:Name="btnDodaj" Content="Dodaj" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="btnDodaj_Click" Grid.Row="1"/>
         <Button x:Name="btnIzmeni" Content="Izmeni" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="75" Click="btnIzmeni_Click" Grid.Row="1"/>
         <Button x:Name="btnObrisi" Content="Obrisi" HorizontalAlignment="Left" Margin="180,10,0,0" VerticalAlignment="Top" Width="75" Click="btnObrisi_Click" Grid.Row="1"/>
-        <Button x:Name="btnNazad" Content="Nazad" HorizontalAlignment="Left" Margin="271,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="btnNazad_Click"/>
+        <Button x:Name="btnNazad" Content="Nazad" HorizontalAlignment="Left" Margin="527,15,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="btnNazad_Click"/>
 
     </Grid>
 </Window>

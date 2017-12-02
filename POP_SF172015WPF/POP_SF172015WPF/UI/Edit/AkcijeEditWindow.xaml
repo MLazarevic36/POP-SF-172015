@@ -17,7 +17,7 @@
         <Label Content="Datum pocetka:" HorizontalAlignment="Left" Margin="39,116,0,0" VerticalAlignment="Top"/>
         <Label Content="Datum zavrsetka:" HorizontalAlignment="Left" Margin="39,152,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbId" HorizontalAlignment="Left" Height="23" Margin="194,10,0,0"  Text="{Binding Path=Id}" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="tbNamestaj" HorizontalAlignment="Left" Height="23" Margin="194,38,0,0"  Text="{Binding Path=NamestajId}" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cbNamestaj" HorizontalAlignment="Left" Height="23" Margin="194,38,0,0"  Text="{Binding Path=NamestajId}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbPopust" HorizontalAlignment="Left" Height="23" Margin="194,74,0,0"  Text="{Binding Path=Popust}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbDatumP" HorizontalAlignment="Left" Height="23" Margin="194,116,0,0" Text="{Binding Path=DatumPocetka}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbDatumZ" HorizontalAlignment="Left" Height="23" Margin="194,155,0,0" Text="{Binding Path=DatumZavrsetka}" VerticalAlignment="Top" Width="120"/>
