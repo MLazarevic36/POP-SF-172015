@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace POP_SF172015WPF.Model
 {
-    public class Akcija : INotifyPropertyChanged
+    public class Akcija : ICloneable, INotifyPropertyChanged
     {
 
         private int id;
@@ -14,6 +14,22 @@ namespace POP_SF172015WPF.Model
         private Boolean obrisan;
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public Akcija()
+        {
+
+        }
+
+        public Akcija(int id, int namestajId, int popust, DateTime datumPocetka, DateTime datumZavrsetka,
+                      Boolean obrisan)
+        {
+            this.id = id;
+            this.namestajId = namestajId;
+            this.popust = popust;
+            this.datumPocetka = datumPocetka;
+            this.datumZavrsetka = datumZavrsetka;
+            this.obrisan = obrisan;
+        }
 
         public int Id
         {
@@ -107,6 +123,18 @@ namespace POP_SF172015WPF.Model
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+
+        public object Clone()
+        {
+            Akcija kopija = new Akcija();
+            kopija.Id = Id;
+            kopija.NamestajId = NamestajId;
+            kopija.Popust = Popust;
+            kopija.DatumPocetka = DatumPocetka;
+            kopija.DatumZavrsetka = DatumZavrsetka;
+            kopija.Obrisan = Obrisan;
+            return kopija;
         }
     }
 }

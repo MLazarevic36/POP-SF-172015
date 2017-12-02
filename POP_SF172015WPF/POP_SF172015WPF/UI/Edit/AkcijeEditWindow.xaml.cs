@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using POP_SF172015WPF.Model;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace POP_SF172015WPF.UI.Edit
 {
@@ -19,9 +9,43 @@ namespace POP_SF172015WPF.UI.Edit
     /// </summary>
     public partial class AkcijeEditWindow : Window
     {
-        public AkcijeEditWindow()
+        Akcija akcija;
+        public enum Operacija { DODAVANJE, IZMENA };
+        Operacija operacija;
+
+        public AkcijeEditWindow(Akcija akcija, Operacija operacija = Operacija.DODAVANJE)
         {
             InitializeComponent();
+
+            this.akcija = akcija;
+            this.operacija = operacija;
+
+            
+
+            tbId.DataContext = akcija;
+            tbNamestaj.DataContext = akcija;
+            tbPopust.DataContext = akcija;
+            tbDatumP.DataContext = akcija;
+            tbDatumZ.DataContext = akcija;
+
+            
+            
+        }
+
+
+        private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+            if (operacija == Operacija.DODAVANJE)
+            {
+                Projekat.Instance.Akcije.Add(akcija);
+            }
+            Close();
+        }
+
+        private void btnOdustani_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

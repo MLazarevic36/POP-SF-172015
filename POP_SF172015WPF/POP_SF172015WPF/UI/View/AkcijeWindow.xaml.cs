@@ -42,14 +42,25 @@ namespace POP_SF172015WPF.UI
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
-            AkcijeWindow novaAkcija = new Akcija();
+            Akcija novaAkcija = new Akcija();
             AkcijeEditWindow aew = new AkcijeEditWindow(novaAkcija);
             aew.ShowDialog();
         }
 
         private void btnIzmeni_Click(object sender, RoutedEventArgs e)
         {
-            Akcija selektovanaAkcija
+            Akcija selektovanaAkcija = view.CurrentItem as Akcija;
+
+            if (selektovanaAkcija != null)
+            {
+                Akcija old = (Akcija)selektovanaAkcija.Clone();
+                AkcijeEditWindow aew = new AkcijeEditWindow(selektovanaAkcija, AkcijeEditWindow.Operacija.IZMENA);
+                if (aew.ShowDialog() != true)
+                {
+                    int index = Projekat.Instance.Akcije.IndexOf(selektovanaAkcija);
+                    Projekat.Instance.Akcije[index] = old;
+                }
+            }
 
         }
 
