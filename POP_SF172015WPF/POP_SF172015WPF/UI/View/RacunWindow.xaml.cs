@@ -23,5 +23,10 @@ namespace POP_SF172015WPF.UI
         {
             InitializeComponent();
         }
+
+        private void dgRacun_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+
+        }
     }
 }

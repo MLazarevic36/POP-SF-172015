@@ -8,8 +8,6 @@ namespace POP_SF172015WPF
 {
     class Projekat
     {
-
-
         public static Korisnik LoggedUser = null;
 
         public ObservableCollection<Korisnik> Korisnici { get; set; }
@@ -52,14 +50,14 @@ namespace POP_SF172015WPF
 
         }
 
-        private void NapuniPodatke()
-        {
-            Salon s = new Salon("Salon namestaja Surdulica", "Glavna ulica 36", "999899", "alexjones@gmail.com",
-                               "salons.rs", "1653136", "12521512351", "351251152152");
-            Saloni.Add(s);
+        //private void NapuniPodatke()
+        //{
+        //    Salon s = new Salon("Salon namestaja Surdulica", "Glavna ulica 36", "999899", "alexjones@gmail.com",
+        //                       "salons.rs", "1653136", "12521512351", "351251152152");
+        //    Saloni.Add(s);
 
 
-        }
+        //}
 
         //public void ProjekatExit()
         //{

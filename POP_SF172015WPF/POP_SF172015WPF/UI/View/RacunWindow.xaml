@@ -10,7 +10,7 @@
             <RowDefinition Height="38*"/>
             <RowDefinition Height="13*"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="dgRacun" HorizontalAlignment="Left" Height="228" VerticalAlignment="Top" Width="630"/>
+        <DataGrid x:Name="dgRacun" AutoGenerateColumns="True" AutoGeneratingColumn="dgRacun_AutoGeneratingColumn"/>
         <Button x:Name="btnDodaj" Content="Dodaj" HorizontalAlignment="Left" Margin="97,30,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="btnObrisi" Content="Obrisi" HorizontalAlignment="Left" Margin="222,30,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
        

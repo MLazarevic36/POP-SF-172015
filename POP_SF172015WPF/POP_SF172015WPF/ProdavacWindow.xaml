@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="ProdavacWindow" Height="300" Width="567.293">
     <Grid>
-        <Button x:Name="btnRacuni" Content="Racuni" HorizontalAlignment="Left" Margin="221,124,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnRacuni" Content="Racuni" HorizontalAlignment="Left" Margin="235,124,0,0" VerticalAlignment="Top" Width="75" Click="btnRacuni_Click"/>
 
     </Grid>
 </Window>
