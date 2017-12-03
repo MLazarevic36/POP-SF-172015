@@ -30,7 +30,7 @@
         <ComboBox x:Name="cbTipKorisnika" Grid.Column="1" HorizontalAlignment="Left" Margin="43,10,0,0" Grid.Row="5" VerticalAlignment="Top" Width="120" SelectedItem="{Binding Path=TipoviKorisnika}"/>
         <Label Content="Tip korisnika:" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="5" VerticalAlignment="Top" Width="94"/>
         <Button x:Name="btnPotvrdi" Content="Potvrdi" Grid.Column="1" HorizontalAlignment="Left" Margin="137,10,0,0" Grid.Row="6" VerticalAlignment="Top" Width="75" IsDefault="True" Click="btnPotvrdi_Click"/>
-        <TextBox x:Name="tbId" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="43,6,0,0"  VerticalAlignment="Top" Width="120" Text="{Binding Path=Id}"/>
+        <TextBox x:Name="tbId" IsEnabled="False" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="43,6,0,0"  VerticalAlignment="Top" Width="120" Text="{Binding Path=Id}"/>
         <Label x:Name="lblId" Content="ID:" HorizontalAlignment="Left" Margin="29,2,0,0" VerticalAlignment="Top"/>
 
     </Grid>

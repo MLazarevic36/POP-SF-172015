@@ -25,10 +25,10 @@ namespace POP_SF172015WPF.UI.Edit
 
             cbTipKorisnika.ItemsSource = Enum.GetValues(typeof(TipoviKorisnika)) ;
 
-            //if (operacija == Operacija.DODAVANJE)
-            //{
-            //    tbId.Text = (Projekat.Instance.Korisnici.Count + 1).ToString();
-            //}
+            if (operacija == Operacija.DODAVANJE)
+            {
+                tbId.Text = (Projekat.Instance.Korisnici.Count + 1).ToString();
+            }
             //if (operacija == Operacija.IZMENA)
             //{
             //    tbId.Text = korisnik.Id.ToString();

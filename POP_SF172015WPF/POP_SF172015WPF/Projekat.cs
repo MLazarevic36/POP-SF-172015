@@ -15,7 +15,7 @@ namespace POP_SF172015WPF
         public ObservableCollection<Korisnik> Korisnici { get; set; }
         public ObservableCollection<Namestaj> Namestaj { get; set; }
         public ObservableCollection<TipNamestaja> TipoviNamestaja { get; set; }
-        public ObservableCollection<Salon> Salon { get; set; }
+        public ObservableCollection<Salon> Saloni { get; set; }
         public ObservableCollection<Akcija> Akcije { get; set; }
         public ObservableCollection<Racun> Racuni { get; set; }
         
@@ -33,7 +33,7 @@ namespace POP_SF172015WPF
 
         private Projekat()
         {
-            Salon = new ObservableCollection<Salon>();
+            Saloni = new ObservableCollection<Salon>();
             Korisnici = new ObservableCollection<Korisnik>();
             Namestaj = new ObservableCollection<Namestaj>();
             TipoviNamestaja = new ObservableCollection<TipNamestaja>();
@@ -46,10 +46,19 @@ namespace POP_SF172015WPF
             TipoviNamestaja = GenericSerializer.Deserialize<TipNamestaja>("tipovi_namestaja.xml");
             Korisnici = GenericSerializer.Deserialize<Korisnik>("korisnici.xml");
             Akcije = GenericSerializer.Deserialize<Akcija>("akcije.xml");
-            Racuni = GenericSerializer.Deserialize<Racun>("racuni.xml");
+            //Racuni = GenericSerializer.Deserialize<Racun>("racuni.xml");
 
+            NapuniPodatke();
 
+        }
 
+        private void NapuniPodatke()
+        {
+            Salon s = new Salon("Salon namestaja Surdulica", "Glavna ulica 36", "999899", "alexjones@gmail.com",
+                                "salons.rs", "1653136", "12521512351", "351251152152");
+            Saloni.Add(s);
+
+            
         }
     }
 }

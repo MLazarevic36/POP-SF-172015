@@ -5,19 +5,34 @@ using System.ComponentModel;
 
 namespace POP_SF172015WPF.Model
 {
-    public class Salon : INotifyPropertyChanged
+    public class Salon : ICloneable, INotifyPropertyChanged
     {
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private String naziv;
-        private String adresa;
-        private int telefon;
-        private String email;
-        private String adresaSajta;
-        private int pib;
-        private int maticniBroj;
-        private int brZiroRacun;
+        private string naziv;
+        private string adresa;
+        private string telefon;
+        private string email;
+        private string adresaSajta;
+        private string pib;
+        private string maticniBroj;
+        private string brZiroRacun;
+
+        public Salon() {}
+
+        public Salon (string naziv, string adresa, string telefon, string email,
+                      string adresaSajta, string pib, string maticniBroj, string brZiroRacun)
+        {
+            this.naziv = naziv;
+            this.adresa = adresa;
+            this.telefon = telefon;
+            this.email = email;
+            this.adresaSajta = adresaSajta;
+            this.pib = pib;
+            this.maticniBroj = maticniBroj;
+            this.brZiroRacun = brZiroRacun;
+        }
 
         public String Naziv
         {
@@ -39,7 +54,7 @@ namespace POP_SF172015WPF.Model
             }
         }
 
-        public int Telefon
+        public String Telefon
         {
             get { return telefon; }
             set
@@ -69,7 +84,7 @@ namespace POP_SF172015WPF.Model
             }
         }
 
-        public int Pib
+        public String Pib
         {
             get { return pib; }
             set
@@ -79,7 +94,7 @@ namespace POP_SF172015WPF.Model
             }
         }
 
-        public int MaticniBroj
+        public String MaticniBroj
         {
             get { return maticniBroj; }
             set
@@ -89,7 +104,7 @@ namespace POP_SF172015WPF.Model
             }
         }
 
-        public int BrZiroRacun
+        public String BrZiroRacun
         {
             get { return brZiroRacun; }
             set

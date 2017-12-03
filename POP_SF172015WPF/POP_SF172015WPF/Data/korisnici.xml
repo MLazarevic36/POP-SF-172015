@@ -5,8 +5,8 @@
     <ID>1</ID>
     <Ime>Gordon</Ime>
     <Prezime>Ramsay</Prezime>
-    <KorIme>abcd</KorIme>
-    <Password>1234</Password>
+    <KorIme>abc</KorIme>
+    <Password>123</Password>
     <Obrisan>false</Obrisan>
   </Korisnik>
   <Korisnik>
@@ -14,8 +14,8 @@
     <ID>2</ID>
     <Ime>Ime</Ime>
     <Prezime>Prezime</Prezime>
-    <KorIme>abc</KorIme>
-    <Password>123</Password>
+    <KorIme>abcd</KorIme>
+    <Password>123456</Password>
     <Obrisan>true</Obrisan>
   </Korisnik>
   <Korisnik>

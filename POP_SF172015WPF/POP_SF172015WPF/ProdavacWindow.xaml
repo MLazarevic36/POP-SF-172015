@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF172015WPF"
         mc:Ignorable="d"
-        Title="ProdavacWindow" Height="300" Width="300">
+        Title="ProdavacWindow" Height="300" Width="567.293">
     <Grid>
-        
+        <Button x:Name="btnRacuni" Content="Racuni" HorizontalAlignment="Left" Margin="221,124,0,0" VerticalAlignment="Top" Width="75"/>
+
     </Grid>
 </Window>

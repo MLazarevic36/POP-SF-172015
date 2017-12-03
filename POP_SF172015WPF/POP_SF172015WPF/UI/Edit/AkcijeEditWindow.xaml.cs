@@ -29,8 +29,12 @@ namespace POP_SF172015WPF.UI.Edit
             tbDatumP.DataContext = akcija;
             tbDatumZ.DataContext = akcija;
 
-           
-            
+            if (operacija == Operacija.DODAVANJE)
+            {
+                akcija.Id = Projekat.Instance.Akcije.Count + 1;
+            }
+
+
         }
 
 

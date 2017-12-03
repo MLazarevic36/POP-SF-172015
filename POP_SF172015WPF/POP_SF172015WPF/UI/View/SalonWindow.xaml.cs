@@ -1,17 +1,5 @@
 ﻿using POP_SF172015WPF.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace POP_SF172015WPF.UI
 {
@@ -19,17 +7,42 @@ namespace POP_SF172015WPF.UI
     /// Interaction logic for SalonEditWindow.xaml
     /// </summary>
     public partial class SalonWindow : Window
-    { 
+    {
+        Salon salon;
 
 
         public SalonWindow()
         {
             InitializeComponent();
+
+
+
+            tbNaziv.DataContext = salon;
+            tbAdresa.DataContext = salon;
+            tbTelefon.DataContext = salon;
+            tbAdresaSajta.DataContext = salon;
+            tbEmail.DataContext = salon;
+            tbMaticniBroj.DataContext = salon;
+            tbPib.DataContext = salon;
+            tbZiroRacun.DataContext = salon;
+
+            NapuniPodatke();
+
+        }
+
+        
+
+        private void NapuniPodatke()
+        {
+            string naziv = "Salon names";
+            tbNaziv.Text = naziv;
         }
 
         private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
         {
-
+            DialogResult = true;
+            Projekat.Instance.Saloni.Add(salon);
+            Close();
         }
 
         private void btnOdustani_Click(object sender, RoutedEventArgs e)

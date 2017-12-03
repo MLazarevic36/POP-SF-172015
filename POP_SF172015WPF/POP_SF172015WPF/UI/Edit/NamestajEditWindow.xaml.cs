@@ -26,6 +26,11 @@ namespace POP_SF172015WPF.UI.Edit
             tbCena.DataContext = namestaj;
             tbKolicina.DataContext = namestaj;
             cbTipNamestaja.DataContext = namestaj;
+
+            if (operacija == Operacija.DODAVANJE)
+            {
+                namestaj.Id = Projekat.Instance.Namestaj.Count + 1;
+            }
         }
 
         private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
