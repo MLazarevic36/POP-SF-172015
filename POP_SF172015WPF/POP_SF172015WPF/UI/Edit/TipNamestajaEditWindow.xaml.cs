@@ -20,6 +20,11 @@ namespace POP_SF172015WPF.UI.Edit
 
             tbNaziv.DataContext = tipNamestaja;
             tbId.DataContext = tipNamestaja;
+
+            if (operacija == Operacija.DODAVANJE)
+            {
+                tipNamestaja.Id = Projekat.Instance.TipoviNamestaja.Count + 1;
+            }
         }
 
         private void btnPotvrdi_Click(object sender, RoutedEventArgs e)

@@ -10,6 +10,7 @@ namespace POP_SF172015WPF.Model
 
         private int id;
         private string kupac;
+        private int namestajId;
         private int brojRacuna;
         private int ukupnaCena;
         private DateTime datumProdaje;
@@ -44,6 +45,16 @@ namespace POP_SF172015WPF.Model
             {
                 id = value;
                 OnPropertyChanged("Id");
+            }
+        }
+
+        public int NamestajId
+        {
+            get { return namestajId; }
+            set
+            {
+                namestajId = value;
+                OnPropertyChanged("NamestajId");
             }
         }
 

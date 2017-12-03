@@ -1,27 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using POP_SF172015WPF.Model;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace POP_SF172015WPF.UI.Edit
 {
     /// <summary>
     /// Interaction logic for ProdajaEditWindow.xaml
     /// </summary>
-    public partial class ProdajaEditWindow : Window
+    public partial class RacunEditWindow : Window
     {
-        public ProdajaEditWindow()
+        Racun racun;
+
+        public RacunEditWindow(Racun noviRacun)
         {
             InitializeComponent();
+
+            this.racun = racun;
+
+            cbNamestaj.ItemsSource = Projekat.Instance.Namestaj;
+
+            tbId.DataContext = racun;
+            tbKupac.DataContext = racun;
+            tbBrRacun.DataContext = racun;
+            tbDatum.DataContext = racun;
+            tbUkCena.DataContext = racun;
+            cbNamestaj.DataContext = racun;
+
+            //racun.Id = Projekat.Instance.Racuni.Count + 1;
+        }
+
+        private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+            Projekat.Instance.Racuni.Add(racun);
+            Close();
+        }
+
+        private void btnOdustani_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

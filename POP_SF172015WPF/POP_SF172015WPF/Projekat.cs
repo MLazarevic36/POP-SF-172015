@@ -39,6 +39,8 @@ namespace POP_SF172015WPF
             Racuni = new ObservableCollection<Racun>();
 
 
+            // ne radi ucitavanje salon.xml i racuni.xml 
+
             //Saloni = GenericSerializer.Deserialize<Salon>("salon.xml");
             Namestaj = GenericSerializer.Deserialize<Namestaj>("namestaj.xml");
             TipoviNamestaja = GenericSerializer.Deserialize<TipNamestaja>("tipovi_namestaja.xml");

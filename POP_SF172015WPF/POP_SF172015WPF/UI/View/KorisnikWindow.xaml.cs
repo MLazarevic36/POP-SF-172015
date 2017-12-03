@@ -82,7 +82,12 @@ namespace POP_SF172015WPF.UI
             {
                 e.Cancel = true;
             }
-            
+
+            if ((string)e.Column.Header == "Obrisan")
+            {
+                e.Cancel = true;
+            }
+
         }
 
         

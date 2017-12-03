@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using POP_SF172015WPF.Model;
+using POP_SF172015WPF.UI.Edit;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace POP_SF172015WPF.UI
 {
@@ -19,14 +12,51 @@ namespace POP_SF172015WPF.UI
     /// </summary>
     public partial class RacunWindow : Window
     {
+        ICollectionView view;
+
         public RacunWindow()
         {
             InitializeComponent();
+
+            view = CollectionViewSource.GetDefaultView(Projekat.Instance.Racuni);
+            dgRacun.ItemsSource = view;
+            dgRacun.IsSynchronizedWithCurrentItem = true;
+
+            dgRacun.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
         }
 
         private void dgRacun_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
+            if ((string)e.Column.Header == "Id")
+            {
+                e.Cancel = true;
+            }
 
+            if ((string)e.Column.Header == "Obrisan")
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void btnDodaj_Click(object sender, RoutedEventArgs e)
+        {
+            Racun noviRacun = new Racun();
+            RacunEditWindow rew = new RacunEditWindow(noviRacun);
+            rew.ShowDialog();
+        }
+
+        private void btnObrisi_Click(object sender, RoutedEventArgs e)
+        {
+            int selektovaniRacunId = ((Racun)dgRacun.SelectedItem).Id;
+            foreach (var racun in Projekat.Instance.Racuni)
+            {
+                if (racun.Id == selektovaniRacunId)
+                {
+                    racun.Obrisan = true;
+
+                    break;
+                }
+            }
         }
     }
 }

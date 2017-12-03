@@ -39,6 +39,7 @@ namespace POP_SF172015WPF.UI.Edit
             tbPassword.DataContext = korisnik;
             cbTipKorisnika.DataContext = korisnik;
 
+
         }
 
 
