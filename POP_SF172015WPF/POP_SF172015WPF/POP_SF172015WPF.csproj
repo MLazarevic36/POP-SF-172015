@@ -97,6 +97,9 @@
     <Compile Include="UI\View\RacunWindow.xaml.cs">
       <DependentUpon>RacunWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Edit\SalonEditWindow.xaml.cs">
+      <DependentUpon>SalonEditWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\View\SalonWindow.xaml.cs">
       <DependentUpon>SalonWindow.xaml</DependentUpon>
     </Compile>
@@ -153,6 +156,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\View\RacunWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Edit\SalonEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

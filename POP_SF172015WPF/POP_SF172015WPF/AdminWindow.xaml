@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF172015WPF"
         mc:Ignorable="d"
-        Title="Administracija podataka" Height="336" Width="553.5" >
+        Title="Administracija podataka" Height="336" Width="715.763" >
     <Grid>
-        <Button x:Name="btnKorisnici" Content="Korisnici" HorizontalAlignment="Left" Margin="219,160,0,0" VerticalAlignment="Top" Width="75" Click="btnKorisnici_Click"/>
-        <Button x:Name="btnNamestaj" Content="Namestaj" HorizontalAlignment="Left" Margin="122,115,0,0" VerticalAlignment="Top" Width="75" Click="btnNamestaj_Click"/>
-        <Button x:Name="btnProdaja" Content="Prodaja" HorizontalAlignment="Left" Margin="122,212,0,0" VerticalAlignment="Top" Width="75" Click="btnProdaja_Click"/>
-        <Button x:Name="btnSalon" Content="Podaci o salonu" HorizontalAlignment="Left" Margin="204,62,0,0" VerticalAlignment="Top" Width="112" Click="btnSalon_Click"/>
-        <Button x:Name="btnAkcije" Content="Akcije" HorizontalAlignment="Left" Margin="332,212,0,0" VerticalAlignment="Top" Width="74" Click="btnAkcije_Click"/>
-        <Button x:Name="btnOdjava" Content="Odjava" HorizontalAlignment="Left" Margin="446,274,0,0" VerticalAlignment="Top" Width="75" Click="btnOdjava_Click"/>
-        <Label x:Name="lblSalon" Content="              Salon namestaja Surdulica" HorizontalAlignment="Left" Height="52" Margin="59,10,0,0" VerticalAlignment="Top" Width="433" FontSize="20"/>
-        <Button x:Name="btnTipNamestaj" Content="Tip namestaja" HorizontalAlignment="Left" Margin="332,120,0,0" VerticalAlignment="Top" Width="75" Click="btnTipNamestaj_Click"/>
+        <Button x:Name="btnKorisnici" Content="Korisnici" HorizontalAlignment="Left" Margin="273,161,0,0" VerticalAlignment="Top" Width="127" Click="btnKorisnici_Click" Height="39"/>
+        <Button x:Name="btnNamestaj" Content="Namestaj" HorizontalAlignment="Left" Margin="138,112,0,0" VerticalAlignment="Top" Width="101" Click="btnNamestaj_Click" Height="36"/>
+        <Button x:Name="btnProdaja" Content="Prodaja" HorizontalAlignment="Left" Margin="138,212,0,0" VerticalAlignment="Top" Width="101" Click="btnProdaja_Click" Height="38"/>
+        <Button x:Name="btnSalon" Content="Salon" HorizontalAlignment="Left" Margin="273,67,0,0" VerticalAlignment="Top" Width="127" Click="btnSalon_Click" Height="35"/>
+        <Button x:Name="btnAkcije" Content="Akcije" HorizontalAlignment="Left" Margin="423,209,0,0" VerticalAlignment="Top" Width="98" Click="btnAkcije_Click" Height="41"/>
+        <Button x:Name="btnOdjava" Content="Odjava" HorizontalAlignment="Left" Margin="594,275,0,0" VerticalAlignment="Top" Width="75" Click="btnOdjava_Click"/>
+        <Label x:Name="lblSalon" Content="              Salon namestaja Surdulica" HorizontalAlignment="Left" Height="52" Margin="138,10,0,0" VerticalAlignment="Top" Width="433" FontSize="20"/>
+        <Button x:Name="btnTipNamestaj" Content="Tip namestaja" HorizontalAlignment="Left" Margin="423,112,0,0" VerticalAlignment="Top" Width="98" Click="btnTipNamestaj_Click" Height="36"/>
 
     </Grid>
 </Window>

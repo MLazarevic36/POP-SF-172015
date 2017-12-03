@@ -1,51 +1,46 @@
 ﻿using POP_SF172015WPF.Model;
+using System.ComponentModel;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
 
-namespace POP_SF172015WPF.UI
+namespace POP_SF172015WPF.UI.View
 {
     /// <summary>
-    /// Interaction logic for SalonEditWindow.xaml
+    /// Interaction logic for SalonWindow.xaml
     /// </summary>
     public partial class SalonWindow : Window
     {
-        Salon salon;
-
+        ICollectionView view;
 
         public SalonWindow()
         {
             InitializeComponent();
 
+            view = CollectionViewSource.GetDefaultView(Projekat.Instance.Saloni);
+            dgSalon.ItemsSource = view;
+            dgSalon.IsSynchronizedWithCurrentItem = true;
 
-
-            tbNaziv.DataContext = salon;
-            tbAdresa.DataContext = salon;
-            tbTelefon.DataContext = salon;
-            tbAdresaSajta.DataContext = salon;
-            tbEmail.DataContext = salon;
-            tbMaticniBroj.DataContext = salon;
-            tbPib.DataContext = salon;
-            tbZiroRacun.DataContext = salon;
-
-            NapuniPodatke();
-
+            dgSalon.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
         }
 
-        
-
-        private void NapuniPodatke()
+        private void btnIzmeni_Click(object sender, RoutedEventArgs e)
         {
-            string naziv = "Salon names";
-            tbNaziv.Text = naziv;
+            Salon selektovaniSalon = view.CurrentItem as Salon;
+
+            if (selektovaniSalon != null)
+            {
+                Salon old = (Salon)selektovaniSalon.Clone();
+                SalonEditWindow sew = new SalonEditWindow();
+                if (sew.ShowDialog() != true)
+                {
+                    int index = Projekat.Instance.Saloni.IndexOf(selektovaniSalon);
+                    Projekat.Instance.Saloni[index] = old;
+                }
+            }
         }
 
-        private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
-        {
-            DialogResult = true;
-            Projekat.Instance.Saloni.Add(salon);
-            Close();
-        }
-
-        private void btnOdustani_Click(object sender, RoutedEventArgs e)
+        private void dgSalon_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
 
         }
