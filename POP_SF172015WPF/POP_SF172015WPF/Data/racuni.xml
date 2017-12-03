@@ -1,2 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfProdaja xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+<ArrayOfRacun xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Racun>
+    <Id>2</Id>
+    <Kupac>Jacksepticeye</Kupac>
+    <NamestajId>2</NamestajId>
+    <BrojRacuna>1266</BrojRacuna>
+    <UkupnaCena>3500</UkupnaCena>
+    <DatumProdaje>15.1.2017</DatumProdaje>
+    <Obrisan>false</Obrisan>
+  </Racun>
+</ArrayOfRacun>
