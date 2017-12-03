@@ -79,6 +79,10 @@ namespace POP_SF172015WPF.UI.View
             {
                 e.Cancel = true;
             }
+            if ((string)e.Column.Header == "TipNamestajaId")
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

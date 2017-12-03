@@ -22,6 +22,7 @@ namespace POP_SF172015WPF.UI
             view = CollectionViewSource.GetDefaultView(Projekat.Instance.Korisnici);
             
             dgKorisnik.ItemsSource = view;
+            dgKorisnik.DataContext = this;
             dgKorisnik.IsSynchronizedWithCurrentItem = true;
 
             dgKorisnik.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
@@ -33,7 +34,7 @@ namespace POP_SF172015WPF.UI
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
             Korisnik noviKorisnik = new Korisnik();
-            KorisnikEditWindow kew = new KorisnikEditWindow(noviKorisnik);
+            KorisnikEditWindow kew = new KorisnikEditWindow(noviKorisnik, KorisnikEditWindow.Operacija.DODAVANJE);
             kew.ShowDialog();
             
         }

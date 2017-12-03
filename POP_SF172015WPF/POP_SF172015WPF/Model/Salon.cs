@@ -12,17 +12,17 @@ namespace POP_SF172015WPF.Model
 
         private string naziv;
         private string adresa;
-        private string telefon;
+        private int telefon;
         private string email;
         private string adresaSajta;
-        private string pib;
-        private string maticniBroj;
-        private string brZiroRacun;
+        private int pib;
+        private int maticniBroj;
+        private int brZiroRacun;
 
         public Salon() {}
 
-        public Salon (string naziv, string adresa, string telefon, string email,
-                      string adresaSajta, string pib, string maticniBroj, string brZiroRacun)
+        public Salon (string naziv, string adresa, int telefon, string email,
+                      string adresaSajta, int pib, int maticniBroj, int brZiroRacun)
         {
             this.naziv = naziv;
             this.adresa = adresa;
@@ -54,7 +54,7 @@ namespace POP_SF172015WPF.Model
             }
         }
 
-        public String Telefon
+        public int Telefon
         {
             get { return telefon; }
             set
@@ -84,7 +84,7 @@ namespace POP_SF172015WPF.Model
             }
         }
 
-        public String Pib
+        public int Pib
         {
             get { return pib; }
             set
@@ -94,7 +94,7 @@ namespace POP_SF172015WPF.Model
             }
         }
 
-        public String MaticniBroj
+        public int MaticniBroj
         {
             get { return maticniBroj; }
             set
@@ -104,7 +104,7 @@ namespace POP_SF172015WPF.Model
             }
         }
 
-        public String BrZiroRacun
+        public int BrZiroRacun
         {
             get { return brZiroRacun; }
             set

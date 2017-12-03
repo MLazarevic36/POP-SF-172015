@@ -82,6 +82,9 @@
     <Compile Include="UI\Edit\RacunEditWindow.xaml.cs">
       <DependentUpon>RacunEditWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Edit\TipNamestajaEditWindow.xaml.cs">
+      <DependentUpon>TipNamestajaEditWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\View\AkcijeWindow.xaml.cs">
       <DependentUpon>AkcijeWindow.xaml</DependentUpon>
     </Compile>
@@ -130,6 +133,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Edit\RacunEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Edit\TipNamestajaEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

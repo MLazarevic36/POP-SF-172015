@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Xml.Serialization;
 
+
 namespace POP_SF172015WPF.Utils
 {
     public class GenericSerializer

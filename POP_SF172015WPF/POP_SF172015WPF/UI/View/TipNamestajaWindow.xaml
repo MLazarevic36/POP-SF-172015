@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF172015WPF.UI"
         mc:Ignorable="d"
-        Title="TipNamestajaWindow" Height="300" Width="300">
+        Title="TipNamestajaWindow" Height="236.968" Width="461.968">
     <Grid>
-        
+        <Button x:Name="btnDodaj" Content="Dodaj" HorizontalAlignment="Left" Margin="74,172,0,0" VerticalAlignment="Top" Width="75" Click="btnDodaj_Click"/>
+        <Button x:Name="btnIzmeni" Content="Izmeni" HorizontalAlignment="Left" Margin="174,172,0,0" VerticalAlignment="Top" Width="75" Click="btnIzmeni_Click"/>
+        <Button x:Name="btnObrisi" Content="Obrisi" HorizontalAlignment="Left" Margin="305,172,0,0" VerticalAlignment="Top" Width="75" Click="btnObrisi_Click"/>
+        <DataGrid x:Name="dgTipNamestaja" AutoGenerateColumns="True" IsReadOnly="True" AutoGeneratingColumn="dgTipNamestaja_AutoGeneratingColumn" HorizontalAlignment="Left" Height="144" VerticalAlignment="Top" Width="454"/>
+
     </Grid>
 </Window>

@@ -52,5 +52,16 @@ namespace POP_SF172015WPF
             lw.ShowDialog();
             
         }
+
+        private void btnTipNamestaj_Click(object sender, RoutedEventArgs e)
+        {
+            TipNamestajaWindow tw = new TipNamestajaWindow();
+            tw.ShowDialog();
+        }
+
+        //private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        //{
+        //    Projekat.Instance.ProjekatExit();
+        //}
     }
 }
