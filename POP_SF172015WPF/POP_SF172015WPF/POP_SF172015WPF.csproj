@@ -103,6 +103,9 @@
     <Compile Include="UI\View\SalonWindow.xaml.cs">
       <DependentUpon>SalonWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\View\SpisakNamestaja.xaml.cs">
+      <DependentUpon>SpisakNamestaja.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\View\TipNamestajaWindow.xaml.cs">
       <DependentUpon>TipNamestajaWindow.xaml</DependentUpon>
     </Compile>
@@ -164,6 +167,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\View\SalonWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\View\SpisakNamestaja.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

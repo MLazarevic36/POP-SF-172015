@@ -25,7 +25,7 @@ namespace POP_SF172015WPF.UI.Edit
             tbNaziv.DataContext = namestaj;
             tbId.DataContext = namestaj;
             tbCena.DataContext = namestaj;
-            tbKolicina.DataContext = namestaj;
+            tbRaspolozivost.DataContext = namestaj;
             cbTipNamestaja.DataContext = namestaj;
             cbAkcija.DataContext = namestaj;
 

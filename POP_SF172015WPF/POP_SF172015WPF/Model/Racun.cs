@@ -1,22 +1,30 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 namespace POP_SF172015WPF.Model
 {
     public class Racun : INotifyPropertyChanged
     {
-
-        public ObservableCollection<Namestaj> Namestaj { get; set; }
-
+        private List<int> listaNamestaja;
         private int id;
         private string kupac;
-        private int namestajId;
         private int brojRacuna;
         private int ukupnaCena;
         private DateTime datumProdaje;
         private Boolean obrisan;
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public List<int> ListaNamestaja
+        {
+            get { return listaNamestaja; }
+            set
+            {
+                listaNamestaja = value;
+                OnPropertyChanged("ListaNamestaja");
+            }
+        }
 
         public int UkupnaCena
         {
@@ -48,15 +56,6 @@ namespace POP_SF172015WPF.Model
             }
         }
 
-        public int NamestajId
-        {
-            get { return namestajId; }
-            set
-            {
-                namestajId = value;
-                OnPropertyChanged("NamestajId");
-            }
-        }
 
         public string Kupac
         {

@@ -38,7 +38,7 @@ namespace POP_SF172015WPF
             TipoviNamestaja = GenericSerializer.Deserialize<TipNamestaja>("tipovi_namestaja.xml");
             Korisnici = GenericSerializer.Deserialize<Korisnik>("korisnici.xml");
             Akcije = GenericSerializer.Deserialize<Akcija>("akcije.xml");
-            //Racuni = GenericSerializer.Deserialize<Racun>("racuni.xml");
+            Racuni = GenericSerializer.Deserialize<Racun>("racuni.xml");
 
             //NapuniPodatke();
 

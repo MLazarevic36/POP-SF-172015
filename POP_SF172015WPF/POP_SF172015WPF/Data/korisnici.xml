@@ -6,7 +6,7 @@
     <KorIme>abc</KorIme>
     <Password>123</Password>
     <TipKorisnika>ADMIN</TipKorisnika>
-    <Obrisan>false</Obrisan>
+    <Obrisan>true</Obrisan>
     <Id>0</Id>
   </Korisnik>
   <Korisnik>
@@ -32,6 +32,15 @@
     <Prezime>ycxycx</Prezime>
     <KorIme>ycxyc</KorIme>
     <Password>dsadasdadsadsddsad</Password>
+    <TipKorisnika>PRODAVAC</TipKorisnika>
+    <Obrisan>true</Obrisan>
+    <Id>0</Id>
+  </Korisnik>
+  <Korisnik>
+    <Ime>asd</Ime>
+    <Prezime>asd</Prezime>
+    <KorIme>asd</KorIme>
+    <Password>asd</Password>
     <TipKorisnika>PRODAVAC</TipKorisnika>
     <Obrisan>true</Obrisan>
     <Id>0</Id>

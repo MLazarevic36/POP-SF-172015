@@ -9,12 +9,12 @@
         <Label x:Name="lblId" Content="ID:" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" Width="81"/>
         <Label x:Name="lblNaziv" Content="Naziv:" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top" Width="68"/>
         <Label x:Name="lblCena" Content="Cena:" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="60"/>
-        <Label x:Name="lblKolicina" Content="Kolicina:" HorizontalAlignment="Left" Margin="11,114,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.201,-1.903" Width="74"/>
+        <Label x:Name="lblRaspolozivost" Content="Raspolozivost:" HorizontalAlignment="Left" Margin="11,114,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.201,-1.903" Width="74"/>
         <Label x:Name="lblTipNamestaja" Content="Tip namestaja:" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top" Width="92"/>
         <TextBox x:Name="tbId" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="165,23,0,0"  Text="{Binding Path=Id}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbNaziv" HorizontalAlignment="Left" Height="23" Margin="165,54,0,0"  Text="{Binding Path=Naziv}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbCena" HorizontalAlignment="Left" Height="23" Margin="165,89,0,0"  Text="{Binding Path=Cena}" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="tbKolicina" HorizontalAlignment="Left" Height="23" Margin="165,125,0,0"  Text="{Binding Path=KolicinaMagacin}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbRaspolozivost" HorizontalAlignment="Left" Height="23" Margin="165,125,0,0"  Text="{Binding Path=Raspolozivost}" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="cbTipNamestaja" HorizontalAlignment="Left" Margin="165,153,0,0" VerticalAlignment="Top" Width="120" SelectedItem="{Binding Path=TipNamestaja}"/>
         <Label x:Name="lblAkcija" Content="Akcija:" HorizontalAlignment="Left" Margin="21,178,0,0" VerticalAlignment="Top" Width="81"/>
         <ComboBox x:Name="cbAkcija" HorizontalAlignment="Left" Margin="165,180,0,0" VerticalAlignment="Top" Width="120" SelectedItem="{Binding Path=Akcija}"/>

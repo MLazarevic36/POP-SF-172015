@@ -19,8 +19,9 @@
         <TextBox x:Name="tbKupac" HorizontalAlignment="Left" Height="23" Margin="170,61,0,0"   Text="{Binding Path=Kupac}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbBrRacun" HorizontalAlignment="Left" Height="23" Margin="170,126,0,0"   Text="{Binding Path=BrojRacuna}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbUkCena" HorizontalAlignment="Left" Height="23" Margin="170,155,0,0"   Text="{Binding Path=UkupnaCena}" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="tbDatum" HorizontalAlignment="Left" Height="23" Margin="170,185,0,0"   Text="{Binding Path=DatumProdaje}" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="cbNamestaj" HorizontalAlignment="Left" Margin="170,92,0,0" VerticalAlignment="Top" Width="120" SelectedItem="{Binding Path=NamestajId}"/>
+        <DatePicker x:Name="dpDatum" HorizontalAlignment="Left" Height="23" Margin="170,185,0,0"   SelectedDate="{Binding Path=DatumProdaje}" VerticalAlignment="Top" Width="120"/>
+        <Button Name="btnNamestaj" Content="Izaberi namestaj" HorizontalAlignment="Left" Margin="293,92,0,0" VerticalAlignment="Top" Width="120"  Click="btnNamestaj_Click"/>
+        <TextBox Name="tbListaNamestaja" HorizontalAlignment="Left" Height="23" Margin="168,92,0,0" Text="{Binding Path=ListaNamestaja}" VerticalAlignment="Top" Width="120"/>
 
 
 

@@ -16,18 +16,6 @@ namespace POP_SF172015WPF.Model
         public enum TipoviKorisnika { ADMIN, PRODAVAC };
         private bool obrisan;
 
-        public Korisnik(string korIme, string password, int id, string ime, 
-            string prezime, TipoviKorisnika tipoviKorisnika, Boolean obrisan)
-        {
-            this.korIme = korIme;
-            this.password = password;
-            this.id = id;
-            this.ime = ime;
-            this.prezime = prezime;
-            TipKorisnika = tipoviKorisnika;
-            this.obrisan = obrisan;
-        }
-
         public Korisnik()
         {
         }

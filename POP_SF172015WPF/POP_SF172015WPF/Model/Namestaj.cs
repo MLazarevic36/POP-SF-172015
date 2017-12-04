@@ -12,12 +12,42 @@ namespace POP_SF172015WPF.Model
         private int id;
         private string naziv;
         private int cena;
-        private int kolicinaMagacin;
+        private int raspolozivost;
         private int tipNamestajaId;
         private bool obrisan;
         private int akcijaId;
         private TipNamestaja tipNamestaja;
         private Akcija akcija;
+
+        public String Naziv
+        {
+            get { return naziv; }
+            set
+            {
+                naziv = value;
+                OnPropertyChanged("Id");
+            }
+        }
+
+        public int Cena
+        {
+            get { return cena; }
+            set
+            {
+                cena = value;
+                OnPropertyChanged("Cena");
+            }
+        }
+
+        public int Raspolozivost
+        {
+            get { return raspolozivost; }
+            set
+            {
+                raspolozivost = value;
+                OnPropertyChanged("Raspolozivost");
+            }
+        }
 
         [XmlIgnore]
         public Akcija Akcija
@@ -78,36 +108,6 @@ namespace POP_SF172015WPF.Model
         }
 
 
-        public string Naziv
-        {
-            get { return naziv; }
-            set
-            {
-                naziv = value;
-                OnPropertyChanged("Naziv");
-            }
-        }
-
-        public int Cena
-        {
-            get { return cena; }
-            set
-            {
-                cena = value;
-                OnPropertyChanged("Cena");
-            }
-        }
-
-        public int KolicinaMagacin
-        {
-            get { return kolicinaMagacin; }
-            set
-            {
-                kolicinaMagacin = value;
-                OnPropertyChanged("KolicinaMagacin");
-            }
-        }
-
         public int AkcijaId
         {
             get { return akcijaId; }
@@ -133,7 +133,7 @@ namespace POP_SF172015WPF.Model
             Namestaj kopija = new Namestaj();
             kopija.Cena = cena;
             kopija.Id = id;
-            kopija.KolicinaMagacin = kolicinaMagacin;
+            kopija.Raspolozivost = raspolozivost;
             kopija.Naziv = naziv;
             kopija.TipNamestajaId = tipNamestajaId;
             kopija.Obrisan = obrisan;

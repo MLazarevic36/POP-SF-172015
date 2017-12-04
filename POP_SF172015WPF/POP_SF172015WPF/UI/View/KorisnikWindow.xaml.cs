@@ -20,6 +20,7 @@ namespace POP_SF172015WPF.UI
             InitializeComponent();
 
             view = CollectionViewSource.GetDefaultView(Projekat.Instance.Korisnici);
+            view.Filter = KorisnikFilter;
             
             dgKorisnik.ItemsSource = view;
             dgKorisnik.DataContext = this;
@@ -28,7 +29,11 @@ namespace POP_SF172015WPF.UI
             dgKorisnik.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
             
         }
-
+   
+        private bool KorisnikFilter(object obj)
+        {
+            return !((Korisnik)obj).Obrisan;
+        }
         
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
@@ -41,15 +46,15 @@ namespace POP_SF172015WPF.UI
 
         private void btnIzmeni_Click(object sender, RoutedEventArgs e)
         {
-            Korisnik selektovaniKorisnik = view.CurrentItem as Korisnik;
+            Korisnik SelektovaniKorisnik = view.CurrentItem as Korisnik;
 
-            if (selektovaniKorisnik != null)
+            if (SelektovaniKorisnik != null)
             {
-                Korisnik old = (Korisnik)selektovaniKorisnik.Clone();
-                KorisnikEditWindow kew = new KorisnikEditWindow(selektovaniKorisnik, KorisnikEditWindow.Operacija.IZMENA);
+                Korisnik old = (Korisnik)SelektovaniKorisnik.Clone();
+                KorisnikEditWindow kew = new KorisnikEditWindow(SelektovaniKorisnik, KorisnikEditWindow.Operacija.IZMENA);
                 if (kew.ShowDialog() != true)
                 {
-                    int index = Projekat.Instance.Korisnici.IndexOf(selektovaniKorisnik);
+                    int index = Projekat.Instance.Korisnici.IndexOf(SelektovaniKorisnik);
                     Projekat.Instance.Korisnici[index] = old;
 
                 }
@@ -58,17 +63,17 @@ namespace POP_SF172015WPF.UI
 
         private void btnObrisi_Click(object sender, RoutedEventArgs e)
         {
-            int selectedUserID = ((Korisnik)dgKorisnik.SelectedItem).Id;
+            Korisnik SelektovaniKorisnik = view.CurrentItem as Korisnik;
             foreach (var korisnik in Projekat.Instance.Korisnici)
             {
-                if (korisnik.Id == selectedUserID)
+                if (korisnik.Id == SelektovaniKorisnik.Id)
                 {
                     korisnik.Obrisan = true;
-                    view.Refresh();
-                    break;
                 }
+                
             }
-            
+            view.Refresh();
+
         }
 
         private void btnNazad_Click(object sender, RoutedEventArgs e)

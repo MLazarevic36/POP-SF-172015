@@ -1,4 +1,5 @@
 ﻿using POP_SF172015WPF.Model;
+using POP_SF172015WPF.UI.View;
 using System.Windows;
 
 namespace POP_SF172015WPF.UI.Edit
@@ -16,14 +17,14 @@ namespace POP_SF172015WPF.UI.Edit
 
             this.racun = racun;
 
-            cbNamestaj.ItemsSource = Projekat.Instance.Namestaj;
+            
 
             tbId.DataContext = racun;
             tbKupac.DataContext = racun;
             tbBrRacun.DataContext = racun;
-            tbDatum.DataContext = racun;
+            dpDatum.DataContext = racun;
             tbUkCena.DataContext = racun;
-            cbNamestaj.DataContext = racun;
+            
 
             //racun.Id = Projekat.Instance.Racuni.Count + 1;
         }
@@ -38,6 +39,12 @@ namespace POP_SF172015WPF.UI.Edit
         private void btnOdustani_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btnNamestaj_Click(object sender, RoutedEventArgs e)
+        {
+            SpisakNamestaja sn = new SpisakNamestaja();
+            sn.ShowDialog();
         }
     }
 }
