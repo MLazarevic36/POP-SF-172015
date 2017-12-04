@@ -32,18 +32,26 @@ namespace POP_SF172015WPF.Model
         {
         }
 
-        public TipoviKorisnika TipKorisnika { get; set; }
-
-        public string Password
+        public string Ime
         {
-            get { return password; }
+            get { return ime; }
             set
             {
-                password = value;
-                OnPropertyChanged("Password");
+                ime = value;
+                OnPropertyChanged("Ime");
             }
         }
-         
+
+        public string Prezime
+        {
+            get { return prezime; }
+            set
+            {
+                prezime = value;
+                OnPropertyChanged("Prezime");
+            }
+        }
+
         public string KorIme
         {
             get { return korIme; }
@@ -54,7 +62,18 @@ namespace POP_SF172015WPF.Model
             }
         }
 
-        
+        public string Password
+        {
+            get { return password; }
+            set
+            {
+                password = value;
+                OnPropertyChanged("Password");
+            }
+        }
+
+
+        public TipoviKorisnika TipKorisnika { get; set; }
 
         public bool Obrisan 
         {
@@ -63,29 +82,6 @@ namespace POP_SF172015WPF.Model
             {
                 obrisan = value;
                 OnPropertyChanged("Obrisan");
-            }
-        }
-
-
-        public  string Prezime
-        {
-            get { return prezime; }
-            set
-            {
-                prezime = value;
-                OnPropertyChanged("Prezime");
-            }
-        }
-
-
-
-        public string Ime
-        {
-            get { return ime; }
-            set
-            {
-                ime = value;
-                OnPropertyChanged("Ime");
             }
         }
 

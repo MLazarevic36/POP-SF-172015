@@ -31,14 +31,6 @@ namespace POP_SF172015WPF
 
         private Projekat()
         {
-            Saloni = new ObservableCollection<Salon>();
-            Korisnici = new ObservableCollection<Korisnik>();
-            Namestaj = new ObservableCollection<Namestaj>();
-            TipoviNamestaja = new ObservableCollection<TipNamestaja>();
-            Akcije = new ObservableCollection<Akcija>();
-            Racuni = new ObservableCollection<Racun>();
-
-
             // ne radi ucitavanje salon.xml i racuni.xml 
 
             //Saloni = GenericSerializer.Deserialize<Salon>("salon.xml");
@@ -61,15 +53,15 @@ namespace POP_SF172015WPF
 
         //}
 
-        //public void ProjekatExit()
-        //{
-        //    GenericSerializer.Serialize("namestaj.xml", Namestaj);
-        //    GenericSerializer.Serialize("korisnici.xml", Korisnici);
-        //    GenericSerializer.Serialize("tipovi_namestaja.xml", TipoviNamestaja);
-        //    GenericSerializer.Serialize("akcije.xml", Akcije);
-        //    GenericSerializer.Serialize("racuni.xml", Racuni);
+        public void ProjekatExit()
+        {
+            GenericSerializer.Serialize("namestaj.xml", Namestaj);
+            GenericSerializer.Serialize("korisnici.xml", Korisnici);
+            GenericSerializer.Serialize("tipovi_namestaja.xml", TipoviNamestaja);
+            GenericSerializer.Serialize("akcije.xml", Akcije);
+            GenericSerializer.Serialize("racuni.xml", Racuni);
 
 
-        //}
+        }
     }
 }

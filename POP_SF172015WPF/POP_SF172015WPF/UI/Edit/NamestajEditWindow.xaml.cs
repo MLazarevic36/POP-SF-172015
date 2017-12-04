@@ -20,12 +20,14 @@ namespace POP_SF172015WPF.UI.Edit
             this.operacija = operacija;
 
             cbTipNamestaja.ItemsSource = Projekat.Instance.TipoviNamestaja;
+            cbAkcija.ItemsSource = Projekat.Instance.Akcije;
 
             tbNaziv.DataContext = namestaj;
             tbId.DataContext = namestaj;
             tbCena.DataContext = namestaj;
             tbKolicina.DataContext = namestaj;
             cbTipNamestaja.DataContext = namestaj;
+            cbAkcija.DataContext = namestaj;
 
             if (operacija == Operacija.DODAVANJE)
             {

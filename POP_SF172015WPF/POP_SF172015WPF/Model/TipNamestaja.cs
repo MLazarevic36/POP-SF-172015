@@ -55,6 +55,18 @@ namespace POP_SF172015WPF.Model
             return kopija;
         }
 
+        public static TipNamestaja GetById(int id)
+        {
+            foreach (var tipNamestaja in Projekat.Instance.TipoviNamestaja)
+            {
+                if (tipNamestaja.id == id)
+                {
+                    return tipNamestaja;
+                }
+            }
+            return null;
+        }
+
         protected void OnPropertyChanged(string propertyName)
         {
 

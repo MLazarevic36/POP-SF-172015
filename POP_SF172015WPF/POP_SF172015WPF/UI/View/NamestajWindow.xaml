@@ -10,10 +10,10 @@
             <RowDefinition Height="207*"/>
             <RowDefinition Height="62*"/>
         </Grid.RowDefinitions>
+        <DataGrid x:Name="dgNamestaj" CanUserAddRows="False" AutoGeneratingColumn="dgNamestaj_AutoGeneratingColumn" IsReadOnly="True"/>
         <Button x:Name="btnDodaj" Content="Dodaj" HorizontalAlignment="Left" Margin="44,19,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" Click="btnDodaj_Click"/>
         <Button x:Name="btnIzmeni" Content="Izmeni" HorizontalAlignment="Left" Margin="125,19,0,0" Grid.Row="1" VerticalAlignment="Top" Width="49" Click="btnIzmeni_Click"/>
         <Button x:Name="btnObrisi" Content="Obrisi" HorizontalAlignment="Left" Margin="199,19,0,0" Grid.Row="1" VerticalAlignment="Top" Width="48" Click="btnObrisi_Click"/>
-        <DataGrid x:Name="dgNamestaj" SelectedItem="{Binding Path=selektovaniNamestaj}" AutoGenerateColumns="True" AutoGeneratingColumn="dgNamestaj_AutoGeneratingColumn" IsReadOnly="True"/>
         <Button x:Name="btnIzlaz" Content="Izlaz" HorizontalAlignment="Left" Margin="366,19,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="btnIzlaz_Click"/>
 
     </Grid>

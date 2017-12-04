@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace POP_SF172015WPF.Model
 {
@@ -14,7 +15,47 @@ namespace POP_SF172015WPF.Model
         private int kolicinaMagacin;
         private int tipNamestajaId;
         private bool obrisan;
+        private int akcijaId;
+        private TipNamestaja tipNamestaja;
+        private Akcija akcija;
 
+        [XmlIgnore]
+        public Akcija Akcija
+        {
+            get
+            {
+                if (akcija == null)
+                {
+                    akcija = Akcija.GetById(AkcijaId);
+                }
+                return akcija;
+            }
+            set
+            {
+                akcija = value;
+                AkcijaId = akcija.Id;
+                OnPropertyChanged("Akcija");
+            }
+        }
+
+        [XmlIgnore]
+        public TipNamestaja TipNamestaja
+        {
+            get
+            {
+                if(tipNamestaja == null)
+                {
+                    tipNamestaja = TipNamestaja.GetById(TipNamestajaId);
+                }
+                return tipNamestaja;
+            }
+            set
+            {
+                tipNamestaja = value;
+                TipNamestajaId = tipNamestaja.Id;
+                OnPropertyChanged("TipNamestaja");
+            }
+        }
 
         public int Id
         {
@@ -66,6 +107,17 @@ namespace POP_SF172015WPF.Model
                 OnPropertyChanged("KolicinaMagacin");
             }
         }
+
+        public int AkcijaId
+        {
+            get { return akcijaId; }
+            set
+            {
+                akcijaId = value;
+                OnPropertyChanged("AkcijaId");
+            }
+        }
+
         public bool Obrisan
         {
             get { return obrisan; }

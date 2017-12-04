@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System;
 
 namespace POP_SF172015WPF.UI.View
 {
@@ -19,12 +20,17 @@ namespace POP_SF172015WPF.UI.View
             InitializeComponent();
 
             view = CollectionViewSource.GetDefaultView(Projekat.Instance.Namestaj);
+            view.Filter = NamestajFilter;
             dgNamestaj.ItemsSource = view;
             dgNamestaj.IsSynchronizedWithCurrentItem = true;
 
             dgNamestaj.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
         }
-        
+
+        private bool NamestajFilter(object obj)
+        {
+            return !((Namestaj)obj).Obrisan;
+        }
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
@@ -35,15 +41,15 @@ namespace POP_SF172015WPF.UI.View
 
         private void btnIzmeni_Click(object sender, RoutedEventArgs e)
         {
-            Namestaj selektovaniNamestaj = view.CurrentItem as Namestaj;
+            Namestaj SelektovaniNamestaj = view.CurrentItem as Namestaj;
 
-            if (selektovaniNamestaj != null)
+            if (SelektovaniNamestaj != null)
             {
-                Namestaj old = (Namestaj)selektovaniNamestaj.Clone();
-                NamestajEditWindow naew = new NamestajEditWindow(selektovaniNamestaj, NamestajEditWindow.Operacija.IZMENA);
+                Namestaj old = (Namestaj)SelektovaniNamestaj.Clone();
+                NamestajEditWindow naew = new NamestajEditWindow(SelektovaniNamestaj, NamestajEditWindow.Operacija.IZMENA);
                 if (naew.ShowDialog() != true)
                 {
-                    int index = Projekat.Instance.Namestaj.IndexOf(selektovaniNamestaj);
+                    int index = Projekat.Instance.Namestaj.IndexOf(SelektovaniNamestaj);
                     Projekat.Instance.Namestaj[index] = old;
                 }
             }
@@ -52,16 +58,15 @@ namespace POP_SF172015WPF.UI.View
 
         private void btnObrisi_Click(object sender, RoutedEventArgs e)
         {
-            int selektovaniNamestajID = ((Namestaj)dgNamestaj.SelectedItem).Id;
+            Namestaj SelektovaniNamestaj = view.CurrentItem as Namestaj;
             foreach (var namestaj in Projekat.Instance.Namestaj)
             {
-                if (namestaj.Id == selektovaniNamestajID)
+                if (namestaj.Id == SelektovaniNamestaj.Id)
                 {
                     namestaj.Obrisan = true;
-
-                    break;
                 }
             }
+            view.Refresh();
         }
 
         private void btnIzlaz_Click(object sender, RoutedEventArgs e)
@@ -80,6 +85,10 @@ namespace POP_SF172015WPF.UI.View
                 e.Cancel = true;
             }
             if ((string)e.Column.Header == "TipNamestajaId")
+            {
+                e.Cancel = true;
+            }
+            if ((string)e.Column.Header == "AkcijaId")
             {
                 e.Cancel = true;
             }

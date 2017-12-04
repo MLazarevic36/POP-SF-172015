@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF172015WPF"
         mc:Ignorable="d"
-        Title="Administracija podataka" Height="336" Width="715.763" >
+        Title="Administracija podataka" Height="336" Width="715.763" Closing="Window_Closing">
     <Grid>
         <Button x:Name="btnKorisnici" Content="Korisnici" HorizontalAlignment="Left" Margin="273,161,0,0" VerticalAlignment="Top" Width="127" Click="btnKorisnici_Click" Height="39"/>
         <Button x:Name="btnNamestaj" Content="Namestaj" HorizontalAlignment="Left" Margin="138,112,0,0" VerticalAlignment="Top" Width="101" Click="btnNamestaj_Click" Height="36"/>

@@ -7,29 +7,12 @@ namespace POP_SF172015WPF.Model
     {
 
         private int id;
-        private int namestajId;
         private int popust;
         private DateTime datumPocetka;
         private DateTime datumZavrsetka;
         private Boolean obrisan;
 
         public event PropertyChangedEventHandler PropertyChanged;
-
-        public Akcija()
-        {
-
-        }
-
-        public Akcija(int id, int namestajId, int popust, DateTime datumPocetka, DateTime datumZavrsetka,
-                      Boolean obrisan)
-        {
-            this.id = id;
-            this.namestajId = namestajId;
-            this.popust = popust;
-            this.datumPocetka = datumPocetka;
-            this.datumZavrsetka = datumZavrsetka;
-            this.obrisan = obrisan;
-        }
 
         public int Id
         {
@@ -86,24 +69,11 @@ namespace POP_SF172015WPF.Model
             }
         }
 
-        public int NamestajId
+
+        public override string ToString()
         {
-            get { return namestajId; }
-            set
-            {
-                namestajId = value;
-                OnPropertyChanged("NamestajId");
-            }
+            return Popust + "%";
         }
-        
-
-      
-
-        //public override string ToString()
-        //{
-        //    return "ID: " + ID + " Pocetak akcije: " + DatumPocetka + " Datum zavrsetka: " + DatumZavrsetka
-        //        + " Namestaj: " + NamestajID + " Popust: " + Popust + "%";
-        //}
 
         public static Akcija GetById(int id)
         {
@@ -129,7 +99,6 @@ namespace POP_SF172015WPF.Model
         {
             Akcija kopija = new Akcija();
             kopija.Id = Id;
-            kopija.NamestajId = NamestajId;
             kopija.Popust = Popust;
             kopija.DatumPocetka = DatumPocetka;
             kopija.DatumZavrsetka = DatumZavrsetka;
