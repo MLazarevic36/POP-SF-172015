@@ -23,7 +23,7 @@ namespace POP_SF172015WPF.UI
             view.Filter = KorisnikFilter;
             
             dgKorisnik.ItemsSource = view;
-            dgKorisnik.DataContext = this;
+            //dgKorisnik.DataContext = this;
             dgKorisnik.IsSynchronizedWithCurrentItem = true;
 
             dgKorisnik.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
@@ -39,7 +39,7 @@ namespace POP_SF172015WPF.UI
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
             Korisnik noviKorisnik = new Korisnik();
-            KorisnikEditWindow kew = new KorisnikEditWindow(noviKorisnik, KorisnikEditWindow.Operacija.DODAVANJE);
+            KorisnikEditWindow kew = new KorisnikEditWindow(noviKorisnik);
             kew.ShowDialog();
             
         }
@@ -95,7 +95,17 @@ namespace POP_SF172015WPF.UI
 
         }
 
-        
-        
+        private void btnRestore_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var korisnik in Projekat.Instance.Korisnici)
+            {
+                if (korisnik.Obrisan == true)
+                {
+                    korisnik.Obrisan = false;
+                }
+
+            }
+            view.Refresh();
+        }
     }
 }

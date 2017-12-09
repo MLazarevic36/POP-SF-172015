@@ -25,6 +25,15 @@
     <Id>3</Id>
     <TipNamestajaId>1</TipNamestajaId>
     <AkcijaId>0</AkcijaId>
-    <Obrisan>false</Obrisan>
+    <Obrisan>true</Obrisan>
+  </Namestaj>
+  <Namestaj>
+    <Naziv>sadsa</Naziv>
+    <Cena>2323</Cena>
+    <Raspolozivost>4</Raspolozivost>
+    <Id>4</Id>
+    <TipNamestajaId>1</TipNamestajaId>
+    <AkcijaId>1</AkcijaId>
+    <Obrisan>true</Obrisan>
   </Namestaj>
 </ArrayOfNamestaj>
