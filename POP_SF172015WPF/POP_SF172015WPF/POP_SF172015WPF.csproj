@@ -61,6 +61,7 @@
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Akcija.cs" />
+    <Compile Include="Model\DodatnaUsluga.cs" />
     <Compile Include="Model\Korisnik.cs" />
     <Compile Include="Model\Namestaj.cs" />
     <Compile Include="Model\Racun.cs" />
@@ -214,6 +215,9 @@
     <Resource Include="Data\namestaj.xml" />
     <Resource Include="Data\racuni.xml" />
     <Resource Include="Data\tipovi_namestaja.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\usluge.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

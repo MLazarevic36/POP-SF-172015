@@ -5,9 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF172015WPF.UI.Edit"
         mc:Ignorable="d"
-        Title="Racun" Height="300" Width="439.85">
+        Title="Racun" Height="333.835" Width="693.609">
     <Grid>
-        <Label Content="ID:" HorizontalAlignment="Left" Margin="44,30,0,0" VerticalAlignment="Top"/>
         <Label Content="Kupac:" HorizontalAlignment="Left" Margin="44,61,0,0" VerticalAlignment="Top"/>
         <Label Content="Namestaj:" HorizontalAlignment="Left" Margin="44,92,0,0" VerticalAlignment="Top"/>
         <Label Content="Broj racuna:" HorizontalAlignment="Left" Margin="44,123,0,0" VerticalAlignment="Top"/>
@@ -15,7 +14,6 @@
         <Label Content="Datum prodaje:" HorizontalAlignment="Left" Margin="44,185,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnPotvrdi" Content="Potvrdi" HorizontalAlignment="Left" Margin="118,237,0,0" VerticalAlignment="Top" Width="75" Click="btnPotvrdi_Click"/>
         <Button x:Name="btnOdustani" Content="Odustani" HorizontalAlignment="Left" Margin="236,237,0,0" VerticalAlignment="Top" Width="75" Click="btnOdustani_Click"/>
-        <TextBox x:Name="tbId" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="170,30,0,0"  Text="{Binding Path=Id}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbKupac" HorizontalAlignment="Left" Height="23" Margin="170,61,0,0"   Text="{Binding Path=Kupac}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbBrRacun" HorizontalAlignment="Left" Height="23" Margin="170,126,0,0"   Text="{Binding Path=BrojRacuna}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbUkCena" HorizontalAlignment="Left" Height="23" Margin="170,155,0,0"   Text="{Binding Path=UkupnaCena}" VerticalAlignment="Top" Width="120"/>
