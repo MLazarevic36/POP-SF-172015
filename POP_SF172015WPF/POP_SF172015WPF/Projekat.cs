@@ -41,7 +41,7 @@ namespace POP_SF172015WPF
             Korisnici = GenericSerializer.Deserialize<Korisnik>("korisnici.xml");
             Akcije = GenericSerializer.Deserialize<Akcija>("akcije.xml");
             Racuni = GenericSerializer.Deserialize<Racun>("racuni.xml");
-            DodatneUsluge = GenericSerializer.Deserialize<DodatnaUsluga>("usluge.xml");
+            //DodatneUsluge = GenericSerializer.Deserialize<DodatnaUsluga>("usluge.xml");
             //NapuniPodatke();
 
         }

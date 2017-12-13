@@ -5,12 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF172015WPF.UI.View"
         mc:Ignorable="d"
-        Title="SpisakNamestaja" Height="391.515" Width="784.412">
+        Title="SpisakNamestaja" Height="391.515" Width="597.486">
     <Grid>
         <DataGrid x:Name="dgListaNamestaja" AutoGenerateColumns="True" IsReadOnly="True" AutoGeneratingColumn="dgListaNamestaja_AutoGeneratingColumn" SelectedItem="{Binding Path=SelektovaniNamestaj}"/>
-        <DataGrid HorizontalAlignment="Left" Height="134" Margin="10,10,0,0" VerticalAlignment="Top" Width="756"/>
-        <DataGrid HorizontalAlignment="Left" Height="154" Margin="10,163,0,0" VerticalAlignment="Top" Width="756"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="129,322,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="388,322,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnPreuzmi" Content="Preuzmi" HorizontalAlignment="Left" Margin="129,322,0,0" VerticalAlignment="Top" Width="75" Click="btnPreuzmi_Click"/>
+        <Button x:Name="btnOdustani" Content="Odustani" HorizontalAlignment="Left" Margin="388,322,0,0" VerticalAlignment="Top" Width="75" Click="btnOdustani_Click"/>
     </Grid>
 </Window>

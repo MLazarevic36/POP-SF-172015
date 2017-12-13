@@ -74,6 +74,9 @@
     <Compile Include="UI\Edit\AkcijeEditWindow.xaml.cs">
       <DependentUpon>AkcijeEditWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Edit\DodatnaUslugaEditWindow.xaml.cs">
+      <DependentUpon>DodatnaUslugaEditWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Edit\KorisnikEditWindow.xaml.cs">
       <DependentUpon>KorisnikEditWindow.xaml</DependentUpon>
     </Compile>
@@ -88,6 +91,9 @@
     </Compile>
     <Compile Include="UI\View\AkcijeWindow.xaml.cs">
       <DependentUpon>AkcijeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\View\DodatnaUslugaWindow.xaml.cs">
+      <DependentUpon>DodatnaUslugaWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\View\KorisnikWindow.xaml.cs">
       <DependentUpon>KorisnikWindow.xaml</DependentUpon>
@@ -127,6 +133,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UI\Edit\DodatnaUslugaEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\Edit\KorisnikEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -148,6 +158,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\View\AkcijeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\View\DodatnaUslugaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

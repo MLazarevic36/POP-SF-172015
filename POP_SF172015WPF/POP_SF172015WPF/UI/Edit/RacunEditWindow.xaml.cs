@@ -18,8 +18,7 @@ namespace POP_SF172015WPF.UI.Edit
             this.racun = racun;
 
             
-
-            tbId.DataContext = racun;
+           
             tbKupac.DataContext = racun;
             tbBrRacun.DataContext = racun;
             dpDatum.DataContext = racun;

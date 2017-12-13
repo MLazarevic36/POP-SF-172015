@@ -7,4 +7,11 @@
     <Obrisan>false</Obrisan>
     <Popust>15</Popust>
   </Akcija>
+  <Akcija>
+    <Id>2</Id>
+    <DatumPocetka>0001-01-01T00:00:00</DatumPocetka>
+    <DatumZavrsetka>0001-01-01T00:00:00</DatumZavrsetka>
+    <Obrisan>false</Obrisan>
+    <Popust>25</Popust>
+  </Akcija>
 </ArrayOfAkcija>

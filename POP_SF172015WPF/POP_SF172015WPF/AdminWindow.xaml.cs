@@ -65,5 +65,11 @@ namespace POP_SF172015WPF
         {
             Projekat.Instance.ProjekatExit();
         }
+
+        private void btnDusluge_Click(object sender, RoutedEventArgs e)
+        {
+            DodatnaUslugaWindow duw = new DodatnaUslugaWindow();
+            duw.ShowDialog();
+        }
     }
 }
