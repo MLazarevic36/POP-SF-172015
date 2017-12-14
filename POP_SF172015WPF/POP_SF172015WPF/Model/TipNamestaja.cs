@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace POP_SF172015WPF.Model
 {
-    public class TipNamestaja : INotifyPropertyChanged, ICloneable 
+    public class TipNamestaja : INotifyPropertyChanged, ICloneable
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -83,10 +83,10 @@ namespace POP_SF172015WPF.Model
         #region Database
 
         public static ObservableCollection<TipNamestaja> GetAll()
-        { 
+        {
             var tipoviNamestaja = new ObservableCollection<TipNamestaja>();
 
-            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["Salon"].ConnectionString))
+            using (SqlConnection con = new SqlConnection(Projekat.CONNECTION_STRING))
             {
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandText = "SELECT * FROM TipNamestaja WHERE Obrisan=0";
@@ -99,7 +99,7 @@ namespace POP_SF172015WPF.Model
 
                 foreach (DataRow row in ds.Tables["TipNamestaja"].Rows)
                 {
-                    var tn = new TipNamestaja();
+                    TipNamestaja tn = new TipNamestaja();
                     tn.Id = int.Parse(row["Id"].ToString());
                     tn.Naziv = row["Naziv"].ToString();
                     tn.Obrisan = bool.Parse(row["Obrisan"].ToString());
@@ -113,7 +113,7 @@ namespace POP_SF172015WPF.Model
 
         public static TipNamestaja Create(TipNamestaja tn)
         {
-            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["Salon"].ConnectionString))
+            using (SqlConnection con = new SqlConnection(Projekat.CONNECTION_STRING))
             {
                 con.Open();
 
@@ -134,7 +134,7 @@ namespace POP_SF172015WPF.Model
 
         public static void Update(TipNamestaja tn)
         {
-            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["Salon"].ConnectionString))
+            using (SqlConnection con = new SqlConnection(Projekat.CONNECTION_STRING))
             {
                 con.Open();
 
@@ -147,9 +147,9 @@ namespace POP_SF172015WPF.Model
 
                 cmd.ExecuteNonQuery();
 
-                foreach(var tipNamestaja in Projekat.Instance.TipoviNamestaja)
+                foreach (var tipNamestaja in Projekat.Instance.TipoviNamestaja)
                 {
-                    if(tipNamestaja.Id == tn.Id)
+                    if (tipNamestaja.Id == tn.Id)
                     {
                         tipNamestaja.Naziv = tn.Naziv;
                         tipNamestaja.Obrisan = tn.Obrisan;

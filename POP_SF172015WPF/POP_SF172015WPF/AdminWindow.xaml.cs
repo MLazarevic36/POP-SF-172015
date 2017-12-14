@@ -50,7 +50,6 @@ namespace POP_SF172015WPF
         {
             LoginWindow lw = new LoginWindow();
             lw.ShowDialog();
-            Projekat.Instance.ProjekatExit();
             this.Close();
             
         }
@@ -59,11 +58,6 @@ namespace POP_SF172015WPF
         {
             TipNamestajaWindow tw = new TipNamestajaWindow();
             tw.ShowDialog();
-        }
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            Projekat.Instance.ProjekatExit();
         }
 
         private void btnDusluge_Click(object sender, RoutedEventArgs e)
