@@ -37,23 +37,16 @@ namespace POP_SF172015WPF
 
             //Saloni = GenericSerializer.Deserialize<Salon>("salon.xml");
             Namestaj = GenericSerializer.Deserialize<Namestaj>("namestaj.xml");
-            TipoviNamestaja = GenericSerializer.Deserialize<TipNamestaja>("tipovi_namestaja.xml");
+            TipoviNamestaja = TipNamestaja.GetAll();
             Korisnici = GenericSerializer.Deserialize<Korisnik>("korisnici.xml");
             Akcije = GenericSerializer.Deserialize<Akcija>("akcije.xml");
             Racuni = GenericSerializer.Deserialize<Racun>("racuni.xml");
             //DodatneUsluge = GenericSerializer.Deserialize<DodatnaUsluga>("usluge.xml");
-            //NapuniPodatke();
+            
 
         }
 
-        //private void NapuniPodatke()
-        //{
-        //    Salon s = new Salon("Salon namestaja Surdulica", "Glavna ulica 36", "999899", "alexjones@gmail.com",
-        //                       "salons.rs", "1653136", "12521512351", "351251152152");
-        //    Saloni.Add(s);
-
-
-        //}
+        
 
         public void ProjekatExit()
         {

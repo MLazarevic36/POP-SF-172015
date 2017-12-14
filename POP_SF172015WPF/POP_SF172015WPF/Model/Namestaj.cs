@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Xml.Serialization;
 
 namespace POP_SF172015WPF.Model
@@ -73,7 +77,7 @@ namespace POP_SF172015WPF.Model
         {
             get
             {
-                if(tipNamestaja == null)
+                if (tipNamestaja == null)
                 {
                     tipNamestaja = TipNamestaja.GetById(TipNamestajaId);
                 }
@@ -161,6 +165,40 @@ namespace POP_SF172015WPF.Model
             }
         }
 
+        #region Database
+
+        public static ObservableCollection<Namestaj> GetAll()
+        {
+
+            var namestaj = new ObservableCollection<Namestaj>();
+            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["Salon"].ConnectionString))
+            {
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT * FROM Namestaj WHERE Obrisan=0";
+
+                DataSet ds = new DataSet();
+                SqlDataAdapter da = new SqlDataAdapter();
+
+                da.SelectCommand = cmd;
+                da.Fill(ds, "Namestaj"); //izvrsava se query nad bazom
+
+                foreach (DataRow row in ds.Tables["Namestaj"].Rows)
+                {
+                    var n = new Namestaj();
+                    n.Id = int.Parse(row["Id"].ToString());
+                    n.Cena = int.Parse(row["Cena"].ToString());
+                    n.Naziv = row["Naziv"].ToString();
+                    n.Obrisan = bool.Parse(row["Obrisan"].ToString());
+
+                    namestaj.Add(n);
+                }
+
+            }
+            return namestaj;
+
+        }
+
+        #endregion
 
     }
 }
