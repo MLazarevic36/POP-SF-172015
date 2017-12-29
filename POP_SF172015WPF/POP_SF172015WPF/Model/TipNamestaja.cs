@@ -100,11 +100,11 @@ namespace POP_SF172015WPF.Model
                 foreach (DataRow row in ds.Tables["TipNamestaja"].Rows)
                 {
                     TipNamestaja tn = new TipNamestaja();
-                    tn.Id = int.Parse(row["Id"].ToString());
-                    tn.Naziv = row["Naziv"].ToString();
-                    tn.Obrisan = bool.Parse(row["Obrisan"].ToString());
+                    tn.Id = (int)row["Id"];
+                    tn.Naziv = (string)row["Naziv"];
+                    tn.Obrisan = (bool)row["Obrisan"];
 
-                    tipoviNamestaja.Add(tn);
+                    Projekat.Instance.TipoviNamestaja.Add(tn);
                 }
 
             }

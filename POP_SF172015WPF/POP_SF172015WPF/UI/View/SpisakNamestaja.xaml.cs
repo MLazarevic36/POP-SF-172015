@@ -21,7 +21,7 @@ namespace POP_SF172015WPF.UI.View
         {
             InitializeComponent();
 
-            namestajView = CollectionViewSource.GetDefaultView(Projekat.Instance.Namestaj);
+            namestajView = CollectionViewSource.GetDefaultView(Projekat.Instance.Namestajm);
 
             dgListaNamestaja.ItemsSource = namestajView;
             dgListaNamestaja.DataContext = this;

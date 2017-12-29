@@ -5,16 +5,15 @@ using System.Collections.ObjectModel;
 
 namespace POP_SF172015WPF
 {
-    class Projekat
+    public class Projekat
     {
-        public const string CONNECTION_STRING = @"Integrated Security=true;
-                                                      Initial Catalog=SalonNamestaja;
-                                                      Data Source=.\SQLEXPRESS";
+        public const string CONNECTION_STRING = @"Server=localhost\SQLEXPRESS;
+                                                    Initial Catalog=SalonNamestaja;
+                                                    Trusted_Connection=True;";
 
-        public static Korisnik LoggedUser = null;
 
         public ObservableCollection<Korisnik> Korisnici { get; set; }
-        public ObservableCollection<Namestaj> Namestaj { get; set; }
+        public ObservableCollection<Namestaj> Namestajm { get; set; }
         public ObservableCollection<TipNamestaja> TipoviNamestaja { get; set; }
         public ObservableCollection<Salon> Saloni { get; set; }
         public ObservableCollection<Akcija> Akcije { get; set; }
@@ -26,6 +25,23 @@ namespace POP_SF172015WPF
 
         private static Projekat instance = new Projekat();
 
+        
+
+        private Projekat()
+        {
+
+            Namestajm = new ObservableCollection<Namestaj>();
+            TipoviNamestaja = new ObservableCollection<TipNamestaja>();
+            Korisnici = new ObservableCollection<Korisnik>();
+            Akcije = new ObservableCollection<Akcija>();
+            Racuni = new ObservableCollection<Racun>();
+            DodatneUsluge = new ObservableCollection<DodatnaUsluga>();
+            Saloni = new ObservableCollection<Salon>();
+
+            //TipNamestaja.GetAll();
+            //Akcija.GetAll();
+        }
+
         public static Projekat Instance
         {
             get
@@ -34,13 +50,7 @@ namespace POP_SF172015WPF
             }
         }
 
-        private Projekat()
-        {
-
-            TipoviNamestaja = TipNamestaja.GetAll();
-        }
-
-
+        public static Korisnik LoggedUser = null;
         
     }
 }

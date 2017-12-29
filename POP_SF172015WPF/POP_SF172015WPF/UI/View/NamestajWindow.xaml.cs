@@ -13,14 +13,13 @@ namespace POP_SF172015WPF.UI.View
     /// </summary>
     public partial class NamestajWindow : Window
     {
-        ICollectionView view;
+        private ICollectionView view;
 
         public NamestajWindow()
         {
             InitializeComponent();
 
-            view = CollectionViewSource.GetDefaultView(Projekat.Instance.Namestaj);
-            view.Filter = NamestajFilter;
+            view = CollectionViewSource.GetDefaultView(Projekat.Instance.Namestajm);
             dgNamestaj.ItemsSource = view;
             dgNamestaj.IsSynchronizedWithCurrentItem = true;
 
@@ -49,8 +48,8 @@ namespace POP_SF172015WPF.UI.View
                 NamestajEditWindow naew = new NamestajEditWindow(SelektovaniNamestaj, NamestajEditWindow.Operacija.IZMENA);
                 if (naew.ShowDialog() != true)
                 {
-                    int index = Projekat.Instance.Namestaj.IndexOf(SelektovaniNamestaj);
-                    Projekat.Instance.Namestaj[index] = old;
+                    int index = Projekat.Instance.Namestajm.IndexOf(SelektovaniNamestaj);
+                    Projekat.Instance.Namestajm[index] = old;
                 }
             }
 
@@ -59,7 +58,7 @@ namespace POP_SF172015WPF.UI.View
         private void btnObrisi_Click(object sender, RoutedEventArgs e)
         {
             Namestaj SelektovaniNamestaj = view.CurrentItem as Namestaj;
-            foreach (var namestaj in Projekat.Instance.Namestaj)
+            foreach (var namestaj in Projekat.Instance.Namestajm)
             {
                 if (namestaj.Id == SelektovaniNamestaj.Id)
                 {

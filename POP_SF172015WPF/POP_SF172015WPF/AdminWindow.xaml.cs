@@ -1,6 +1,8 @@
-﻿using POP_SF172015WPF.UI;
+﻿using POP_SF172015WPF.Model;
+using POP_SF172015WPF.UI;
 using POP_SF172015WPF.UI.View;
 using System.Windows;
+
 
 namespace POP_SF172015WPF
 {
@@ -12,6 +14,7 @@ namespace POP_SF172015WPF
         public AdminWindow()
         {
             InitializeComponent();
+            GetAllDB();
         }
 
         private void btnKorisnici_Click(object sender, RoutedEventArgs e)
@@ -64,6 +67,13 @@ namespace POP_SF172015WPF
         {
             DodatnaUslugaWindow duw = new DodatnaUslugaWindow();
             duw.ShowDialog();
+        }
+
+        private void GetAllDB()
+        {
+            TipNamestaja.GetAll();
+            Namestaj.GetAll();
+            Akcija.GetAll();
         }
     }
 }

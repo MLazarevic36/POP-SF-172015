@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace POP_SF172015WPF.Model
 {
@@ -105,5 +108,40 @@ namespace POP_SF172015WPF.Model
             kopija.Obrisan = Obrisan;
             return kopija;
         }
+
+        #region Database
+        public static ObservableCollection<Akcija> GetAll()
+        {
+            var akcija = new ObservableCollection<Akcija>();
+
+            using (SqlConnection con = new SqlConnection(Projekat.CONNECTION_STRING))
+            {
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT * FROM Akcija WHERE Obrisan=0";
+
+                DataSet ds = new DataSet();
+                SqlDataAdapter da = new SqlDataAdapter();
+
+                da.SelectCommand = cmd;
+                da.Fill(ds, "Akcija"); //izvrsava se query nad bazom
+
+                foreach (DataRow row in ds.Tables["Akcija"].Rows)
+                {
+                    Akcija a = new Akcija();
+                    a.Id = (int)row["Id"];
+                    a.Popust = (int)row["Popust"];
+                    a.DatumPocetka = (DateTime)row["DatumPocetka"];
+                    a.DatumZavrsetka = (DateTime)row["DatumZavrsetka"];
+                    a.Obrisan = (bool)row["Obrisan"];
+
+                    Projekat.Instance.Akcije.Add(a);
+                }
+
+            }
+            return akcija;
+        }
+
+        #endregion
     }
+
 }

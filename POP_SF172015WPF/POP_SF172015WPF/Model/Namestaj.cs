@@ -147,7 +147,7 @@ namespace POP_SF172015WPF.Model
 
         public static Namestaj GetById(int id)
         {
-            foreach (var namestaj in Projekat.Instance.Namestaj)
+            foreach (var namestaj in Projekat.Instance.Namestajm)
             {
                 if (namestaj.id == id)
                 {
@@ -169,14 +169,15 @@ namespace POP_SF172015WPF.Model
 
         public static ObservableCollection<Namestaj> GetAll()
         {
-
             var namestaj = new ObservableCollection<Namestaj>();
-            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["Salon"].ConnectionString))
-            {
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT * FROM Namestaj WHERE Obrisan=0";
 
+            using (SqlConnection connection = new SqlConnection(Projekat.CONNECTION_STRING))
+            {
+                connection.Open();
                 DataSet ds = new DataSet();
+
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT * FROM Namestaj WHERE Obrisan=0";
                 SqlDataAdapter da = new SqlDataAdapter();
 
                 da.SelectCommand = cmd;
@@ -184,13 +185,16 @@ namespace POP_SF172015WPF.Model
 
                 foreach (DataRow row in ds.Tables["Namestaj"].Rows)
                 {
-                    var n = new Namestaj();
-                    n.Id = int.Parse(row["Id"].ToString());
-                    n.Cena = int.Parse(row["Cena"].ToString());
-                    n.Naziv = row["Naziv"].ToString();
-                    n.Obrisan = bool.Parse(row["Obrisan"].ToString());
+                    Namestaj n = new Namestaj();
+                    n.Id = (int)row["Id"];
+                    n.TipNamestajaId = (int)row["TipNamestajaId"];
+                    n.AkcijaId = (int)row["AkcijaId"];
+                    n.Naziv = (string)row["Naziv"];
+                    n.Cena = (int)row["Cena"];
+                    n.Raspolozivost = (int)row["Raspolozivost"];
+                    n.Obrisan = (bool)row["Obrisan"];
 
-                    namestaj.Add(n);
+                    Projekat.Instance.Namestajm.Add(n);
                 }
 
             }

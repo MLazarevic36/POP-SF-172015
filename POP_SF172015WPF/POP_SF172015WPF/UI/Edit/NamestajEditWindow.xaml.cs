@@ -19,8 +19,8 @@ namespace POP_SF172015WPF.UI.Edit
             this.namestaj = namestaj;
             this.operacija = operacija;
 
-            cbTipNamestaja.ItemsSource = Projekat.Instance.TipoviNamestaja;
-            cbAkcija.ItemsSource = Projekat.Instance.Akcije;
+            //cbTipNamestaja.ItemsSource = Projekat.Instance.TipoviNamestaja;
+            //cbAkcija.ItemsSource = Projekat.Instance.Akcije;
 
             tbNaziv.DataContext = namestaj;
             tbId.DataContext = namestaj;
@@ -31,7 +31,7 @@ namespace POP_SF172015WPF.UI.Edit
 
             if (operacija == Operacija.DODAVANJE)
             {
-                namestaj.Id = Projekat.Instance.Namestaj.Count + 1;
+                namestaj.Id = Projekat.Instance.Namestajm.Count + 1;
             }
         }
 
@@ -40,7 +40,7 @@ namespace POP_SF172015WPF.UI.Edit
             this.DialogResult = true;
             if (operacija == Operacija.DODAVANJE)
             {
-                Projekat.Instance.Namestaj.Add(namestaj);
+                Projekat.Instance.Namestajm.Add(namestaj);
             }
             this.Close();
         }
