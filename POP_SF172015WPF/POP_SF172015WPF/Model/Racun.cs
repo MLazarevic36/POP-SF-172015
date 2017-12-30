@@ -153,6 +153,31 @@ namespace POP_SF172015WPF.Model
             return racun;
         }
 
+        public static Racun Create(Racun r)
+        {
+            using (SqlConnection con = new SqlConnection(Projekat.CONNECTION_STRING))
+            {
+                con.Open();
+
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = $"INSERT INTO Racun(Kupac, BrojRacuna, UkupnaCena, DatumProdaje, Obrisan) VALUES ( @Kupac, @BrojRacuna, @UkupnaCena, @DatumProdaje, @Obrisan);";
+                cmd.CommandText += "SELECT SCOPE_IDENTITY();";
+
+                cmd.Parameters.AddWithValue("Kupac", r.Kupac);
+                cmd.Parameters.AddWithValue("BrojRacuna", r.BrojRacuna);
+                cmd.Parameters.AddWithValue("UkupnaCena", r.UkupnaCena);
+                cmd.Parameters.AddWithValue("DatumProdaje", r.DatumProdaje);
+                cmd.Parameters.AddWithValue("Obrisan", r.Obrisan);
+
+                int newId = int.Parse(cmd.ExecuteScalar().ToString());
+                r.Id = newId;
+
+            }
+            Projekat.Instance.Racuni.Add(r);
+
+            return r;
+        }
+
         #endregion
     }
 }

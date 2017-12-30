@@ -141,6 +141,30 @@ namespace POP_SF172015WPF.Model
             return akcija;
         }
 
+        public static Akcija Create(Akcija a)
+        {
+            using (SqlConnection con = new SqlConnection(Projekat.CONNECTION_STRING))
+            {
+                con.Open();
+
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = $"INSERT INTO Akcija(Popust, DatumPocetka, DatumZavrsetka, Obrisan) VALUES ( @Popust, @DatumPocetka, @DatumZavrsetka, @Obrisan);";
+                cmd.CommandText += "SELECT SCOPE_IDENTITY();";
+
+                cmd.Parameters.AddWithValue("Popust", a.Popust );
+                cmd.Parameters.AddWithValue("DatumPocetka", a.DatumPocetka);
+                cmd.Parameters.AddWithValue("DatumZavrsetka", a.DatumZavrsetka);
+                cmd.Parameters.AddWithValue("Obrisan", a.Obrisan);
+
+                int newId = int.Parse(cmd.ExecuteScalar().ToString());
+                a.Id = newId;
+
+            }
+            Projekat.Instance.Akcije.Add(a);
+
+            return a;
+        }
+
         #endregion
     }
 

@@ -122,8 +122,29 @@ namespace POP_SF172015WPF.Model
             }
             return dodatnaUsluga;
 
+        }
 
+        public static DodatnaUsluga Create(DodatnaUsluga du)
+        {
+            using (SqlConnection con = new SqlConnection(Projekat.CONNECTION_STRING))
+            {
+                con.Open();
 
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = $"INSERT INTO DodatneUsluge(Naziv, Cena, Obrisan) VALUES ( @Naziv, @Cena, @Obrisan);";
+                cmd.CommandText += "SELECT SCOPE_IDENTITY();";
+
+                cmd.Parameters.AddWithValue("Naziv", du.Naziv);
+                cmd.Parameters.AddWithValue("Cena", du.Cena);
+                cmd.Parameters.AddWithValue("Obrisan", du.Obrisan);
+
+                int newId = int.Parse(cmd.ExecuteScalar().ToString());
+                du.Id = newId;
+
+            }
+            Projekat.Instance.DodatneUsluge.Add(du);
+
+            return du;
         }
 
         #endregion
