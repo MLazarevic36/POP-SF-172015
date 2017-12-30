@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF172015WPF.UI.Edit"
         mc:Ignorable="d"
-        Title="TipNamestajaEditWindow" Height="300" Width="421.805">
+        Title="Dodavanje/Izmena za tip namestaja" Height="300" Width="421.805">
     <Grid>
         <Button x:Name="btnPotvrdi" Content="Potvrdi" HorizontalAlignment="Left" Margin="90,222,0,0" VerticalAlignment="Top" Width="75" Click="btnPotvrdi_Click"/>
         <Button x:Name="btnOdustani" Content="Odustani" HorizontalAlignment="Left" Margin="236,222,0,0" VerticalAlignment="Top" Width="75" Click="btnOdustani_Click"/>

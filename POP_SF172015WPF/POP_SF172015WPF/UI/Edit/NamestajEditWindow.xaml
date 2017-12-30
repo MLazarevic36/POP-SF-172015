@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="NamestajEditWindow" Height="318.045" Width="374.436">
+        Title="Dodavanje/Izmena namestaja" Height="318.045" Width="374.436">
     <Grid Margin="0,0,2,0">
         <Label x:Name="lblId" Content="ID:" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" Width="81"/>
         <Label x:Name="lblNaziv" Content="Naziv:" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top" Width="68"/>

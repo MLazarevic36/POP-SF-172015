@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF172015WPF.UI.Edit"
         mc:Ignorable="d"
-        Title="AkcijeEditWindow" Height="300" Width="496.241">
+        Title="Dodavanje/Izmena akcije" Height="300" Width="496.241">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="210*"/>
