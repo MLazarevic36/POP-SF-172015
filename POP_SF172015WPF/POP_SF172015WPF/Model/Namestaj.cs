@@ -202,6 +202,32 @@ namespace POP_SF172015WPF.Model
 
         }
 
+        public static Namestaj Create(Namestaj n)
+        {
+            using (SqlConnection con = new SqlConnection(Projekat.CONNECTION_STRING))
+            {
+                con.Open();
+
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = $"INSERT INTO Namestaj(TipNamestajaId, AkcijaId, Naziv, Cena, Raspolozivost, Obrisan) VALUES ( @TipNamestajaId, @AkcijaId, @Naziv, @Cena, @Raspolozivost, @Obrisan);";
+                cmd.CommandText += "SELECT SCOPE_IDENTITY();";
+
+                cmd.Parameters.AddWithValue("TipNamestajaId", n.TipNamestajaId);
+                cmd.Parameters.AddWithValue("AkcijaId", n.AkcijaId);
+                cmd.Parameters.AddWithValue("Naziv", n.Naziv);
+                cmd.Parameters.AddWithValue("Cena", n.Cena);
+                cmd.Parameters.AddWithValue("Raspolozivost", n.Raspolozivost);
+                cmd.Parameters.AddWithValue("Obrisan", n.Obrisan);
+
+                int newId = int.Parse(cmd.ExecuteScalar().ToString());
+                n.Id = newId;
+
+            }
+            Projekat.Instance.Namestajm.Add(n);
+
+            return n;
+        }
+
         #endregion
 
     }

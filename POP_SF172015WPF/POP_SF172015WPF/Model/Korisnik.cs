@@ -187,6 +187,32 @@ namespace POP_SF172015WPF.Model
             return korisnik;
         }
 
+        public static Korisnik Create(Korisnik k)
+        {
+            using (SqlConnection con = new SqlConnection(Projekat.CONNECTION_STRING))
+            {
+                con.Open();
+
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = $"INSERT INTO Korisnici(KorIme, Lozinka, Ime, Prezime, TipKorisnika, Obrisan) VALUES ( @KorIme, @Lozinka, @Ime, @Prezime, @TipKorisnika, @Obrisan);";
+                cmd.CommandText += "SELECT SCOPE_IDENTITY();";
+
+                cmd.Parameters.AddWithValue("KorIme", k.KorIme);
+                cmd.Parameters.AddWithValue("Lozinka", k.Lozinka);
+                cmd.Parameters.AddWithValue("Ime", k.Ime);
+                cmd.Parameters.AddWithValue("Prezime", k.Prezime);
+                cmd.Parameters.AddWithValue("TipKorisnika", k.TipKorisnika);
+                cmd.Parameters.AddWithValue("Obrisan", k.Obrisan);
+
+                int newId = int.Parse(cmd.ExecuteScalar().ToString());
+                k.Id = newId;
+
+            }
+            Projekat.Instance.Korisnici.Add(k);
+
+            return k;
+        }
+
         #endregion
     }
 }
