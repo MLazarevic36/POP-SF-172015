@@ -23,7 +23,7 @@ namespace POP_SF172015WPF.UI
     public partial class TipNamestajaWindow : Window
     {
         private ICollectionView view;
-
+        
 
         public TipNamestajaWindow()
         {
@@ -36,6 +36,8 @@ namespace POP_SF172015WPF.UI
             //});
 
             view = CollectionViewSource.GetDefaultView(Projekat.Instance.TipoviNamestaja);
+            view.Filter = TipNamestajaFilter;
+
             dgTipNamestaja.ItemsSource = view;
             dgTipNamestaja.IsSynchronizedWithCurrentItem = true;
 
@@ -68,7 +70,13 @@ namespace POP_SF172015WPF.UI
 
         private void btnObrisi_Click(object sender, RoutedEventArgs e)
         {
+            TipNamestaja selektovaniTip = view.CurrentItem as TipNamestaja;
+            TipNamestaja.Delete(selektovaniTip);
+        }
 
+        private bool TipNamestajaFilter(object obj)
+        {
+            return !((TipNamestaja)obj).Obrisan;
         }
 
         private void dgTipNamestaja_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)

@@ -14,7 +14,6 @@ namespace POP_SF172015WPF
         public AdminWindow()
         {
             InitializeComponent();
-            GetAllDB();
         }
 
         private void btnKorisnici_Click(object sender, RoutedEventArgs e)
@@ -69,14 +68,6 @@ namespace POP_SF172015WPF
             duw.ShowDialog();
         }
 
-        private void GetAllDB()
-        {
-            TipNamestaja.GetAll();
-            Namestaj.GetAll();
-            Akcija.GetAll();
-            Korisnik.GetAll();
-            Racun.GetAll();
-            DodatnaUsluga.GetAll(); 
-        }
+        
     }
 }

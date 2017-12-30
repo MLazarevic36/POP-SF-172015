@@ -32,9 +32,24 @@ namespace POP_SF172015WPF.UI.Edit
             DialogResult = true;
             if ( operacija == Operacija.DODAVANJE)
             {
+                TipNamestaja.Create(tipNamestaja);
                 Projekat.Instance.TipoviNamestaja.Add(tipNamestaja);
             }
+
+            if (operacija == Operacija.IZMENA)
+            {
+                TipNamestaja.Update(tipNamestaja);
+
+                TipNamestaja original = TipNamestaja.GetById(tipNamestaja.Id);
+                original.Id = tipNamestaja.Id;
+                original.Naziv = tipNamestaja.Naziv;
+                original.Obrisan = tipNamestaja.Obrisan;
+                
+                
+            }
+
             Close();
+
         }
 
         private void btnOdustani_Click(object sender, RoutedEventArgs e)

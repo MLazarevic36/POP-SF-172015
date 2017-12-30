@@ -13,6 +13,8 @@ namespace POP_SF172015WPF
         public LoginWindow()
         {
             InitializeComponent();
+            GetAllDB();
+            
         }
 
         private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
@@ -42,7 +44,19 @@ namespace POP_SF172015WPF
                     this.Close();
                 }
             }
+
+
             
+        }
+
+        private void GetAllDB()
+        {
+            TipNamestaja.GetAll();
+            Namestaj.GetAll();
+            Akcija.GetAll();
+            Korisnik.GetAll();
+            Racun.GetAll();
+            DodatnaUsluga.GetAll();
         }
     }
 }
