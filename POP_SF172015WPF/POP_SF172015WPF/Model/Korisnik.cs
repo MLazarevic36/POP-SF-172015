@@ -248,6 +248,12 @@ namespace POP_SF172015WPF.Model
             }
         }
 
+        public static void Delete(Korisnik k)
+        {
+            k.Obrisan = true;
+            Update(k);
+        }
+
         #endregion
     }
 }

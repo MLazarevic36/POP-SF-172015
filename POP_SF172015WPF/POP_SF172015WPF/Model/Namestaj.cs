@@ -263,6 +263,12 @@ namespace POP_SF172015WPF.Model
             }
         }
 
+        public static void Delete(Namestaj n)
+        {
+            n.Obrisan = true;
+            Update(n);
+        }
+
         #endregion
 
     }

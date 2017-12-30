@@ -196,6 +196,12 @@ namespace POP_SF172015WPF.Model
             }
         }
 
+        public static void Delete(Akcija a)
+        {
+            a.Obrisan = true;
+            Update(a);
+        }
+
         #endregion
     }
 

@@ -176,6 +176,12 @@ namespace POP_SF172015WPF.Model
             }
         }
 
+        public static void Delete(DodatnaUsluga du)
+        {
+            du.Obrisan = true;
+            Update(du);
+        }
+
         #endregion
     }
 }
