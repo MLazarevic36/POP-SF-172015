@@ -147,6 +147,35 @@ namespace POP_SF172015WPF.Model
             return du;
         }
 
+        public static void Update(DodatnaUsluga du)
+        {
+            using (SqlConnection con = new SqlConnection(Projekat.CONNECTION_STRING))
+            {
+                con.Open();
+
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "UPDATE DodatneUsluge SET Naziv=@Naziv, Cena=@Cena, Obrisan=@Obrisan WHERE Id=@Id";
+
+                cmd.Parameters.AddWithValue("Id", du.Id);
+                cmd.Parameters.AddWithValue("Naziv", du.Naziv);
+                cmd.Parameters.AddWithValue("Cena", du.Cena);
+                cmd.Parameters.AddWithValue("Obrisan", du.Obrisan);
+
+                cmd.ExecuteNonQuery();
+
+                foreach (var dodatnaUsluga in Projekat.Instance.DodatneUsluge)
+                {
+                    if (dodatnaUsluga.Id == du.Id)
+                    {
+                        dodatnaUsluga.Naziv = du.Naziv;
+                        dodatnaUsluga.Cena = du.Cena;
+                        dodatnaUsluga.Obrisan = du.Obrisan;
+                        break;
+                    }
+                }
+            }
+        }
+
         #endregion
     }
 }

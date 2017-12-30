@@ -213,6 +213,41 @@ namespace POP_SF172015WPF.Model
             return k;
         }
 
+        public static void Update(Korisnik k)
+        {
+            using (SqlConnection con = new SqlConnection(Projekat.CONNECTION_STRING))
+            {
+                con.Open();
+
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "UPDATE Korisnik SET KorIme=@KorIme, Lozinka=@Lozinka, Ime=@Ime, Prezime=@Prezime, TipKorisnika=@TipKorisnika, Obrisan=@Obrisan WHERE Id=@Id";
+
+                cmd.Parameters.AddWithValue("Id", k.Id);
+                cmd.Parameters.AddWithValue("KorIme", k.KorIme);
+                cmd.Parameters.AddWithValue("Lozinka", k.Lozinka);
+                cmd.Parameters.AddWithValue("Ime", k.Ime);
+                cmd.Parameters.AddWithValue("Prezime", k.Prezime);
+                cmd.Parameters.AddWithValue("TipKorisnika", k.TipKorisnika);
+                cmd.Parameters.AddWithValue("Obrisan", k.Obrisan);
+
+                cmd.ExecuteNonQuery();
+
+                foreach (var korisnik in Projekat.Instance.Korisnici)
+                {
+                    if (korisnik.Id == k.Id)
+                    {
+                        korisnik.KorIme = k.KorIme;
+                        korisnik.Lozinka = k.Lozinka;
+                        korisnik.Ime = k.Ime;
+                        korisnik.Prezime = k.Prezime;
+                        korisnik.TipKorisnika = k.TipKorisnika;
+                        korisnik.Obrisan = k.Obrisan;
+                        break;
+                    }
+                }
+            }
+        }
+
         #endregion
     }
 }

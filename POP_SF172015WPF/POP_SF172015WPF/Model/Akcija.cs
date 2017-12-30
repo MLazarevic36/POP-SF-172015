@@ -165,6 +165,37 @@ namespace POP_SF172015WPF.Model
             return a;
         }
 
+        public static void Update(Akcija a)
+        {
+            using (SqlConnection con = new SqlConnection(Projekat.CONNECTION_STRING))
+            {
+                con.Open();
+
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "UPDATE Akcije SET Popust=@Popust, DatumPocetka=@DatumPocetka, DatumZavrsetka=@DatumZavrsetka, Obrisan=@Obrisan WHERE Id=@Id";
+
+                cmd.Parameters.AddWithValue("Id", a.Id);
+                cmd.Parameters.AddWithValue("Popust", a.Popust);
+                cmd.Parameters.AddWithValue("DatumPocetka", a.DatumPocetka);
+                cmd.Parameters.AddWithValue("DatumZavrsetka", a.DatumZavrsetka);
+                cmd.Parameters.AddWithValue("Obrisan", a.Obrisan);
+
+                cmd.ExecuteNonQuery();
+
+                foreach (var akcija in Projekat.Instance.Akcije)
+                {
+                    if (akcija.Id == a.Id)
+                    {
+                        akcija.Popust = a.Popust;
+                        akcija.DatumPocetka = a.DatumPocetka;
+                        akcija.DatumZavrsetka = a.DatumZavrsetka;
+                        akcija.Obrisan = a.Obrisan;
+                        break;
+                    }
+                }
+            }
+        }
+
         #endregion
     }
 

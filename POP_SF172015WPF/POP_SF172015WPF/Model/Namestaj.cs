@@ -228,6 +228,41 @@ namespace POP_SF172015WPF.Model
             return n;
         }
 
+        public static void Update(Namestaj n)
+        {
+            using (SqlConnection con = new SqlConnection(Projekat.CONNECTION_STRING))
+            {
+                con.Open();
+
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "UPDATE Namestaj SET TipNamestajaId=@TipNamestajaId, AkcijaId=@AkcijaId, Naziv=@Naziv, Cena=@Cena, Raspolozivost=@Raspolozivost, Obrisan=@Obrisan WHERE Id=@Id";
+
+                cmd.Parameters.AddWithValue("Id", n.Id);
+                cmd.Parameters.AddWithValue("TipNamestajaId", n.TipNamestajaId);
+                cmd.Parameters.AddWithValue("AkcijaId", n.Akcija);
+                cmd.Parameters.AddWithValue("Naziv", n.Naziv);
+                cmd.Parameters.AddWithValue("Cena", n.Cena);
+                cmd.Parameters.AddWithValue("Raspolozivost", n.Raspolozivost);
+                cmd.Parameters.AddWithValue("Obrisan", n.Obrisan);
+
+                cmd.ExecuteNonQuery();
+
+                foreach (var namestaj in Projekat.Instance.Namestajm)
+                {
+                    if (namestaj.Id == n.Id)
+                    {
+                        namestaj.TipNamestajaId = n.TipNamestajaId;
+                        namestaj.AkcijaId = n.AkcijaId;
+                        namestaj.Naziv = n.Naziv;
+                        namestaj.Cena = n.Cena;
+                        namestaj.Raspolozivost = n.Raspolozivost;
+                        namestaj.Obrisan = n.Obrisan;
+                        break;
+                    }
+                }
+            }
+        }
+
         #endregion
 
     }
