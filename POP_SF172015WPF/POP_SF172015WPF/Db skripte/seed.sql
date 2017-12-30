@@ -20,3 +20,15 @@ INSERT INTO Korisnici(KorIme, Lozinka, Ime, Prezime, TipKorisnika, Obrisan)
 VALUES ('abcd', '1234', 'Alex', 'Jones', 'PRODAVAC', 0);
 INSERT INTO Korisnici(KorIme, Lozinka, Ime, Prezime, TipKorisnika, Obrisan)
 VALUES ('fgh', '789', 'Tesa', 'Tesanovic', 'ADMIN', 0);
+
+INSERT INTO Racuni(Kupac, BrojRacuna, UkupnaCena, DatumProdaje, Obrisan)
+VALUES ('Stojan Markovic', 1, 3900, '2017-3-2' , 0);
+INSERT INTO Racuni(Kupac, BrojRacuna, UkupnaCena, DatumProdaje, Obrisan)
+VALUES ('Marko Stevic', 2, 2100, '2017-12-2' , 0);
+INSERT INTO Racuni(Kupac, BrojRacuna, UkupnaCena, DatumProdaje, Obrisan)
+VALUES ('Nikola Misic', 3, 7000, '2017-7-12' , 0);
+
+INSERT INTO DodatneUsluge(Naziv, Cena, Obrisan)
+VALUES ('Dostava', 500, 0);
+INSERT INTO DodatneUsluge(Naziv, Cena, Obrisan)
+VALUES ('Montiranje', 700, 0);

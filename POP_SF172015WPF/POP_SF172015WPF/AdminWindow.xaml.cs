@@ -74,6 +74,8 @@ namespace POP_SF172015WPF
             TipNamestaja.GetAll();
             Namestaj.GetAll();
             Akcija.GetAll();
+            Korisnik.GetAll();
+            Racun.GetAll();
         }
     }
 }

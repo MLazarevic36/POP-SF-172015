@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace POP_SF172015WPF.Model
 {
@@ -9,7 +12,7 @@ namespace POP_SF172015WPF.Model
         public event PropertyChangedEventHandler PropertyChanged;
 
         private string korIme;
-        private string password;
+        private string lozinka;
         private int id;
         private string ime;
         private string prezime;
@@ -50,12 +53,12 @@ namespace POP_SF172015WPF.Model
             }
         }
 
-        public string Password
+        public string Lozinka
         {
-            get { return password; }
+            get { return lozinka; }
             set
             {
-                password = value;
+                lozinka = value;
                 OnPropertyChanged("Password");
             }
         }
@@ -113,7 +116,7 @@ namespace POP_SF172015WPF.Model
         {
             foreach (var korisnik in Projekat.Instance.Korisnici)
             {
-                if (korisnik.KorIme == korIme && korisnik.Password == password)
+                if (korisnik.KorIme == korIme && korisnik.Lozinka == password)
                 {
                     return korisnik;
                 }
@@ -131,7 +134,7 @@ namespace POP_SF172015WPF.Model
         {
             Korisnik kopija = new Korisnik();
             kopija.KorIme = KorIme;
-            kopija.Password = Password;
+            kopija.Lozinka = Lozinka;
             kopija.Id = Id;
             kopija.Ime = Ime;
             kopija.Prezime = Prezime;
@@ -139,5 +142,51 @@ namespace POP_SF172015WPF.Model
             kopija.Obrisan = Obrisan;
             return kopija;
         }
+
+        #region Database
+
+        public static ObservableCollection<Korisnik> GetAll()
+        {
+            var korisnik = new ObservableCollection<Korisnik>();
+            using (SqlConnection connection = new SqlConnection(Projekat.CONNECTION_STRING))
+            {
+                connection.Open();
+                DataSet ds = new DataSet();
+
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT * FROM Korisnici WHERE Obrisan=0";
+                SqlDataAdapter da = new SqlDataAdapter();
+
+                da.SelectCommand = cmd;
+                da.Fill(ds, "Korisnici");
+
+                foreach (DataRow row in ds.Tables["Korisnici"].Rows)
+                {
+                    Korisnik k = new Korisnik();
+                    k.Id = (int)row["Id"];
+                    k.KorIme = (string)row["KorIme"];
+                    k.Lozinka = (string)row["Lozinka"];
+                    k.Ime = (string)row["Ime"];
+                    k.Prezime = (string)row["Prezime"];
+                    k.Obrisan = (bool)row["Obrisan"];
+
+                    if (row["TipKorisnika"].ToString() == Korisnik.TipoviKorisnika.ADMIN.ToString())
+                    {
+                        k.TipKorisnika = Korisnik.TipoviKorisnika.ADMIN;
+                    }
+                    if (row["TipKorisnika"].ToString() == Korisnik.TipoviKorisnika.PRODAVAC.ToString())
+                    {
+                        k.TipKorisnika = Korisnik.TipoviKorisnika.PRODAVAC;
+                    }
+
+                    Projekat.Instance.Korisnici.Add(k);
+                }
+
+
+            }
+            return korisnik;
+        }
+
+        #endregion
     }
 }

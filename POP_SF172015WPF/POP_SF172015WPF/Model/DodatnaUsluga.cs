@@ -86,5 +86,11 @@ namespace POP_SF172015WPF.Model
         {
             return Naziv + Cena;
         }
+
+        #region Database
+
+
+
+        #endregion
     }
 }

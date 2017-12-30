@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+
 namespace POP_SF172015WPF.Model
 {
     public class Racun : INotifyPropertyChanged
@@ -116,5 +119,40 @@ namespace POP_SF172015WPF.Model
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+        #region Database
+
+        public static ObservableCollection<Racun> GetAll()
+        {
+            var racun = new ObservableCollection<Racun>();
+
+            using (SqlConnection connection = new SqlConnection(Projekat.CONNECTION_STRING))
+            {
+                connection.Open();
+                DataSet ds = new DataSet();
+
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT * FROM Racuni WHERE Obrisan=0";
+                SqlDataAdapter da = new SqlDataAdapter();
+
+                da.SelectCommand = cmd;
+                da.Fill(ds, "Racuni");
+
+                foreach (DataRow row in ds.Tables["Racuni"].Rows)
+                {
+                    Racun r = new Racun();
+                    r.Id = (int)row["Id"];
+                    r.Kupac = (string)row["Kupac"];
+                    r.BrojRacuna = (int)row["BrojRacuna"];
+                    r.UkupnaCena = (int)row["UkupnaCena"];
+                    r.DatumProdaje = (DateTime)row["DatumProdaje"];
+                    r.Obrisan = (bool)row["Obrisan"];
+
+                }
+            }
+            return racun;
+        }
+
+        #endregion
     }
 }
