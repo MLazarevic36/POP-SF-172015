@@ -29,11 +29,6 @@ namespace POP_SF172015WPF.UI
         {
             InitializeComponent();
 
-            //TipNamestaja novododatiTip = TipNamestaja.Create(new TipNamestaja()
-            //{
-            //    Naziv = "Cekam ID",
-            //    Obrisan = false
-            //});
 
             view = CollectionViewSource.GetDefaultView(Projekat.Instance.TipoviNamestaja);
             view.Filter = TipNamestajaFilter;

@@ -39,8 +39,23 @@ namespace POP_SF172015WPF.UI.Edit
             DialogResult = true;
             if (operacija == Operacija.DODAVANJE)
             {
+                Akcija.Create(akcija);
                 Projekat.Instance.Akcije.Add(akcija);
             }
+
+            if (operacija == Operacija.IZMENA)
+            {
+                Akcija.Update(akcija);
+
+                Akcija original = Akcija.GetById(akcija.Id);
+                original.Id = akcija.Id;
+                original.Popust = akcija.Popust;
+                original.DatumPocetka = akcija.DatumPocetka;
+                original.DatumZavrsetka = akcija.DatumZavrsetka;
+                original.Obrisan = akcija.Obrisan;
+
+            }
+
             Close();
         }
 

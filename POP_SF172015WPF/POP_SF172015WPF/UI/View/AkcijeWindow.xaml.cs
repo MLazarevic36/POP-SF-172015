@@ -19,12 +19,17 @@ namespace POP_SF172015WPF.UI
             InitializeComponent();
 
             view = CollectionViewSource.GetDefaultView(Projekat.Instance.Akcije);
+            view.Filter = AkcijaFilter;
             dgAkcije.ItemsSource = view;
             dgAkcije.IsSynchronizedWithCurrentItem = true;
 
             dgAkcije.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
         }
 
+        private bool AkcijaFilter (object obj)
+        {
+            return !((Akcija)obj).Obrisan;
+        }
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
@@ -52,7 +57,8 @@ namespace POP_SF172015WPF.UI
 
         private void btnObrisi_Click(object sender, RoutedEventArgs e)
         {
-
+            Akcija selektovanaA = view.CurrentItem as Akcija;
+            Akcija.Delete(selektovanaA);
         }
 
         private void dgAkcije_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)

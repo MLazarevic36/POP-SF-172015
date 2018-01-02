@@ -45,12 +45,30 @@ namespace POP_SF172015WPF.UI.Edit
 
         private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = true;
+            DialogResult = true;
             if (operacija == Operacija.DODAVANJE)
             {
+                Korisnik.Create(korisnik);
                 Projekat.Instance.Korisnici.Add(korisnik);
             }
-            this.Close();
+
+            if (operacija == Operacija.IZMENA)
+            {
+                Korisnik.Update(korisnik);
+
+                Korisnik original = Korisnik.GetById(korisnik.Id);
+                original.Id = korisnik.Id;
+                original.Ime = korisnik.Ime;
+                original.Prezime = korisnik.Prezime;
+                original.KorIme = korisnik.KorIme;
+                original.Prezime = korisnik.Prezime;
+                original.TipKorisnika = korisnik.TipKorisnika;
+                original.Obrisan = korisnik.Obrisan;
+
+
+            }
+
+            Close();
         }
     }
 }

@@ -19,10 +19,17 @@ namespace POP_SF172015WPF.UI
             InitializeComponent();
 
             view = CollectionViewSource.GetDefaultView(Projekat.Instance.Racuni);
+            view.Filter = RacunFilter;
+
             dgRacun.ItemsSource = view;
             dgRacun.IsSynchronizedWithCurrentItem = true;
 
             dgRacun.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+        }
+
+        private bool RacunFilter(object obj)
+        {
+            return !((Racun)obj).Obrisan;
         }
 
         private void dgRacun_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -47,16 +54,8 @@ namespace POP_SF172015WPF.UI
 
         private void btnObrisi_Click(object sender, RoutedEventArgs e)
         {
-            int selektovaniRacunId = ((Racun)dgRacun.SelectedItem).Id;
-            foreach (var racun in Projekat.Instance.Racuni)
-            {
-                if (racun.Id == selektovaniRacunId)
-                {
-                    racun.Obrisan = true;
-
-                    break;
-                }
-            }
+            Racun selektovaniR = view.CurrentItem as Racun;
+            Racun.Delete(selektovaniR);
         }
     }
 }

@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF172015WPF.UI.View"
         mc:Ignorable="d"
-        Title="Dodatne usluge" Height="300" Width="300">
+        Title="Dodatne usluge" Height="300" Width="569.549">
     <Grid>
-        
+        <DataGrid HorizontalAlignment="Left" Height="167" Margin="0,10,0,0" VerticalAlignment="Top" Width="562"/>
+
     </Grid>
 </Window>

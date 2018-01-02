@@ -178,6 +178,48 @@ namespace POP_SF172015WPF.Model
             return r;
         }
 
+        public static void Update(Racun r)
+        {
+            using (SqlConnection con = new SqlConnection(Projekat.CONNECTION_STRING))
+            {
+                con.Open();
+
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "UPDATE Racuni SET Kupac=@Kupac, BrojRacuna=@BrojRacuna, UkupnaCena=@UkupnaCena, DatumProdaje=@DatumProdaje,Obrisan=@Obrisan WHERE Id=@Id";
+
+                cmd.Parameters.AddWithValue("Id", r.Id);
+                cmd.Parameters.AddWithValue("Kupac", r.Kupac);
+                cmd.Parameters.AddWithValue("BrojRacuna", r.BrojRacuna);
+                cmd.Parameters.AddWithValue("UkupnaCena", r.UkupnaCena);
+                cmd.Parameters.AddWithValue("DatumProdaje", r.DatumProdaje);
+                cmd.Parameters.AddWithValue("Obrisan", r.Obrisan);
+
+                cmd.ExecuteNonQuery();
+
+                foreach (var racun in Projekat.Instance.Racuni)
+                {
+                    if (racun.Id == r.Id)
+                    {
+                        racun.Id = r.Id;
+                        racun.Kupac = r.Kupac;
+                        racun.BrojRacuna = r.BrojRacuna;
+                        racun.UkupnaCena = r.UkupnaCena;
+                        racun.DatumProdaje = r.DatumProdaje;
+                        racun.Obrisan = r.Obrisan;
+                        break;
+                    }
+                }
+
+
+            }
+
+        }
+
+        public static void Delete(Racun r)
+        {
+            r.Obrisan = true;
+            Update(r);
+        }
         
 
         #endregion

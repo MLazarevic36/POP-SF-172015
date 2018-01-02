@@ -64,21 +64,8 @@ namespace POP_SF172015WPF.UI
         private void btnObrisi_Click(object sender, RoutedEventArgs e)
         {
             Korisnik SelektovaniKorisnik = view.CurrentItem as Korisnik;
-            foreach (var korisnik in Projekat.Instance.Korisnici)
-            {
-                if (korisnik.Id == SelektovaniKorisnik.Id)
-                {
-                    korisnik.Obrisan = true;
-                }
-                
-            }
-            view.Refresh();
+            Korisnik.Delete(SelektovaniKorisnik);
 
-        }
-
-        private void btnNazad_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
 
         private void dgKorisnik_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -106,6 +93,11 @@ namespace POP_SF172015WPF.UI
 
             }
             view.Refresh();
+        }
+
+        private void btnNazad_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
