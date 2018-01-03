@@ -15,7 +15,6 @@ namespace POP_SF172015WPF
         public ObservableCollection<Korisnik> Korisnici { get; set; }
         public ObservableCollection<Namestaj> Namestajm { get; set; }
         public ObservableCollection<TipNamestaja> TipoviNamestaja { get; set; }
-        public ObservableCollection<Salon> Saloni { get; set; }
         public ObservableCollection<Akcija> Akcije { get; set; }
         public ObservableCollection<Racun> Racuni { get; set; }
         public ObservableCollection<DodatnaUsluga> DodatneUsluge { get; set; }
@@ -36,8 +35,7 @@ namespace POP_SF172015WPF
             Akcije = new ObservableCollection<Akcija>();
             Racuni = new ObservableCollection<Racun>();
             DodatneUsluge = new ObservableCollection<DodatnaUsluga>();
-            Saloni = new ObservableCollection<Salon>();
-
+            
             //TipNamestaja.GetAll();
             //Akcija.GetAll();
         }

@@ -35,11 +35,6 @@ namespace POP_SF172015WPF
             rw.ShowDialog();
         }
 
-        private void btnSalon_Click(object sender, RoutedEventArgs e)
-        {
-            SalonWindow sw = new SalonWindow();
-            sw.ShowDialog();
-        }
 
         private void btnAkcije_Click(object sender, RoutedEventArgs e)
         {

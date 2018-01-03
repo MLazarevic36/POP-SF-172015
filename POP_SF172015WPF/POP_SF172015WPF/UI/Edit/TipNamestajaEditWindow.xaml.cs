@@ -19,7 +19,7 @@ namespace POP_SF172015WPF.UI.Edit
             this.operacija = operacija;
 
             tbNaziv.DataContext = tipNamestaja;
-            tbId.DataContext = tipNamestaja;
+            //tbId.DataContext = tipNamestaja;
 
             if (operacija == Operacija.DODAVANJE)
             {

@@ -20,7 +20,7 @@ namespace POP_SF172015WPF.UI.Edit
             this.akcija = akcija;
             this.operacija = operacija;
 
-            tbId.DataContext = akcija;
+            //tbId.DataContext = akcija;
             tbPopust.DataContext = akcija;
             dpDatumP.DataContext = akcija;
             dpDatumZ.DataContext = akcija;

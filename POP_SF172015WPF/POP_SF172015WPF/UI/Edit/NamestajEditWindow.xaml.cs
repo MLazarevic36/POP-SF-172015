@@ -19,11 +19,11 @@ namespace POP_SF172015WPF.UI.Edit
             this.namestaj = namestaj;
             this.operacija = operacija;
 
-            //cbTipNamestaja.ItemsSource = Projekat.Instance.TipoviNamestaja;
-            //cbAkcija.ItemsSource = Projekat.Instance.Akcije;
+            cbTipNamestaja.ItemsSource = Projekat.Instance.TipoviNamestaja;
+            cbAkcija.ItemsSource = Projekat.Instance.Akcije;
 
             tbNaziv.DataContext = namestaj;
-            tbId.DataContext = namestaj;
+            //tbId.DataContext = namestaj;
             tbCena.DataContext = namestaj;
             tbRaspolozivost.DataContext = namestaj;
             cbTipNamestaja.DataContext = namestaj;

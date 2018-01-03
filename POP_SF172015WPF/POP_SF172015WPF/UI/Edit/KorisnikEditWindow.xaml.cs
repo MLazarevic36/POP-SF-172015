@@ -27,7 +27,7 @@ namespace POP_SF172015WPF.UI.Edit
 
             if (operacija == Operacija.DODAVANJE)
             {
-                tbId.Text = (Projekat.Instance.Korisnici.Count + 1).ToString();
+                korisnik.Id = Projekat.Instance.Korisnici.Count + 1;
             }
             //if (operacija == Operacija.IZMENA)
             //{
