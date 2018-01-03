@@ -7,15 +7,14 @@
         mc:Ignorable="d"
         Title="Administracija podataka" Height="401" Width="715.763">
     <Grid>
-        <Button x:Name="btnKorisnici" Content="Korisnici" HorizontalAlignment="Left" Margin="91,249,0,0" VerticalAlignment="Top" Width="127" Click="btnKorisnici_Click" Height="39"/>
-        <Button x:Name="btnNamestaj" Content="Namestaj" HorizontalAlignment="Left" Margin="91,75,0,0" VerticalAlignment="Top" Width="127" Click="btnNamestaj_Click" Height="36"/>
-        <Button x:Name="btnProdaja" Content="Prodaja" HorizontalAlignment="Left" Margin="91,155,0,0" VerticalAlignment="Top" Width="127" Click="btnProdaja_Click" Height="38"/>
-        <Button x:Name="btnSalon" Content="Salon" HorizontalAlignment="Left" Margin="468,263,0,0" VerticalAlignment="Top" Width="127" Click="btnSalon_Click" Height="39"/>
-        <Button x:Name="btnAkcije" Content="Akcije" HorizontalAlignment="Left" Margin="468,155,0,0" VerticalAlignment="Top" Width="127" Click="btnAkcije_Click" Height="38"/>
+        <Button x:Name="btnKorisnici" Content="Korisnici" HorizontalAlignment="Left" Margin="178,248,0,0" VerticalAlignment="Top" Width="127" Click="btnKorisnici_Click" Height="39"/>
+        <Button x:Name="btnNamestaj" Content="Namestaj" HorizontalAlignment="Left" Margin="178,88,0,0" VerticalAlignment="Top" Width="127" Click="btnNamestaj_Click" Height="36"/>
+        <Button x:Name="btnProdaja" Content="Prodaja" HorizontalAlignment="Left" Margin="178,169,0,0" VerticalAlignment="Top" Width="127" Click="btnProdaja_Click" Height="38"/>
+        <Button x:Name="btnAkcije" Content="Akcije" HorizontalAlignment="Left" Margin="381,169,0,0" VerticalAlignment="Top" Width="127" Click="btnAkcije_Click" Height="38"/>
         <Button x:Name="btnOdjava" Content="Odjava" HorizontalAlignment="Left" Margin="593,330,0,0" VerticalAlignment="Top" Width="75" Click="btnOdjava_Click"/>
         <Label x:Name="lblSalon" Content="              Salon namestaja Surdulica" HorizontalAlignment="Left" Height="52" Margin="142,18,0,0" VerticalAlignment="Top" Width="433" FontSize="20"/>
-        <Button x:Name="btnTipNamestaj" Content="Tip namestaja" HorizontalAlignment="Left" Margin="468,75,0,0" VerticalAlignment="Top" Width="127" Click="btnTipNamestaj_Click" Height="36"/>
-        <Button x:Name="btnDusluge" Content="Dodatne usluge" HorizontalAlignment="Left" Margin="277,155,0,0" VerticalAlignment="Top" Width="133" Height="38" Click="btnDusluge_Click"/>
+        <Button x:Name="btnTipNamestaj" Content="Tip namestaja" HorizontalAlignment="Left" Margin="381,88,0,0" VerticalAlignment="Top" Width="127" Click="btnTipNamestaj_Click" Height="36"/>
+        <Button x:Name="btnDusluge" Content="Dodatne usluge" HorizontalAlignment="Left" Margin="381,249,0,0" VerticalAlignment="Top" Width="133" Height="38" Click="btnDusluge_Click"/>
 
     </Grid>
 </Window>
