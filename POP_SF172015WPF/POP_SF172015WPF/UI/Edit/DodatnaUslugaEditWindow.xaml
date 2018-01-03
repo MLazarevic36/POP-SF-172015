@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF172015WPF.UI.Edit"
         mc:Ignorable="d"
-        Title="Dodavanje/Izmena dodatnih usluga" Height="300" Width="300">
+        Title="Dodavanje/Izmena dodatnih usluga" Height="300" Width="420.677">
     <Grid>
-        
+        <Button x:Name="btnPotvrdi" Content="Potvrdi" HorizontalAlignment="Left" Margin="69,219,0,0" VerticalAlignment="Top" Width="75" Click="btnPotvrdi_Click"/>
+        <Button x:Name="btnOdustani" Content="Odustani" HorizontalAlignment="Left" Margin="258,219,0,0" VerticalAlignment="Top" Width="75" Click="btnOdustani_Click"/>
+        <Label Content="Naziv:" HorizontalAlignment="Left" Margin="43,63,0,0" VerticalAlignment="Top" Height="24" Width="66" />
+        <Label Content="Cena:" HorizontalAlignment="Left" Margin="43,125,0,0" VerticalAlignment="Top" Height="30" Width="66"/>
+        <TextBox x:Name="tbNaziv" HorizontalAlignment="Left" Height="23" Margin="193,63,0,0"  Text="{Binding Path=Naziv}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbCena" HorizontalAlignment="Left" Height="23" Margin="193,125,0,0"  Text="{Binding Path=Cena}" VerticalAlignment="Top" Width="120"/>
+
     </Grid>
 </Window>
