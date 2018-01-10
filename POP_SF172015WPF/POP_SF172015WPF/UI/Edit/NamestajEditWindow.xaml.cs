@@ -40,7 +40,22 @@ namespace POP_SF172015WPF.UI.Edit
             this.DialogResult = true;
             if (operacija == Operacija.DODAVANJE)
             {
+                Namestaj.Create(namestaj);
                 Projekat.Instance.Namestajm.Add(namestaj);
+            }
+            if (operacija == Operacija.IZMENA)
+            {
+                Namestaj.Update(namestaj);
+
+                Namestaj original = Namestaj.GetById(namestaj.Id);
+                original.Id = namestaj.Id;
+                original.Naziv = namestaj.Naziv;
+                original.Cena = namestaj.Cena;
+                original.Raspolozivost = namestaj.Raspolozivost;
+                original.Akcija = namestaj.Akcija;
+                original.TipNamestaja = namestaj.TipNamestaja;
+                original.Obrisan = namestaj.Obrisan;
+
             }
             this.Close();
         }

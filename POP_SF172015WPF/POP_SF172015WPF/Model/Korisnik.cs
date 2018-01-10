@@ -220,7 +220,7 @@ namespace POP_SF172015WPF.Model
                 con.Open();
 
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "UPDATE Korisnik SET KorIme=@KorIme, Lozinka=@Lozinka, Ime=@Ime, Prezime=@Prezime, TipKorisnika=@TipKorisnika, Obrisan=@Obrisan WHERE Id=@Id";
+                cmd.CommandText = "UPDATE Korisnici SET KorIme=@KorIme, Lozinka=@Lozinka, Ime=@Ime, Prezime=@Prezime, TipKorisnika=@TipKorisnika, Obrisan=@Obrisan WHERE Id=@Id";
 
                 cmd.Parameters.AddWithValue("Id", k.Id);
                 cmd.Parameters.AddWithValue("KorIme", k.KorIme);

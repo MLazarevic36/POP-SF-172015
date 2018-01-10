@@ -33,6 +33,7 @@ namespace POP_SF172015WPF.UI
         private bool KorisnikFilter(object obj)
         {
             return !((Korisnik)obj).Obrisan;
+            
         }
         
 
@@ -65,6 +66,7 @@ namespace POP_SF172015WPF.UI
         {
             Korisnik SelektovaniKorisnik = view.CurrentItem as Korisnik;
             Korisnik.Delete(SelektovaniKorisnik);
+            
 
         }
 
