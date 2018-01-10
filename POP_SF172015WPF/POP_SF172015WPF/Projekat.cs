@@ -18,6 +18,7 @@ namespace POP_SF172015WPF
         public ObservableCollection<Akcija> Akcije { get; set; }
         public ObservableCollection<Racun> Racuni { get; set; }
         public ObservableCollection<DodatnaUsluga> DodatneUsluge { get; set; }
+        public ObservableCollection<Namestaj> ListaNamestaja { get; set; }
 
 
 
@@ -35,7 +36,7 @@ namespace POP_SF172015WPF
             Akcije = new ObservableCollection<Akcija>();
             Racuni = new ObservableCollection<Racun>();
             DodatneUsluge = new ObservableCollection<DodatnaUsluga>();
-            
+            ListaNamestaja = new ObservableCollection<Namestaj>();
             
         }
 

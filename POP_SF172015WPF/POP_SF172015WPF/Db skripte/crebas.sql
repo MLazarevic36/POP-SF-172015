@@ -14,9 +14,7 @@ CREATE TABLE Namestaj (
 	Naziv VARCHAR(100),
 	Cena INT not null,
 	Raspolozivost INT,
-	Obrisan BIT,
-	FOREIGN KEY (TipNamestajaId) REFERENCES TipNamestaja(Id),
-	FOREIGN KEY (AkcijaId) REFERENCES Akcija(Id)	
+	Obrisan BIT,	
 	
 )
 GO

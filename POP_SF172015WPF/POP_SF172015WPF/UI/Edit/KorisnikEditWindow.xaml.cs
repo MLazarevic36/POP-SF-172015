@@ -23,22 +23,18 @@ namespace POP_SF172015WPF.UI.Edit
 
             
 
-            cbTipKorisnika.ItemsSource = Enum.GetValues(typeof(TipoviKorisnika)) ;
-
-            if (operacija == Operacija.DODAVANJE)
-            {
-                korisnik.Id = Projekat.Instance.Korisnici.Count + 1;
-            }
-            //if (operacija == Operacija.IZMENA)
-            //{
-            //    tbId.Text = korisnik.Id.ToString();
-            //}
+            cbTipKorisnika.ItemsSource = Enum.GetValues(typeof(TipoviKorisnika));
+            
             tbIme.DataContext = korisnik;
             tbPrezime.DataContext = korisnik;
             tbUsername.DataContext = korisnik;
             tbPassword.DataContext = korisnik;
             cbTipKorisnika.DataContext = korisnik;
 
+            if (operacija == Operacija.DODAVANJE)
+            {
+                korisnik.Id = Projekat.Instance.Korisnici.Count + 1;
+            }
 
         }
 
@@ -49,7 +45,7 @@ namespace POP_SF172015WPF.UI.Edit
             if (operacija == Operacija.DODAVANJE)
             {
                 Korisnik.Create(korisnik);
-                Projekat.Instance.Korisnici.Add(korisnik);
+                
             }
 
             if (operacija == Operacija.IZMENA)
@@ -61,7 +57,7 @@ namespace POP_SF172015WPF.UI.Edit
                 original.Ime = korisnik.Ime;
                 original.Prezime = korisnik.Prezime;
                 original.KorIme = korisnik.KorIme;
-                original.Prezime = korisnik.Prezime;
+                original.Lozinka = korisnik.Lozinka;
                 original.TipKorisnika = korisnik.TipKorisnika;
                 original.Obrisan = korisnik.Obrisan;
 

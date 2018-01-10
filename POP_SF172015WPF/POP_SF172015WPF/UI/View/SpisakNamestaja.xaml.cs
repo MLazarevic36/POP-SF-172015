@@ -56,6 +56,7 @@ namespace POP_SF172015WPF.UI.View
         {
             Namestaj SelektovaniNamestaj = namestajView.CurrentItem as Namestaj;
             SelektovaniNamestaj = dgListaNamestaja.SelectedItem as Namestaj;
+            Projekat.Instance.ListaNamestaja.Add(SelektovaniNamestaj);
             this.DialogResult = true;
             this.Close();
 
