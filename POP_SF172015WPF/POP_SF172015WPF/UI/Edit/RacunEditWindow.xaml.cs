@@ -17,8 +17,9 @@ namespace POP_SF172015WPF.UI.Edit
 
             this.racun = racun;
 
+
             
-           
+
             tbKupac.DataContext = racun;
             tbBrRacun.DataContext = racun;
             dpDatum.DataContext = racun;
@@ -31,7 +32,7 @@ namespace POP_SF172015WPF.UI.Edit
         private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = true;
-            Projekat.Instance.Racuni.Add(racun);
+            Racun.Create(racun);
             Close();
         }
 

@@ -33,7 +33,7 @@ namespace POP_SF172015WPF.UI.Edit
             if ( operacija == Operacija.DODAVANJE)
             {
                 TipNamestaja.Create(tipNamestaja);
-                Projekat.Instance.TipoviNamestaja.Add(tipNamestaja);
+                
             }
 
             if (operacija == Operacija.IZMENA)

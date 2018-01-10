@@ -40,7 +40,6 @@ namespace POP_SF172015WPF.UI.Edit
             if (operacija == Operacija.DODAVANJE)
             {
                 Akcija.Create(akcija);
-                Projekat.Instance.Akcije.Add(akcija);
             }
 
             if (operacija == Operacija.IZMENA)

@@ -41,7 +41,7 @@ namespace POP_SF172015WPF.UI.Edit
             if (operacija == Operacija.DODAVANJE)
             {
                 Namestaj.Create(namestaj);
-                Projekat.Instance.Namestajm.Add(namestaj);
+               
             }
             if (operacija == Operacija.IZMENA)
             {
