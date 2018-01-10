@@ -239,7 +239,7 @@ namespace POP_SF172015WPF.Model
 
                 cmd.Parameters.AddWithValue("Id", n.Id);
                 cmd.Parameters.AddWithValue("TipNamestajaId", n.TipNamestajaId);
-                cmd.Parameters.AddWithValue("AkcijaId", n.Akcija);
+                cmd.Parameters.AddWithValue("AkcijaId", n.AkcijaId);
                 cmd.Parameters.AddWithValue("Naziv", n.Naziv);
                 cmd.Parameters.AddWithValue("Cena", n.Cena);
                 cmd.Parameters.AddWithValue("Raspolozivost", n.Raspolozivost);
@@ -251,6 +251,8 @@ namespace POP_SF172015WPF.Model
                 {
                     if (namestaj.Id == n.Id)
                     {
+                        namestaj.Akcija = n.Akcija;
+                        namestaj.TipNamestaja = n.TipNamestaja;
                         namestaj.TipNamestajaId = n.TipNamestajaId;
                         namestaj.AkcijaId = n.AkcijaId;
                         namestaj.Naziv = n.Naziv;

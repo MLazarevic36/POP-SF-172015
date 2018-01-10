@@ -37,7 +37,7 @@ namespace POP_SF172015WPF.UI.Edit
 
         private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = true;
+            DialogResult = true;
             if (operacija == Operacija.DODAVANJE)
             {
                 Namestaj.Create(namestaj);
@@ -54,6 +54,8 @@ namespace POP_SF172015WPF.UI.Edit
                 original.Raspolozivost = namestaj.Raspolozivost;
                 original.Akcija = namestaj.Akcija;
                 original.TipNamestaja = namestaj.TipNamestaja;
+                original.AkcijaId = namestaj.AkcijaId;
+                original.TipNamestajaId = namestaj.TipNamestajaId;
                 original.Obrisan = namestaj.Obrisan;
 
             }

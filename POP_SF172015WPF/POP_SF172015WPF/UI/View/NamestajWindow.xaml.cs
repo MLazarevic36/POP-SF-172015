@@ -21,6 +21,7 @@ namespace POP_SF172015WPF.UI.View
 
             view = CollectionViewSource.GetDefaultView(Projekat.Instance.Namestajm);
             view.Filter = NamestajFilter;
+
             dgNamestaj.ItemsSource = view;
             dgNamestaj.IsSynchronizedWithCurrentItem = true;
 
