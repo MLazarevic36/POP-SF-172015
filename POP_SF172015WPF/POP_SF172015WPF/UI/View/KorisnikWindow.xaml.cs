@@ -23,7 +23,7 @@ namespace POP_SF172015WPF.UI
             view.Filter = KorisnikFilter;
             
             dgKorisnik.ItemsSource = view;
-            //dgKorisnik.DataContext = this;
+            dgKorisnik.DataContext = this;
             dgKorisnik.IsSynchronizedWithCurrentItem = true;
 
             dgKorisnik.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
@@ -66,7 +66,15 @@ namespace POP_SF172015WPF.UI
         {
             Korisnik SelektovaniKorisnik = view.CurrentItem as Korisnik;
             Korisnik.Delete(SelektovaniKorisnik);
-            
+            foreach (var korisnik in Projekat.Instance.Korisnici)
+            {
+                if (korisnik.Id == SelektovaniKorisnik.Id)
+                {
+                    korisnik.Obrisan = true;
+                }
+            }
+            view.Refresh();
+
 
         }
 

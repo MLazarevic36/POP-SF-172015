@@ -59,6 +59,14 @@ namespace POP_SF172015WPF.UI
         {
             Akcija selektovanaA = view.CurrentItem as Akcija;
             Akcija.Delete(selektovanaA);
+            foreach (var akcija in Projekat.Instance.Akcije)
+            {
+                if (akcija.Id == selektovanaA.Id)
+                {
+                    akcija.Obrisan = true;
+                }
+            }
+            view.Refresh();
         }
 
         private void dgAkcije_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)

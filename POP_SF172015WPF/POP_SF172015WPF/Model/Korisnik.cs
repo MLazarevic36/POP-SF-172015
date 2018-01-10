@@ -194,9 +194,9 @@ namespace POP_SF172015WPF.Model
                 con.Open();
 
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = $"INSERT INTO Korisnici(KorIme, Lozinka, Ime, Prezime, TipKorisnika, Obrisan) VALUES ( @KorIme, @Lozinka, @Ime, @Prezime, @TipKorisnika, @Obrisan);";
+                cmd.CommandText = $"INSERT INTO Korisnici(KorIme, Lozinka, Ime, Prezime, TipKorisnika, Obrisan) VALUES (@KorIme, @Lozinka, @Ime, @Prezime, @TipKorisnika, @Obrisan);";
                 cmd.CommandText += "SELECT SCOPE_IDENTITY();";
-
+                
                 cmd.Parameters.AddWithValue("KorIme", k.KorIme);
                 cmd.Parameters.AddWithValue("Lozinka", k.Lozinka);
                 cmd.Parameters.AddWithValue("Ime", k.Ime);

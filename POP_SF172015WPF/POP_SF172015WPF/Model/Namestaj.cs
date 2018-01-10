@@ -53,7 +53,7 @@ namespace POP_SF172015WPF.Model
             }
         }
 
-        [XmlIgnore]
+        
         public Akcija Akcija
         {
             get
@@ -72,7 +72,7 @@ namespace POP_SF172015WPF.Model
             }
         }
 
-        [XmlIgnore]
+        
         public TipNamestaja TipNamestaja
         {
             get

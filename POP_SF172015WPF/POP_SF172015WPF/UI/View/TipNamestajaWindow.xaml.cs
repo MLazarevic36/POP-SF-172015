@@ -57,6 +57,14 @@ namespace POP_SF172015WPF.UI
         {
             TipNamestaja selektovaniTip = view.CurrentItem as TipNamestaja;
             TipNamestaja.Delete(selektovaniTip);
+            foreach (var tipNamestaja in Projekat.Instance.TipoviNamestaja)
+            {
+                if (tipNamestaja.Id == selektovaniTip.Id)
+                {
+                    tipNamestaja.Obrisan = true;
+                }
+            }
+            view.Refresh();
         }
 
         private bool TipNamestajaFilter(object obj)

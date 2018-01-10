@@ -56,6 +56,14 @@ namespace POP_SF172015WPF.UI
         {
             Racun selektovaniR = view.CurrentItem as Racun;
             Racun.Delete(selektovaniR);
+            foreach (var racun in Projekat.Instance.Racuni)
+            {
+                if (racun.Id == selektovaniR.Id)
+                {
+                    racun.Obrisan = true;
+                }
+            }
+            view.Refresh();
         }
     }
 }

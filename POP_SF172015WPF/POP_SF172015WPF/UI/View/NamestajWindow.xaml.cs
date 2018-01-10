@@ -59,6 +59,7 @@ namespace POP_SF172015WPF.UI.View
         private void btnObrisi_Click(object sender, RoutedEventArgs e)
         {
             Namestaj SelektovaniNamestaj = view.CurrentItem as Namestaj;
+            Namestaj.Delete(SelektovaniNamestaj);
             foreach (var namestaj in Projekat.Instance.Namestajm)
             {
                 if (namestaj.Id == SelektovaniNamestaj.Id)

@@ -36,8 +36,7 @@ namespace POP_SF172015WPF
             Racuni = new ObservableCollection<Racun>();
             DodatneUsluge = new ObservableCollection<DodatnaUsluga>();
             
-            //TipNamestaja.GetAll();
-            //Akcija.GetAll();
+            
         }
 
         public static Projekat Instance

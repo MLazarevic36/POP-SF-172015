@@ -60,6 +60,14 @@ namespace POP_SF172015WPF.UI.View
         {
             DodatnaUsluga selektovanaUsluga = view.CurrentItem as DodatnaUsluga;
             DodatnaUsluga.Delete(selektovanaUsluga);
+            foreach (var dodatnaU in Projekat.Instance.DodatneUsluge)
+            {
+                if (dodatnaU.Id == selektovanaUsluga.Id)
+                {
+                    dodatnaU.Obrisan = true;
+                }
+            }
+            view.Refresh();
         }
 
         private void dgDodatnau_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
