@@ -43,6 +43,11 @@ namespace POP_SF172015WPF.UI
             {
                 e.Cancel = true;
             }
+
+            if ((string)e.Column.Header == "UslugaId")
+            {
+                e.Cancel = true;
+            }
         }
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)

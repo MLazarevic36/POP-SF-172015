@@ -1,4 +1,5 @@
 ﻿using POP_SF172015WPF.Model;
+using System;
 using System.Windows;
 
 
@@ -30,6 +31,17 @@ namespace POP_SF172015WPF.UI.Edit
                 akcija.Id = Projekat.Instance.Akcije.Count + 1;
             }
 
+            datumi();
+
+        }
+
+        private void datumi()
+        {
+            DateTime datumPocetka = DateTime.Now;
+            DateTime datumZavrsetka = DateTime.Now;
+
+            akcija.DatumPocetka = datumPocetka;
+            akcija.DatumZavrsetka = datumZavrsetka;
 
         }
 

@@ -1,4 +1,9 @@
-﻿CREATE TABLE TipNamestaja (
+﻿CREATE DATABASE SalonNamestaja
+GO
+USE SalonNamestaja
+GO
+
+CREATE TABLE TipNamestaja (
 
 	Id INT PRIMARY KEY IDENTITY(1, 1),
 	Naziv VARCHAR(80),
@@ -29,6 +34,8 @@ CREATE TABLE Akcija (
 )
 GO
 
+DROP TABLE Korisnici
+
 CREATE TABLE Korisnici (
 
 	Id INT PRIMARY KEY IDENTITY(1, 1),
@@ -42,6 +49,7 @@ CREATE TABLE Korisnici (
 )
 GO
 
+
 CREATE TABLE Racuni (
 
 	Id INT PRIMARY KEY IDENTITY(1, 1),
@@ -49,6 +57,7 @@ CREATE TABLE Racuni (
 	BrojRacuna INT not null,
 	UkupnaCena INT not null,
 	DatumProdaje DATE,
+	UslugaId INT not null, 
 	Obrisan BIT
 )
 GO

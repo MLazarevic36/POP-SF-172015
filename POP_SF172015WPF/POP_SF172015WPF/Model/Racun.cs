@@ -9,25 +9,19 @@ namespace POP_SF172015WPF.Model
 {
     public class Racun : INotifyPropertyChanged
     {
-        private List<int> listaNamestaja;
+        
         private int id;
         private string kupac;
         private int brojRacuna;
         private int ukupnaCena;
         private DateTime datumProdaje;
+        private int uslugaId;
+        private DodatnaUsluga dodatnaUsluga;
         private Boolean obrisan;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public List<int> ListaNamestaja
-        {
-            get { return listaNamestaja; }
-            set
-            {
-                listaNamestaja = value;
-                OnPropertyChanged("ListaNamestaja");
-            }
-        }
+        
 
         public int UkupnaCena
         {
@@ -37,7 +31,11 @@ namespace POP_SF172015WPF.Model
                 ukupnaCena = value;
                 OnPropertyChanged("UkupnaCena");
             }
+
+           
+
         }
+
 
         public int BrojRacuna
         {
@@ -81,6 +79,34 @@ namespace POP_SF172015WPF.Model
 
         }
 
+        public DodatnaUsluga DodatnaUsluga
+        {
+            get
+            {
+                if (dodatnaUsluga == null)
+                {
+                    dodatnaUsluga = DodatnaUsluga.GetById(UslugaId);
+                }
+                return dodatnaUsluga;
+            }
+            set
+            {
+                dodatnaUsluga = value;
+                UslugaId = dodatnaUsluga.Id;
+                OnPropertyChanged("DodatnaUsluga");
+            }
+        }
+
+        public int UslugaId
+        {
+            get { return uslugaId; }
+            set
+            {
+                uslugaId = value;
+                OnPropertyChanged("UslugaId");
+            }
+        }
+
         public Boolean Obrisan
         {
             get { return obrisan; }
@@ -120,7 +146,30 @@ namespace POP_SF172015WPF.Model
             }
         }
 
-        #region Database
+        public static int UkupnaCenaU()
+        {
+            
+
+            int ukupnaCena = 0;
+            int cenaKomad;
+
+
+            foreach (Namestaj namestaj in Projekat.Instance.ListaNamestaja)
+            {
+                try
+                {
+                    cenaKomad = namestaj.Cena - (namestaj.Cena / namestaj.Akcija.Popust);
+                }
+                catch (Exception)
+                {
+                    cenaKomad = namestaj.Cena;
+                }
+               
+            }
+            return ukupnaCena;
+        }
+
+            #region Database
 
         public static ObservableCollection<Racun> GetAll()
         {
@@ -146,8 +195,10 @@ namespace POP_SF172015WPF.Model
                     r.BrojRacuna = (int)row["BrojRacuna"];
                     r.UkupnaCena = (int)row["UkupnaCena"];
                     r.DatumProdaje = (DateTime)row["DatumProdaje"];
+                    r.UslugaId = (int)row["UslugaId"];
                     r.Obrisan = (bool)row["Obrisan"];
 
+                    Projekat.Instance.Racuni.Add(r);
                 }
             }
             return racun;
@@ -160,13 +211,14 @@ namespace POP_SF172015WPF.Model
                 con.Open();
 
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = $"INSERT INTO Racun(Kupac, BrojRacuna, UkupnaCena, DatumProdaje, Obrisan) VALUES ( @Kupac, @BrojRacuna, @UkupnaCena, @DatumProdaje, @Obrisan);";
+                cmd.CommandText = $"INSERT INTO Racun(Kupac, BrojRacuna, UkupnaCena, DatumProdaje, UslugaId, Obrisan) VALUES ( @Kupac, @BrojRacuna, @UkupnaCena, @DatumProdaje, @UslugaId, @Obrisan);";
                 cmd.CommandText += "SELECT SCOPE_IDENTITY();";
 
                 cmd.Parameters.AddWithValue("Kupac", r.Kupac);
                 cmd.Parameters.AddWithValue("BrojRacuna", r.BrojRacuna);
                 cmd.Parameters.AddWithValue("UkupnaCena", r.UkupnaCena);
                 cmd.Parameters.AddWithValue("DatumProdaje", r.DatumProdaje);
+                cmd.Parameters.AddWithValue("UslugaId", r.UslugaId);
                 cmd.Parameters.AddWithValue("Obrisan", r.Obrisan);
 
                 int newId = int.Parse(cmd.ExecuteScalar().ToString());
@@ -185,13 +237,14 @@ namespace POP_SF172015WPF.Model
                 con.Open();
 
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "UPDATE Racuni SET Kupac=@Kupac, BrojRacuna=@BrojRacuna, UkupnaCena=@UkupnaCena, DatumProdaje=@DatumProdaje,Obrisan=@Obrisan WHERE Id=@Id";
+                cmd.CommandText = "UPDATE Racuni SET Kupac=@Kupac, BrojRacuna=@BrojRacuna, UkupnaCena=@UkupnaCena, DatumProdaje=@DatumProdaje, UslugaId=@UslugaId, Obrisan=@Obrisan WHERE Id=@Id";
 
                 cmd.Parameters.AddWithValue("Id", r.Id);
                 cmd.Parameters.AddWithValue("Kupac", r.Kupac);
                 cmd.Parameters.AddWithValue("BrojRacuna", r.BrojRacuna);
                 cmd.Parameters.AddWithValue("UkupnaCena", r.UkupnaCena);
                 cmd.Parameters.AddWithValue("DatumProdaje", r.DatumProdaje);
+                cmd.Parameters.AddWithValue("UslugaId", r.UslugaId);
                 cmd.Parameters.AddWithValue("Obrisan", r.Obrisan);
 
                 cmd.ExecuteNonQuery();
@@ -205,6 +258,8 @@ namespace POP_SF172015WPF.Model
                         racun.BrojRacuna = r.BrojRacuna;
                         racun.UkupnaCena = r.UkupnaCena;
                         racun.DatumProdaje = r.DatumProdaje;
+                        racun.DodatnaUsluga = r.DodatnaUsluga;
+                        racun.UslugaId = r.UslugaId;
                         racun.Obrisan = r.Obrisan;
                         break;
                     }

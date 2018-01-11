@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.ComponentModel;
 using System.Windows.Controls;
+using System;
 
 namespace POP_SF172015WPF.UI.Edit
 {
@@ -21,23 +22,27 @@ namespace POP_SF172015WPF.UI.Edit
         {
             InitializeComponent();
 
-            this.racun = racun;
+            cbDodatnau.ItemsSource = Projekat.Instance.DodatneUsluge;
+
 
             tbKupac.DataContext = racun;
             tbBrRacun.DataContext = racun;
             dpDatum.DataContext = racun;
             tbUkCena.DataContext = racun;
+            cbDodatnau.DataContext = racun;
 
             view = CollectionViewSource.GetDefaultView(Projekat.Instance.ListaNamestaja);
-            //view.Filter = RacunFilter;
+            view.Filter = ListaFilter;
 
             dgIzabraniNamestaj.ItemsSource = view;
             dgIzabraniNamestaj.IsSynchronizedWithCurrentItem = true;
+            dgIzabraniNamestaj.DataContext = this;
 
             dgIzabraniNamestaj.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
 
 
-            //racun.Id = Projekat.Instance.Racuni.Count + 1;
+            this.racun = racun;
+            podaci();
         }
 
         private void btnPotvrdi_Click(object sender, RoutedEventArgs e)
@@ -50,6 +55,11 @@ namespace POP_SF172015WPF.UI.Edit
         private void btnOdustani_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private bool ListaFilter(object obj)
+        {
+            return !((Namestaj)obj).Obrisan;
         }
 
         private void btnNamestaj_Click(object sender, RoutedEventArgs e)
@@ -77,6 +87,30 @@ namespace POP_SF172015WPF.UI.Edit
                 e.Cancel = true;
             }
 
+        }
+
+        private void podaci()
+        {
+            //DateTime datum = DateTime.Now;
+
+            //racun.DatumProdaje = datum;
+
+            racun.UkupnaCena = UkupnaCenaU();
+            
+        }
+
+        private void btnObrisi_Click(object sender, RoutedEventArgs e)
+        {
+            Namestaj SelektovaniNamestaj = view.CurrentItem as Namestaj;
+            Namestaj.Delete(SelektovaniNamestaj);
+            foreach (var namestaj in Projekat.Instance.ListaNamestaja)
+            {
+                if (namestaj.Id == SelektovaniNamestaj.Id)
+                {
+                    namestaj.Obrisan = true;
+                }
+            }
+            view.Refresh();
         }
     }
 }

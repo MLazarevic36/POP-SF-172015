@@ -1,5 +1,6 @@
 ﻿using POP_SF172015WPF.Model;
 using POP_SF172015WPF.UI.Edit;
+using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -68,6 +69,8 @@ namespace POP_SF172015WPF.UI
             }
             view.Refresh();
         }
+
+        
 
         private void dgAkcije_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {

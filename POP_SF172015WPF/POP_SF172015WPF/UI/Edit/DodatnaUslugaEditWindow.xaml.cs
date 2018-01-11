@@ -47,7 +47,6 @@ namespace POP_SF172015WPF.UI.Edit
             if (operacija == Operacija.DODAVANJE)
             {
                 DodatnaUsluga.Create(dodatnaU);
-                Projekat.Instance.DodatneUsluge.Add(dodatnaU);
             }
 
             if (operacija == Operacija.IZMENA)

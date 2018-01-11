@@ -26,11 +26,15 @@ namespace POP_SF172015WPF.UI.View
             dgNamestaj.IsSynchronizedWithCurrentItem = true;
 
             dgNamestaj.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+
+            
         }
 
         private bool NamestajFilter(object obj)
         {
             return !((Namestaj)obj).Obrisan;
+
+            
         }
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
@@ -60,6 +64,25 @@ namespace POP_SF172015WPF.UI.View
         private void btnObrisi_Click(object sender, RoutedEventArgs e)
         {
             Namestaj SelektovaniNamestaj = view.CurrentItem as Namestaj;
+
+            if (SelektovaniNamestaj != null)
+            {
+                if (MessageBox.Show("Da li ste sigurni?", "Potvrda", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+                {
+                    brisanje();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nije selektovan namestaj!");
+            }
+            
+        }
+
+        private void brisanje()
+        {
+            Namestaj SelektovaniNamestaj = view.CurrentItem as Namestaj;
+
             Namestaj.Delete(SelektovaniNamestaj);
             foreach (var namestaj in Projekat.Instance.Namestajm)
             {
