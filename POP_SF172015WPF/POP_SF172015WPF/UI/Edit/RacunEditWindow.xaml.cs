@@ -95,7 +95,7 @@ namespace POP_SF172015WPF.UI.Edit
 
             //racun.DatumProdaje = datum;
 
-            racun.UkupnaCena = UkupnaCenaU();
+            
             
         }
 
