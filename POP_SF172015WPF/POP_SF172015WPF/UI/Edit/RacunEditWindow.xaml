@@ -10,18 +10,18 @@
         <Label Content="Kupac:" HorizontalAlignment="Left" Margin="40,102,0,0" VerticalAlignment="Top"/>
         <Label Content="Broj racuna:" HorizontalAlignment="Left" Margin="40,71,0,0" VerticalAlignment="Top"/>
         <Label Content="Ukupna cena:" HorizontalAlignment="Left" Margin="40,133,0,0" VerticalAlignment="Top"/>
-        <Label Content="Datum prodaje:" HorizontalAlignment="Left" Margin="40,164,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnPotvrdi" Content="Potvrdi" HorizontalAlignment="Left" Margin="232,257,0,0" VerticalAlignment="Top" Width="75" Click="btnPotvrdi_Click"/>
-        <Button x:Name="btnOdustani" Content="Odustani" HorizontalAlignment="Left" Margin="365,257,0,0" VerticalAlignment="Top" Width="75" Click="btnOdustani_Click"/>
+        <Label Content="Datum prodaje:" HorizontalAlignment="Left" Margin="34,172,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnPotvrdi" Content="Potvrdi" HorizontalAlignment="Left" Margin="260,262,0,0" VerticalAlignment="Top" Width="75" Click="btnPotvrdi_Click"/>
+        <Button x:Name="btnOdustani" Content="Odustani" HorizontalAlignment="Left" Margin="388,262,0,0" VerticalAlignment="Top" Width="75" Click="btnOdustani_Click"/>
         <TextBox x:Name="tbKupac" HorizontalAlignment="Left" Height="23" Margin="138,105,0,0"   Text="{Binding Path=Kupac}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbBrRacun" HorizontalAlignment="Left" Height="23" Margin="138,74,0,0"   Text="{Binding Path=BrojRacuna}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbUkCena" HorizontalAlignment="Left" Height="23" Margin="138,136,0,0"   Text="{Binding Path=UkupnaCena}" VerticalAlignment="Top" Width="120"/>
-        <DatePicker x:Name="dpDatum" HorizontalAlignment="Left" Height="23" Margin="138,167,0,0"   SelectedDate="{Binding Path=DatumProdaje}" VerticalAlignment="Top" Width="120"/>
+        <DatePicker x:Name="dpDatum" HorizontalAlignment="Left" Height="23" Margin="138,175,0,0"   SelectedDate="{Binding Path=DatumProdaje}" VerticalAlignment="Top" Width="120"/>
         <Button Name="btnNamestaj" Content="Izaberi namestaj" HorizontalAlignment="Left" Margin="412,21,0,0" VerticalAlignment="Top" Width="120"  Click="btnNamestaj_Click"/>
-        <DataGrid x:Name="dgIzabraniNamestaj"  CanUserAddRows="False" AutoGeneratingColumn="dgIzabraniNamestaj_AutoGeneratingColumn" IsReadOnly="True" Margin="263,74,20,94"/>
-        <Button x:Name="btnObrisi" Content="Obrisi" HorizontalAlignment="Left" Margin="563,223,0,0" VerticalAlignment="Top" Width="75" Click="btnObrisi_Click"/>
-        <Label Content="Dodatne usluge:" HorizontalAlignment="Left" Margin="40,190,0,0" VerticalAlignment="Top" Width="98"/>
-        <ComboBox x:Name="cbDodatnau" HorizontalAlignment="Left" Height="21" Margin="143,195,0,0" VerticalAlignment="Top" Width="102" SelectedItem="{Binding Path=DodatnaUsluga}"/>
+        <DataGrid x:Name="dgIzabraniNamestaj"  CanUserAddRows="False" AutoGeneratingColumn="dgIzabraniNamestaj_AutoGeneratingColumn" IsReadOnly="True" Margin="273,63,10,105"/>
+        <Button x:Name="btnObrisi" Content="Obrisi" HorizontalAlignment="Left" Margin="591,222,0,0" VerticalAlignment="Top" Width="75" Click="btnObrisi_Click"/>
+        <Label Content="Dodatne usluge:" HorizontalAlignment="Left" Margin="34,211,0,0" VerticalAlignment="Top" Width="98"/>
+        <ComboBox x:Name="cbDodatnau" HorizontalAlignment="Left" Height="21" Margin="138,216,0,0" VerticalAlignment="Top" Width="120" SelectedItem="{Binding Path=DodatnaUsluga}"/>
 
 
 

@@ -48,6 +48,14 @@ namespace POP_SF172015WPF.UI
             {
                 e.Cancel = true;
             }
+            if ((string)e.Column.Header == "DatumProdaje")
+            {
+                e.Cancel = true;
+            }
+            if ((string)e.Column.Header == "DodatnaUsluga")
+            {
+                e.Cancel = true;
+            }
         }
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)

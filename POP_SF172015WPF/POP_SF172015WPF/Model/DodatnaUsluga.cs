@@ -87,7 +87,7 @@ namespace POP_SF172015WPF.Model
 
         public override string ToString()
         {
-            return Naziv + Cena;
+            return Naziv + " " + Cena + "din";
         }
 
         #region Database

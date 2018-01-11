@@ -11,6 +11,7 @@ CREATE TABLE TipNamestaja (
 )
 GO
 
+
 CREATE TABLE Namestaj (
 
 	Id INT PRIMARY KEY IDENTITY(1, 1),
@@ -34,7 +35,6 @@ CREATE TABLE Akcija (
 )
 GO
 
-DROP TABLE Korisnici
 
 CREATE TABLE Korisnici (
 
